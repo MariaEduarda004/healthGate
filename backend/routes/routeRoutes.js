@@ -1,9 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const routeController = require('../controllers/routeController');
+const Route = require('../models/Route');
 
-router.post('/routes', routeController.createRoute); // Cadastro de rotas
-router.get('/routes', routeController.getRoutes);     // Listagem de rotas
+// Exemplo de uma rota válida
+router.post('/routes', async (req, res) => {
+    try {
+        const newRoute = new Route(req.body);
+        await newRoute.save();
+        res.status(201).json(newRoute);
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao criar rota', error: error.message });
+    }
+});
 
-module.exports = router;
-
+module.exports = router; // Certifique-se de exportar corretamente o router

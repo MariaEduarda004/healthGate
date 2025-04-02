@@ -5,9 +5,15 @@ const axios = require('axios');
 const https = require('https');
 const { pathToRegexp, match } = require('path-to-regexp');
 const routeRoutes = require('./routes/routeRoutes');
+
+// const authRoutes = require('./routes/authRoutes');
 const authMiddleware = require('./middlewares/authMiddleware');
+
+console.log(typeof authMiddleware); // Deve exibir "function"
+
 const authRoutes = require('./routes/authRoutes');
 require('dotenv').config();
+
 
 const app = express();
 app.use(express.json());
@@ -17,9 +23,11 @@ mongoose.connect('mongodb://localhost:27017/healthgate', {
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB conectado')).catch(err => console.error(err));
 
-app.use('/api/admin', authMiddleware, routeRoutes);
-app.use('/api/auth', authRoutes);
+// app.use('/api/admin', routeRoutes);
+app.use('/api/admin', authMiddleware, routeRoutes); // Protege rotas de administração
+app.use('/api/auth', authRoutes); // Rotas de login e registro
 
+// Middleware para converter JSON no PUT
 app.use((req, res, next) => {
     if (req.method === 'PUT') {
         let data = '';
@@ -38,51 +46,17 @@ app.use((req, res, next) => {
     }
 });
 
-async function getAccessTokenForFassECG() {
-    try {
-        const registerResponse = await axios.post('http://localhost:8080/auth/register', null, {
-            params: {
-                redirect_uri: '/api-docs',
-                scope: 'patient/*.rs',
-                token_endpoint: '/auth/token',
-                client_id: '67eacf0237bd52430adc8f4d',
-                aud: 'placeholder',
-                state: 'placeholder'
-            }
-        });
-
-        const authorizeResponse = await axios.post('http://localhost:8080/auth/authorize', {
-            redirect_uri: '/api-docs',
-            scope: 'patient/*.rs',
-            token_endpoint: '/auth/token',
-            client_id: '67eacf0237bd52430adc8f4d',
-            paciente_id: '67eacf0237bd52430adc8f4d',
-            aud: 'placeholder',
-            state: 'placeholder'
-        });
-
-        const tokenResponse = await axios.post('http://localhost:8080/auth/token', {
-            grant_type: 'authorization_code',
-            scope: 'patient/*.rs',
-            code: authorizeResponse.data.code,
-            redirect_uri: '/api-docs',
-            client_id: '67eacf0237bd52430adc8f4d'
-        });
-
-        return tokenResponse.data.access_token;
-    } catch (error) {
-        console.error('Erro na obtenção do token:', error);
-        throw new Error('Falha na autenticação');
-    }
-}
-
+// Função genérica para buscar e redirecionar requisições para qualquer projeto
 async function handleRequest(req, res, projectName) {
     try {
         const routes = await Route.find({ method: req.method, nameProject: projectName });
+        console.log("Rotas encontradas para", projectName, ":", routes);
+
         if (!routes.length) {
             return res.status(404).json({ message: 'Nenhuma rota encontrada para o projeto' });
         }
 
+        // Ordenar rotas para priorizar caminhos mais específicos
         routes.sort((a, b) => {
             const countParams = (path) => (path.match(/{[^}]+}/g) || []).length;
             return countParams(a.sourcePath) - countParams(b.sourcePath) || a.sourcePath.localeCompare(b.sourcePath);
@@ -91,41 +65,33 @@ async function handleRequest(req, res, projectName) {
         let matchingRoute = null;
         let params = {};
 
-        // for (const route of routes) {
-        //     const matcher = match(route.sourcePath, { decode: decodeURIComponent });
-        //     const matchResult = matcher(req.path);
-        //     if (matchResult) {
-        //         matchingRoute = route;
-        //         params = matchResult.params;
-        //         break;
-        //     }
-        // }
-
         for (const route of routes) {
-          console.log("Testando rota:", route.sourcePath);
-          
-          const routeRegex = pathToRegexp(route.sourcePath);
-          const matcher = match(route.sourcePath, { decode: decodeURIComponent });
-          const matchResult = matcher(req.path);
+            console.log("Testando rota:", route.sourcePath);
+            
+            const routeRegex = pathToRegexp(route.sourcePath);
+            const matcher = match(route.sourcePath, { decode: decodeURIComponent });
+            const matchResult = matcher(req.path);
 
-          console.log("Resultado do match para", route.sourcePath, ":", matchResult);
+            console.log("Resultado do match para", route.sourcePath, ":", matchResult);
 
-          if (matchResult) {
-              matchingRoute = route;
-              params = matchResult.params;
-              break;
-          }
+            if (matchResult) {
+                matchingRoute = route;
+                params = matchResult.params;
+                break;
+            }
         }
 
         if (!matchingRoute) {
             return res.status(404).json({ message: 'Rota não encontrada' });
         }
 
+        // Substituir placeholders na URL de destino
         let targetUrl = matchingRoute.targetUrl;
         Object.keys(params).forEach(param => {
-            targetUrl = targetUrl.replace(`:${param}`, params[param]);
+            targetUrl = targetUrl.replace(`:${param}`, params[param]);  // Alterado para substituir corretamente os parâmetros
         });
 
+        // Adicionar query parameters
         const queryParams = new URLSearchParams(req.query).toString();
         if (queryParams) targetUrl += `?${queryParams}`;
 
@@ -134,22 +100,21 @@ async function handleRequest(req, res, projectName) {
             'accept': 'application/json'
         };
 
-        if (projectName === "FASS_ECG" && matchingRoute.method === 'PATCH') {
+        if (matchingRoute.method === 'PATCH') {
+            
             headers = {
                 'content-type': 'application/json-patch+json',
                 'accept': 'application/json-patch+json'
             };
-        } else if (projectName === "FASS_ECG" && matchingRoute.method === 'PUT') {
+        }
+        if (matchingRoute.method === 'PUT') {
+            // console.log("ENTROU AQUIIIIIIII");
             headers = {
                 'content-type': 'application/fhir+json',
                 'accept': 'application/fhir+json'
             };
         }
-
-        if (projectName === "FASS_ECG") {
-            headers['Authorization'] = `Bearer ${await getAccessTokenForFassECG()}`;
-        }
-
+        
         const agent = new https.Agent({ rejectUnauthorized: false });
 
         console.log("Redirecionando para:", targetUrl);
@@ -166,13 +131,16 @@ async function handleRequest(req, res, projectName) {
         });
 
         res.status(response.status).json(response.data);
+
     } catch (error) {
         console.error('Erro ao redirecionar a requisição:', error);
         res.status(500).json({ message: 'Erro ao redirecionar a requisição', error: error.message });
     }
 }
 
+// Definição das rotas
+// app.use('/api/fassecg', (req, res) => handleRequest(req, res, "FASS_ECG"));
+// app.use('/api/ifcloud', (req, res) => handleRequest(req, res, "IF_CLOUD"));
 app.use('/api/fassecg', authMiddleware, (req, res) => handleRequest(req, res, "FASS_ECG"));
 app.use('/api/ifcloud', authMiddleware, (req, res) => handleRequest(req, res, "IF_CLOUD"));
-
 app.listen(3001, () => console.log('Servidor rodando na porta 3001'));

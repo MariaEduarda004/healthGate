@@ -1,0 +1,80 @@
+{
+  "resourceType": "Observation",
+  "status": "preliminary",
+  "category": [
+      {
+          "coding": [
+              {
+                  "system": "https://if4health.netlify.app/",
+                  "code": "procedure",
+                  "display": "Procedure"
+              }
+          ]
+      }
+  ],
+  "device": {
+      "display": "12 lead EKG Device Metric"
+  },
+  "component": [
+      {
+          "code": {
+              "coding": [
+                  {
+                      "display": "MDC_ECG_ELEC_POTL_I"
+                  }
+              ]
+          },
+          "valueSampledData": {
+              "origin": {
+                  "value": 2048
+              },
+              "period": 10,
+              "factor": 1.612,
+              "lowerLimit": -3300,
+              "upperLimit": 3300,
+              "dimensions": 1,
+              "data": "1 1 1 1 1"
+          }
+      },
+      {
+          "code": {
+              "coding": [
+                  {
+                      "display": "MDC_ECG_ELEC_POTL_II"
+                  }
+              ]
+          },
+          "valueSampledData": {
+              "origin": {
+                  "value": 2048
+              },
+              "period": 10,
+              "factor": 1.612,
+              "lowerLimit": -3300,
+              "upperLimit": 3300,
+              "dimensions": 1,
+              "data": "10 10 10 10 10"
+          }
+      },
+      {
+          "code": {
+              "coding": [
+                  {
+                      "display": "MDC_ECG_ELEC_POTL_III"
+                  }
+              ]
+          },
+          "valueSampledData": {
+              "origin": {
+                  "value": 2048
+              },
+              "period": 10,
+              "factor": 1.612,
+              "lowerLimit": -3300,
+              "upperLimit": 3300,
+              "dimensions": 1,
+              "data": "100 100 100 100 100"
+          }
+      }
+  ]
+}
