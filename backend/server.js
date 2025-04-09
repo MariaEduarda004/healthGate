@@ -5,7 +5,6 @@ const axios = require('axios');
 const https = require('https');
 const { pathToRegexp, match } = require('path-to-regexp');
 const routeRoutes = require('./routes/routeRoutes');
-const authMiddleware = require('./middlewares/authMiddleware');
 const authRoutes = require('./routes/authRoutes');
 require('dotenv').config();
 
@@ -17,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/healthgate', {
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB conectado')).catch(err => console.error(err));
 
-app.use('/api/admin', authMiddleware, routeRoutes);
+app.use('/api/admin', routeRoutes);
 app.use('/api/auth', authRoutes);
 
 app.use((req, res, next) => {
@@ -38,43 +37,32 @@ app.use((req, res, next) => {
     }
 });
 
+let fassECGToken = null;
+let fassECGTokenExpiry = null;
+
 async function getAccessTokenForFassECG() {
+    const now = Date.now();
+    if (fassECGToken && fassECGTokenExpiry && now < fassECGTokenExpiry) {
+        return fassECGToken;
+    }
+
     try {
-        const registerResponse = await axios.post('http://localhost:8080/auth/register', null, {
-            params: {
-                redirect_uri: '/api-docs',
-                scope: 'patient/*.rs',
-                token_endpoint: '/auth/token',
-                client_id: '67eacf0237bd52430adc8f4d',
-                aud: 'placeholder',
-                state: 'placeholder'
-            }
-        });
-
-        const authorizeResponse = await axios.post('http://localhost:8080/auth/authorize', {
-            redirect_uri: '/api-docs',
-            scope: 'patient/*.rs',
-            token_endpoint: '/auth/token',
-            client_id: '67eacf0237bd52430adc8f4d',
-            paciente_id: '67eacf0237bd52430adc8f4d',
-            aud: 'placeholder',
-            state: 'placeholder'
-        });
-
         const tokenResponse = await axios.post('http://localhost:8080/auth/token', {
-            grant_type: 'authorization_code',
-            scope: 'patient/*.rs',
-            code: authorizeResponse.data.code,
-            redirect_uri: '/api-docs',
-            client_id: '67eacf0237bd52430adc8f4d'
+            client_id: '67eacf0237bd52430adc8f4d',
+            code: 'codigo pre definifo'
         });
 
-        return tokenResponse.data.access_token;
+        const token = tokenResponse.data.access_token;
+
+        fassECGToken = token;
+        fassECGTokenExpiry = now + (tokenResponse.data.expires_in * 1000) - 5000; // 5 segundos antes do expirar
+        return fassECGToken;
     } catch (error) {
         console.error('Erro na obtenção do token:', error);
         throw new Error('Falha na autenticação');
     }
 }
+
 
 async function handleRequest(req, res, projectName) {
     try {
@@ -172,7 +160,7 @@ async function handleRequest(req, res, projectName) {
     }
 }
 
-app.use('/api/fassecg', authMiddleware, (req, res) => handleRequest(req, res, "FASS_ECG"));
-app.use('/api/ifcloud', authMiddleware, (req, res) => handleRequest(req, res, "IF_CLOUD"));
-
+app.use('/api/fassecg',  (req, res) => handleRequest(req, res, "FASS_ECG"));
+app.use('/api/ifcloud',  (req, res) => handleRequest(req, res, "IF_CLOUD"));
+app.use('/api/neoFassEcg',  (req, res) => handleRequest(req, res, "neoFassEcg"));
 app.listen(3001, () => console.log('Servidor rodando na porta 3001'));

@@ -108,7 +108,6 @@ async function handleRequest(req, res, projectName) {
             };
         }
         if (matchingRoute.method === 'PUT') {
-            // console.log("ENTROU AQUIIIIIIII");
             headers = {
                 'content-type': 'application/fhir+json',
                 'accept': 'application/fhir+json'
