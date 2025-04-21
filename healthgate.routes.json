@@ -1,0 +1,247 @@
+[{
+  "_id": {
+    "$oid": "672cf277cce8d0479821c0a6"
+  },
+  "nameProject": "FASS_ECG",
+  "sourcePath": "/Observation/:id/data/:minute",
+  "routeParams": {
+    "0": "id",
+    "1": "minute"
+  },
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/Observation/:id/data/:minute",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json",
+    "Authorization": "Bearer <token>"
+  },
+  "description": "Consulta dados de uma observação clínica específica ({id}) para um intervalo de tempo ({minute}).",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672cf3e3cce8d0479821c0a8"
+  },
+  "nameProject": "FASS_ECG",
+  "sourcePath": "/Observation/:id",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/Observation/:id",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json",
+    "Authorization": "Bearer <token>"
+  },
+  "description": "Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672cf3e9cce8d0479821c0aa"
+  },
+  "nameProject": "FASS_ECG",
+  "sourcePath": "/Observation",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/Observation/",
+  "method": "POST",
+  "headers": {
+    "accept": "application/fhir+json",
+    "Content-Type": "application/fhir+json"
+  },
+  "description": "Cria uma nova observação clínica no servidor FHIR.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672d080f1f11bf6dd67d4c65"
+  },
+  "nameProject": "FASS_ECG",
+  "sourcePath": "/Observation/:id/data/:start/:end",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/Observation/:id/data/:start/:end",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json",
+    "Authorization": "Bearer <token>"
+  },
+  "description": "Consulta dados de uma observação clínica ({id}) para um intervalo de tempo definido por {start} e {end}.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6733e2c7bdd1fb9b0493e075"
+  },
+  "nameProject": "FASS_ECG",
+  "sourcePath": "/Observation/:id",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/Observation/:id",
+  "method": "PATCH",
+  "headers": {},
+  "description": "Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6733ecf3cc4101c460d16245"
+  },
+  "nameProject": "FASS_ECG",
+  "sourcePath": "/Observation/:id",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/Observation/:id",
+  "method": "PUT",
+  "headers": {},
+  "description": "Sinaliza troca de status da transmissão.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6733f12d5454bd71d454403e"
+  },
+  "nameProject": "FASS_ECG",
+  "sourcePath": "/Observation/:id",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/Observation/:id",
+  "method": "DELETE",
+  "headers": {},
+  "description": "Exclui uma observação clínica existente usando o ID do recurso ({id}).",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6741db1340ceda9ed1dda1a9"
+  },
+  "nameProject": "IF_CLOUD",
+  "sourcePath": "/run_script/direct/:script_name",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "https://ifcloud.if4health.com.br/run_script/direct/:script_name",
+  "method": "GET",
+  "headers": {},
+  "description": "Executa o script script_name salvo em IF-Cloud sem parâmetros de entrada",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6741df58efb5cba587de5a12"
+  },
+  "nameProject": "IF_CLOUD",
+  "sourcePath": "/run_script/direct/params",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "https://ifcloud.if4health.com.br/run_script/direct/params",
+  "method": "POST",
+  "headers": {},
+  "description": "Executa um script salvo em IF-Cloud com parâmetros de entrada",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6741dff1c759142a07c88601"
+  },
+  "nameProject": "IF_CLOUD",
+  "sourcePath": "/run_script/operation",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "https://ifcloud.if4health.com.br/run_script/operation",
+  "method": "POST",
+  "headers": {},
+  "description": "IF-Cloud executa um script de acordo com o JSON de configuração e modifica o conteúdo de uma chave de um recurso FHIR proveniente da API de CRUD $(FHIR_API_URL)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f5b565f21cbc11f389cf84"
+  },
+  "nameProject": "neoFassEcg",
+  "sourcePath": "/.well-known/smart-configuration",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/.well-known/smart-configuration",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json",
+    "content-type": "application/json"
+  },
+  "description": "Mostra as configurações para autenticação",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f5b79b58f0b9e0dc058b9f"
+  },
+  "nameProject": "neoFassEcg",
+  "sourcePath": "/auth/register",
+  "routeParams": {},
+  "queryParams": {
+    "redirect_uri": "/api-docs",
+    "scope": "patient/*.rs",
+    "token_endpoint": "/auth/token",
+    "client_id": "67eacf0237bd52430adc8f4d",
+    "aud": "asd",
+    "state": "asd"
+  },
+  "targetUrl": "http://200.132.47.35:8000/auth/register",
+  "method": "POST",
+  "headers": {
+    "accept": "application/json",
+    "content-type": "application/json"
+  },
+  "description": "Inicia o processo de autenticação",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f5b8d358f0b9e0dc058ba2"
+  },
+  "nameProject": "neoFassEcg",
+  "sourcePath": "/auth/login",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/auth/login",
+  "method": "POST",
+  "headers": {
+    "accept": "application/json",
+    "content-type": "application/json"
+  },
+  "description": "Efetua o login do usuário, sendo paciente ou médico",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f5ba0858f0b9e0dc058ba5"
+  },
+  "nameProject": "neoFassEcg",
+  "sourcePath": "/auth/authorize",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/auth/authorize",
+  "method": "POST",
+  "headers": {
+    "accept": "application/json",
+    "content-type": "application/json"
+  },
+  "description": "Confirma a autorização da aplicação pelo usuário",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f5babc58f0b9e0dc058ba8"
+  },
+  "nameProject": "neoFassEcg",
+  "sourcePath": "/auth/token",
+  "routeParams": {},
+  "queryParams": {},
+  "targetUrl": "http://200.132.47.35:8000/auth/token",
+  "method": "POST",
+  "headers": {
+    "accept": "application/json",
+    "content-type": "application/json"
+  },
+  "description": "Gera um token com os grant_types: 'authorization_code' e 'client_credentials'",
+  "__v": 0
+}]

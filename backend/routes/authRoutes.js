@@ -1,20 +1,16 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User'); // Criar um modelo de usuário no MongoDB
 require('dotenv').config();
 
 const router = express.Router();
 
-// Registrar usuário
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        const user = new User({ username, password: hashedPassword });
+        // Salvar a senha diretamente (sem hash)
+        const user = new User({ username, password });
         await user.save();
 
         res.json({ message: 'Usuário registrado com sucesso' });
@@ -23,25 +19,42 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Login do usuário
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     try {
         const user = await User.findOne({ username });
-        if (!user) return res.status(400).json({ message: 'Usuário ou senha inválidos' });
-
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) return res.status(400).json({ message: 'Usuário ou senha inválidos' });
+        if (!user || password !== user.password) {
+            return res.status(400).json({ message: 'Usuário ou senha inválidos' });
+        }
 
         const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, {
-            expiresIn: '1h'
+            expiresIn: '1h',
         });
 
-        res.json({ token });
+        // Armazena o token no cookie
+        res.cookie('token', token, { httpOnly: true });
+        res.redirect('/routes'); // Redireciona para a página de rotas após login
     } catch (err) {
         res.status(500).json({ message: 'Erro ao autenticar usuário', error: err.message });
     }
 });
 
-module.exports = router;
+// Middleware para verificar autenticação
+const authenticate = (req, res, next) => {
+    const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
+    if (!token) {
+        return res.redirect('/login'); // Redireciona para a página de login se não estiver autenticado
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded; // Adiciona os dados do usuário ao objeto `req`
+        next();
+    } catch (err) {
+        console.error('Erro ao verificar token:', err.message);
+        return res.redirect('/login');
+    }
+};
+
+module.exports = { authenticate, router };

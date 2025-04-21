@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true }, // A senha será armazenada em texto puro por enquanto :)
 });
 
-module.exports = mongoose.model('User', UserSchema);
+userSchema.methods.comparePassword = async function (password) {
+    return password === this.password; // Comparação direta
+};
+
+module.exports = mongoose.model('User', userSchema);

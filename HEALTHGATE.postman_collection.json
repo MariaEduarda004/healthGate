@@ -1,0 +1,1838 @@
+{
+	"info": {
+		"_postman_id": "197deac3-ca91-4e76-b2bf-49f0f64ff442",
+		"name": "HEALTHGATE",
+		"description": "Cadastro das principais rotas que tangem os sistemas FASSECG e IFCLOUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38704281"
+	},
+	"item": [
+		{
+			"name": "GW FASSECG",
+			"item": [
+				{
+					"name": "Observation",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSIsImV4cGlyZXNfaW4iOjM2MDAsImlhdCI6MTc0NDY3NTcwOCwiZXhwIjoxNzQ0Njc5MzA4fQ.WaukOKU9Pa-a6n6Lyh_eIyYiBG8k09BIkKz9TCUO_SYs2j94GGasam7m89eA1dpiO3x4XtSSG5UU88I4x4Bg8SlVyv66scqh7F7DITvxrIYgsKpOpQeh3070ohw6Yg5wHZbbHYnayYKn94axdR3NMEkZKjouR19FJZBvQ2N86T59gtqvKlZmE8G8Brl7-r6R9JIyPxMFkzPTcoGDpjQDpaTDE05PNgLmio9gNIhyic9hd8IzkN2EGWI_XTp-XOdkK8qeBSBhDeKkQkt3AtT7PpndriO0Whe9Nk0xXfngER0zjwlH9JReIDHAgG6uXQ2ZinkF-WMw6Ku3IVUENGHK-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json+fhir",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Observation\",\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"1 1 1 1 1\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"10 10 10 10 10\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"100 100 100 100 100\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/fassecg/Observation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"fassecg",
+								"Observation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json+fhir",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"resourceType\": \"Observation\",\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"1 1 1 1 1\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"10 10 10 10 10\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"100 100 100 100 100\"\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/fassecg/Observation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"fassecg",
+										"Observation"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "958"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3be-+uZkpA9Tbm6sE/bKffVn4JnHxcY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Apr 2025 00:20:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"Observation\",\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_67fda653cc0ea7c771c6d794_0\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_67fda653cc0ea7c771c6d794_1\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_67fda653cc0ea7c771c6d794_2\"\n            }\n        }\n    ],\n    \"id\": \"67fda653cc0ea7c771c6d794\",\n    \"_id\": \"67fda653cc0ea7c771c6d794\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Observation",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTBhODJiM2ZiMmM4YWJkZmEwYTU3ZCIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NDI3NzY2MzAsImV4cCI6MTc0Mjc4MDIzMH0.m3DEIGtUkwZuskanwfykxOPUm8MSiHAf3SNujeS0ivk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-patch+json",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json-patch+json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"op\": \"add\",\n        \"path\": \"/component/0/valueSampledData/data\",\n        \"value\": \"2 2 2 2 2\"\n    },\n    {\n        \"op\": \"add\",\n        \"path\": \"/component/1/valueSampledData/data\",\n        \"value\": \"20 20 20 20 20\"\n    },\n    {\n        \"op\": \"add\",\n        \"path\": \"/component/2/valueSampledData/data\",\n        \"value\": \"200 200 200 200 200\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/fassecg/Observation/46595651",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"fassecg",
+								"Observation",
+								"46595651"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json+fhir",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"operation\",\n      \"part\": [\n        {\n          \"name\": \"type\",\n          \"valueString\": \"add\"\n        },\n        {\n          \"name\": \"path\",\n          \"valueString\": \"Patient\"\n        },\n        {\n          \"name\": \"name\",\n          \"valueString\": \"birthDate\"\n        },\n        {\n          \"name\": \"value\",\n          \"valueDate\": \"1930-01-01\"\n        }\n      ]\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/fassecg/Observation/45768179",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"fassecg",
+										"Observation",
+										"45768179"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "958"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3be-EhfJRIRF3ntfzxDEsCCgQZQghiU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Jan 2025 00:34:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"Observation\",\n    \"id\": \"45768179\",\n    \"meta\": {\n        \"versionId\": \"1\",\n        \"lastUpdated\": \"2025-01-14T00:33:13.618+00:00\",\n        \"source\": \"#SzswIuTzjOPWv9q0\"\n    },\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"1 1 1 1 1\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"10 10 10 10 10\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"100 100 100 100 100\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Observation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTBhODJiM2ZiMmM4YWJkZmEwYTU3ZCIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NDI3NzY2MzAsImV4cCI6MTc0Mjc4MDIzMH0.m3DEIGtUkwZuskanwfykxOPUm8MSiHAf3SNujeS0ivk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/fhir+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"resourceType\": \"Observation\",\n  \"id\": \"45843946\",\n  \"status\": \"final\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/fassecg/Observation/45843946",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"fassecg",
+								"Observation",
+								"45843946"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/fhir+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\": \"Observation\",\n  \"id\": \"67fda653cc0ea7c771c6d794\",\n  \"status\": \"final\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/fassecg/Observation/67fda653cc0ea7c771c6d794",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"fassecg",
+										"Observation",
+										"67fda653cc0ea7c771c6d794"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "12"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c-W0pd7fRQ0EBtQr48vRFxJbE5vFw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Apr 2025 00:21:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Atualizado\""
+						}
+					]
+				},
+				{
+					"name": "Observation",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTBhODJiM2ZiMmM4YWJkZmEwYTU3ZCIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NDI3NzY2MzAsImV4cCI6MTc0Mjc4MDIzMH0.m3DEIGtUkwZuskanwfykxOPUm8MSiHAf3SNujeS0ivk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json+fhir",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/fassecg/Observation/45843946",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"fassecg",
+								"Observation",
+								"45843946"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json+fhir",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/fassecg/Observation/67fda653cc0ea7c771c6d794",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"fassecg",
+										"Observation",
+										"67fda653cc0ea7c771c6d794"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16-rRdR/8fFxQxtlilhsakxsQtlpAs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Apr 2025 00:21:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Deletado com sucesso\""
+						}
+					]
+				},
+				{
+					"name": "Observation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTBhODJiM2ZiMmM4YWJkZmEwYTU3ZCIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NDI3NzY2MzAsImV4cCI6MTc0Mjc4MDIzMH0.m3DEIGtUkwZuskanwfykxOPUm8MSiHAf3SNujeS0ivk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/fassecg/Observation/45843949",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"fassecg",
+								"Observation",
+								"45843949"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/fassecg/Observation/67fda6aecc0ea7c771c6d7a1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"fassecg",
+										"Observation",
+										"67fda6aecc0ea7c771c6d7a1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "910"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38e-vjNIBEXURM5HL0aLQvivUaGG4Iw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Apr 2025 00:22:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"67fda6aecc0ea7c771c6d7a1\",\n    \"id\": \"67fda6aecc0ea7c771c6d7a1\",\n    \"resourceType\": \"Observation\",\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"1 1 1 1 1 \"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"10 10 10 10 10 \"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"100 100 100 100 100 \"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Observation - {minute}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/fassecg/Observation/67fda6aecc0ea7c771c6d7a1/data/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"fassecg",
+								"Observation",
+								"67fda6aecc0ea7c771c6d7a1",
+								"data",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/fassecg/Observation/67fda6aecc0ea7c771c6d7a1/data/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"fassecg",
+										"Observation",
+										"67fda6aecc0ea7c771c6d7a1",
+										"data",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cd-opWgBbWp58A4nYZlCKYnhS9WS4k\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Apr 2025 00:25:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"code\": \"MDC_ECG_ELEC_POTL_I\",\n        \"period\": 10,\n        \"data\": \"1 1 1 1 1\"\n    },\n    {\n        \"code\": \"MDC_ECG_ELEC_POTL_II\",\n        \"period\": 10,\n        \"data\": \"10 10 10 10 10\"\n    },\n    {\n        \"code\": \"MDC_ECG_ELEC_POTL_III\",\n        \"period\": 10,\n        \"data\": \"100 100 100 100 100\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Observation - {start}/{end}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/fassecg/Observation/67fda6aecc0ea7c771c6d7a1/data/1/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"fassecg",
+								"Observation",
+								"67fda6aecc0ea7c771c6d7a1",
+								"data",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/fassecg/Observation/67fda6aecc0ea7c771c6d7a1/data/1/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"fassecg",
+										"Observation",
+										"67fda6aecc0ea7c771c6d7a1",
+										"data",
+										"1",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d0-gIYnsqiDs5JayipG/uxqcGQJv08\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Apr 2025 00:26:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"code\": \"MDC_ECG_ELEC_POTL_I\",\n        \"period\": 10,\n        \"data\": \"1 1 1 1 1 \"\n    },\n    {\n        \"code\": \"MDC_ECG_ELEC_POTL_II\",\n        \"period\": 10,\n        \"data\": \"10 10 10 10 10 \"\n    },\n    {\n        \"code\": \"MDC_ECG_ELEC_POTL_III\",\n        \"period\": 10,\n        \"data\": \"100 100 100 100 100 \"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GW IFCLOUD",
+			"item": [
+				{
+					"name": "/run_script/operation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"Observation\",\r\n    \"id\": \"667df79fa6d086501f304a9c\",\r\n    \"scriptName\": \"calcBPM.py\",\r\n    \"component\":\r\n    {\r\n        \"index\": \"0\",\r\n        \"changeField\": \"data\",\r\n        \"returnOnlyFieldsComponent\": false\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/ifcloud/run_script/operation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"ifcloud",
+								"run_script",
+								"operation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resourceType\": \"Observation\",\r\n    \"id\": \"667df79fa6d086501f304a9c\",\r\n    \"scriptName\": \"calcBPM.py\",\r\n    \"component\":\r\n    {\r\n        \"index\": \"0\",\r\n        \"changeField\": \"data\",\r\n        \"returnOnlyFieldsComponent\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/ifcloud/run_script/operation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"ifcloud",
+										"run_script",
+										"operation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4054"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fd6-w2bMPfKBXLish5qpVpBPETpEFkE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Jan 2025 01:02:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"667df79fa6d086501f304a9c\",\n    \"resourceType\": \"Observation\",\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 2.77,\n                \"factor\": 1.612,\n                \"lowerLimit\": 814,\n                \"upperLimit\": 1493,\n                \"dimensions\": 1,\n                \"data\": \"58.39217655922238 59.03034242325759 58.67664332013746 58.29933567965774 57.712781978889005 59.504799356027206 62.849747091218845 64.91178319276139 88.12456704473786 90.9817099018807 95.2395005393877 76.42416952893474 75.36741806122437 75.27655715412965 77.15574127502381 81.64800459929867 85.38438238860849 87.10334921792045 84.62021831373693 81.43888215254923 79.61929483019684 73.46544867635069 69.13075801563873 63.8219726013926 66.68577546519548 68.69588584179205 70.74555699129633 70.44585669159602 70.9259046963965 72.58250521408415 74.50558213716107 80.26315789473684 75.0 70.93023255813954 61.73948111305283 62.194026567598286 89.91244265810741 89.55773955773957 102.59156619621737 71.25060985526102 74.02187085232846 76.89713512294156 83.04221154489095 82.96753049520731 69.03380067362703 68.80683839559823 69.33992351998475 71.73760318482525 75.37746837500337 78.45905710519317 78.98358357435295 76.19817949109034 72.58350563651402 62.78214889998252 59.94081939455144 58.74091350481731 65.00833938347428 65.00833938347428 63.92668508867046 62.05310160843878 59.18151049411695 58.536664377849235 59.341345578804 57.487760107918405 57.31875131320149 55.924310483974004 59.13657641334437 59.47746667350993 60.635448476653025 62.53104270101437 63.37338018753947 63.37338018753947 62.990696619015196 65.9128323914212 63.00392385904079 61.98970490706705 59.98247723540984 64.39691387882296 64.86184995011317 62.98969393711208 62.855843793502025 65.0961249268207 67.17468323318062 67.37607432348959 65.43739166207197 61.87609882844403 58.54020925789189 57.114173004881366 57.262585812356974 56.740433913622795 56.740433913622795 58.01778459369376 60.479591664841735 62.4712605010823 96.79199594541325 99.94340037564845 102.1488903857273 71.28764636658855 70.44978165211846 69.9883762882811 70.62849008628964 72.36756323934785 75.83239162206701 77.9786555330368 80.50911476452696 78.74331550802138 74.63297571993223 75.48524844720497 70.15737959474595 66.44998088847362 56.69232782724913 55.34080736673105 56.85602485268916 60.91858445596973 64.09051108237966 62.10426203730709 58.82329166546378 70.8191264450542 77.5508030729246 83.3153617124004 73.20361299600053 72.61444251063628 71.1537164305894 70.70702935969851 67.74769019857894 65.72349289750866 65.94468199370544 66.80191905272291 66.18259617906477 63.03147077713551 60.32144367686451 59.23822251921149 60.047471074124786 62.35345777035538 63.19885894452368 60.756957328385894 58.61090665774506 57.29081498471221 60.35203947450813 60.791640170542564 59.10127888190294 56.770850689405776 56.11857830528982 57.86055175719593 60.06418366905065 59.85606110798691 58.780960147590534 63.85281137328791 62.875586150019096 63.15673547805919 57.9595796926681 60.31584051037788 61.42537169142619 58.85355226598159 59.092744990536225 62.47741126836091 64.04082733246096 63.45295225591474 62.136504355687634 65.19424358040978 69.74013964646124 71.89445226115845 73.1584417279129 71.40777859793943 69.65260856584257 68.31393804940447 59.93089252350181 61.84500295294966 61.9196840026333 70.01061657819517 68.0289652020484 67.44466818439776 69.14965397618283 71.70468419192005 73.72070900453313 74.14440789585436 75.9446554298903 73.78712118331495 69.86488001794123 64.85623880751962 63.59517686061696 64.89494488812872 66.31476985150624 67.71734123237117 69.50658711907298 69.36328642645296 68.2786632200356 62.51900634853008 62.16851858639444 63.68855543577261 67.93847766411021 68.57739229801606 69.26284545871675 69.54945540049911 67.54975165290615 65.3442616428273 63.539750364631814 63.66214938543965 63.157894736842096\"\n            }\n        }\n    ],\n    \"id\": \"667df79fa6d086501f304a9c\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/run_script/direct/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/ifcloud/run_script/direct/HelloWorld.py",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"ifcloud",
+								"run_script",
+								"direct",
+								"HelloWorld.py"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/ifcloud/run_script/direct/HelloWorld.py",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"ifcloud",
+										"run_script",
+										"direct",
+										"HelloWorld.py"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11-LlUHFSQjchHIq3BIhV1P5IcHmyw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Jan 2025 01:02:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Hello, World!\\n\""
+						}
+					]
+				},
+				{
+					"name": "/run_script/direct/params",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"scriptName\": \"calcBPM.py\", \r\n\t\"params\": \"962.0 962.0 962.0 962.0 962.0 962.0 962.0 962.0 966.0 967.0 965.0 961.0 963.0 964.0 968.0 969.0 969.0 970.0 972.0 976.0 979.0 981.0 983.0 980.0 983.0 990.0 994.0 993.0 996.0 998.0 1001.0 1009.0 1014.0 1012.0 1014.0 1016.0 1021.0 1025.0 1030.0 1033.0 1038.0 1040.0 1045.0 1050.0 1061.0 1069.0 1075.0 1078.0 1085.0 1093.0 1104.0 1110.0 1116.0 1116.0 1119.0 1128.0 1135.0 1141.0 1139.0 1139.0 1137.0 1138.0 1136.0 1134.0 1130.0 1121.0 1120.0 1117.0 1116.0 1108.0 1101.0 1095.0 1085.0 1081.0 1075.0 1066.0 1057.0 1048.0 1045.0 1041.0 1039.0 1032.0 1025.0 1016.0 1015.0 1013.0 1016.0 1010.0 1004.0 999.0 997.0 996.0 993.0 986.0 986.0 985.0 983.0 984.0 981.0 974.0 967.0 965.0 966.0 967.0 971.0 970.0 967.0 958.0 954.0 954.0 962.0 964.0 963.0 958.0 954.0 956.0 957.0 957.0 958.0 956.0 955.0 957.0 957.0 958.0 959.0 956.0 956.0 957.0 961.0 962.0 961.0 958.0 960.0 961.0 968.0 969.0 968.0 968.0 969.0 974.0 978.0 978.0 975.0 972.0 974.0 977.0 981.0 982.0 974.0 967.0 968.0 975.0 977.0 977.0 972.0 973.0 972.0 975.0 981.0 978.0 975.0 969.0 965.0 968.0 973.0 974.0 971.0 964.0 966.0 966.0 972.0 971.0 969.0 968.0 967.0 971.0 976.0 971.0 965.0 958.0 956.0 965.0 967.0 965.0 958.0 955.0 955.0 960.0 962.0 957.0 956.0 954.0 956.0 954.0 961.0 957.0 955.0 959.0 960.0 964.0 963.0 963.0 959.0 953.0 950.0 954.0 955.0 959.0 953.0 951.0 953.0 951.0 954.0 955.0 956.0 953.0 954.0 956.0 955.0 955.0 952.0 952.0 953.0 956.0 958.0 956.0 954.0 950.0 952.0 955.0 952.0 950.0 950.0 950.0 949.0 952.0 953.0 953.0 951.0 946.0 946.0 948.0 951.0 947.0 948.0 949.0 949.0 953.0 956.0 957.0 957.0 954.0 951.0 949.0 951.0 950.0 949.0 945.0 944.0 948.0 954.0 955.0 955.0 954.0 952.0 953.0 955.0 951.0 945.0 944.0 945.0 954.0 959.0 957.0 954.0 947.0 950.0 952.0 955.0 958.0 957.0 956.0 952.0 956.0 957.0 955.0 946.0 944.0 945.0 952.0 955.0 955.0 955.0 956.0 954.0 961.0 966.0 964.0 960.0 959.0 963.0 962.0 968.0 971.0 975.0 977.0 987.0 1004.0 1023.0 1031.0 1026.0 1018.0 1010.0 1006.0 1004.0 1001.0 997.0 992.0 987.0 988.0 987.0 979.0 977.0 972.0 966.0 963.0 961.0 952.0 947.0 947.0 948.0 953.0 957.0 960.0 960.0 957.0 958.0 957.0 958.0 956.0 950.0 939.0 931.0 932.0 960.0 1017.0 1104.0 1203.0 1291.0 1361.0 1404.0 1426.0 1420.0 1387.0 1318.0 1212.0 1084.0 956.0 871.0 879.0 914.0 934.0 935.0 932.0 933.0 937.0 941.0 946.0 945.0 941.0 937.0 934.0 936.0 941.0 943.0 941.0 939.0 938.0 938.0 937.0 939.0 940.0 940.0 941.0 942.0 942.0 946.0 946.0 941.0 938.0 933.0 942.0 947.0 948.0 946.0 947.0 948.0 947.0 953.0 953.0 954.0 954.0 952.0 955.0 961.0 966.0 966.0 960.0 964.0 969.0 973.0 975.0 973.0 974.0 979.0 981.0 980.0 986.0 992.0 1001.0 1009.0 1010.0 1007.0 1005.0 1005.0 1010.0 1020.0 1026.0 1031.0 1027.0 1027.0 1032.0 1044.0 1053.0 1063.0 1071.0 1074.0 1078.0 1084.0 1095.0 1108.0 1117.0 1123.0 1127.0 1129.0 1135.0 1144.0 1152.0 1154.0 1149.0 1147.0 1145.0 1153.0 1152.0 1144.0 1131.0 1129.0 1134.0 1137.0 1132.0 1128.0 1122.0 1114.0 1107.0 1097.0 1083.0 1076.0 1073.0 1067.0 1057.0 1054.0 1047.0 1041.0 1036.0 1029.0 1030.0 1030.0 1024.0 1016.0 1012.0 1005.0 1009.0 1010.0 1009.0 1003.0 998.0 996.0 994.0 997.0 990.0 985.0 982.0 982.0 985.0 982.0 982.0 979.0 975.0 972.0 974.0 976.0 976.0 975.0 974.0 973.0 974.0 978.0 979.0 979.0 983.0 984.0 981.0 974.0 967.0 969.0 973.0 975.0 980.0 982.0 977.0 972.0 971.0 972.0 978.0 987.0 992.0 986.0 986.0 989.0 992.0 995.0 995.0 993.0 992.0 994.0 996.0 997.0 998.0 996.0 993.0 990.0 992.0 993.0 991.0 990.0 990.0 991.0 993.0 999.0 998.0 990.0 983.0 980.0 982.0 985.0 983.0 982.0 982.0 987.0 989.0 988.0 985.0 984.0 981.0 977.0 979.0 982.0 979.0 975.0 975.0 974.0 973.0 975.0 970.0 970.0 974.0 973.0 975.0 981.0 981.0 975.0 970.0 966.0 967.0 976.0 977.0 973.0 969.0 960.0 963.0 971.0 973.0 972.0 966.0 957.0 962.0 971.0 970.0 963.0 957.0 957.0 961.0 965.0 966.0 964.0 962.0 962.0 964.0 965.0 967.0 966.0 962.0 960.0 964.0 967.0 965.0 964.0 960.0 955.0 964.0 965.0 964.0 963.0 963.0 961.0 962.0 965.0 966.0 960.0 962.0 961.0 967.0 970.0 971.0 969.0 968.0 964.0 957.0 959.0 959.0 959.0 958.0 956.0 962.0 965.0 966.0 966.0 968.0 969.0 970.0 972.0 970.0 965.0 962.0 962.0 965.0 969.0 967.0 961.0 961.0 962.0 965.0 968.0 968.0 967.0 966.0 965.0 967.0 967.0 972.0 969.0 966.0 968.0 967.0 977.0 982.0 987.0 989.0 994.0 1002.0 1007.0 1019.0 1029.0 1036.0 1034.0 1030.0 1023.0 1015.0 1005.0 1001.0 1002.0 1002.0 1006.0 1004.0 997.0 988.0 979.0 976.0 978.0 973.0 967.0 962.0 962.0 968.0 972.0 970.0 967.0 960.0 960.0 964.0 972.0 971.0 964.0 950.0 941.0 934.0 937.0 955.0 998.0 1080.0 1182.0 1282.0 1354.0 1397.0 1423.0 1430.0 1418.0 1385.0 1312.0 1184.0 1056.0 928.0 876.0 917.0 953.0 958.0 952.0 946.0 951.0 956.0 965.0 960.0 951.0 940.0 939.0 942.0 945.0 945.0 943.0 941.0 940.0 942.0 945.0 943.0 943.0 941.0 944.0 950.0 952.0 953.0 951.0 946.0 946.0 949.0 957.0 959.0 956.0 951.0 950.0 956.0 961.0 964.0 962.0 963.0 964.0 966.0 971.0 973.0 972.0 972.0 973.0 969.0 973.0 976.0 975.0 980.0 984.0 992.0 994.0 994.0 995.0 997.0 1001.0 1004.0 1008.0 1015.0 1019.0 1022.0 1027.0 1034.0 1043.0 1048.0 1049.0 1050.0 1057.0 1068.0 1079.0 1086.0 1094.0 1099.0 1103.0 1109.0 1120.0 1133.0 1139.0 1138.0 1139.0 1144.0 1152.0 1151.0 1147.0 1147.0 1145.0 1146.0 1144.0 1139.0 1127.0 1123.0 1112.0 1112.0 1113.0 1106.0 1092.0 1077.0 1073.0 1070.0 1067.0 1059.0 1049.0 1035.0 1031.0 1027.0 1026.0 1021.0 1016.0 1015.0 1010.0 1013.0 1012.0 1006.0 999.0 991.0 982.0 984.0 984.0 983.0 980.0 973.0 973.0 970.0 971.0 973.0 974.0 969.0 967.0 965.0 966.0 969.0 968.0 964.0 962.0 961.0 960.0 967.0 959.0 956.0 953.0 954.0 956.0 957.0 957.0 955.0 959.0 958.0 955.0 955.0 952.0 958.0 960.0 958.0 959.0 958.0 957.0 961.0 962.0 964.0 970.0 970.0 969.0 966.0 965.0 964.0 968.0 965.0 967.0 965.0 968.0 972.0 970.0 967.0 964.0 966.0 966.0 966.0 969.0 964.0 963.0 966.0 966.0 968.0 968.0 970.0 965.0 963.0 960.0 960.0 964.0 966.0 967.0 964.0 963.0 963.0 964.0 961.0 960.0 961.0 959.0 963.0 970.0 969.0 966.0 960.0 960.0 967.0 972.0 964.0 957.0 953.0 956.0 962.0 965.0 965.0 962.0 958.0 953.0 958.0 959.0 961.0 958.0 956.0 956.0 964.0 969.0 965.0 958.0 951.0 952.0 958.0 961.0 962.0 961.0 957.0 956.0 959.0 960.0 962.0 960.0 963.0 962.0 962.0 961.0 961.0 959.0 958.0 955.0 960.0 964.0 964.0 963.0 960.0 960.0 963.0 962.0 956.0 951.0 951.0 956.0 959.0 959.0 962.0 961.0 963.0 963.0 966.0 967.0 967.0 962.0 960.0 964.0 966.0 967.0 958.0 954.0 953.0 956.0 960.0 960.0 961.0 958.0 958.0 959.0 965.0 966.0 965.0 968.0 958.0 958.0 958.0 964.0 966.0 966.0 965.0 961.0 959.0 967.0 968.0 972.0 971.0 974.0 983.0 991.0 996.0 997.0 996.0 1003.0 1009.0 1026.0 1031.0 1031.0 1029.0 1022.0 1018.0 1010.0 1003.0 1001.0 999.0 992.0 991.0 990.0 987.0 982.0 974.0 971.0 969.0 969.0 963.0 967.0 969.0 974.0 975.0 972.0 965.0 963.0 959.0 956.0 955.0 952.0 946.0 937.0 938.0 967.0 1028.0 1118.0 1225.0 1318.0 1378.0 1414.0 1430.0 1426.0 1397.0 1331.0 1214.0 1086.0 958.0 874.0 901.0 941.0 953.0 947.0 943.0 951.0 958.0 957.0 954.0 946.0 942.0 942.0 941.0 946.0 946.0 948.0 947.0 948.0 945.0 941.0 937.0 939.0 943.0 947.0 946.0 945.0 944.0 943.0 946.0 949.0 947.0 950.0 952.0 953.0 957.0 961.0 958.0 952.0 953.0 954.0 955.0 963.0 965.0 972.0 965.0 964.0 966.0 971.0 973.0 976.0 974.0 974.0 977.0 980.0 987.0 991.0 994.0 993.0 998.0 1000.0 1003.0 1005.0 1012.0 1016.0 1024.0 1028.0 1030.0 1034.0 1036.0 1043.0 1049.0 1058.0 1064.0 1073.0 1075.0 1081.0 1090.0 1099.0 1104.0 1108.0 1108.0 1115.0 1124.0 1132.0 1136.0 1136.0 1140.0 1140.0 1141.0 1143.0 1141.0 1136.0 1129.0 1122.0 1119.0 1115.0 1111.0 1106.0 1095.0 1081.0 1073.0 1065.0 1059.0 1054.0 1053.0 1048.0 1036.0 1030.0 1023.0 1014.0 1011.0 1012.0 1011.0 1008.0 1005.0 999.0 994.0 992.0 992.0 992.0 987.0 980.0 974.0 975.0 975.0 975.0 971.0 970.0 969.0 972.0 973.0 972.0 964.0 957.0 955.0 959.0 961.0 966.0 966.0 962.0 958.0 956.0 957.0 960.0 960.0 958.0 957.0 956.0 960.0 967.0 971.0 968.0 966.0 961.0 963.0 968.0 966.0 964.0 963.0 966.0 969.0 970.0 968.0 965.0 961.0 968.0 976.0 979.0 975.0 973.0 972.0 971.0 970.0 974.0 975.0 974.0 974.0 973.0 973.0 979.0 981.0 974.0 973.0 973.0 975.0 978.0 979.0 977.0 975.0 976.0 974.0 971.0 969.0 966.0 965.0 962.0 964.0 966.0 967.0 966.0 963.0 964.0 966.0 965.0 963.0 962.0 961.0 960.0 967.0 969.0 968.0 965.0 964.0 962.0 965.0 966.0 963.0 960.0 957.0 960.0 962.0 963.0 964.0 961.0 958.0 955.0 957.0 960.0 962.0 959.0 955.0 950.0 955.0 959.0 959.0 959.0 957.0 957.0 961.0 964.0 961.0 962.0 961.0 958.0 960.0 964.0 961.0 959.0 957.0 959.0 961.0 961.0 962.0 954.0 952.0 955.0 960.0 965.0 966.0 965.0 960.0 959.0 959.0 960.0 956.0 958.0 958.0 957.0 963.0 962.0 965.0 959.0 956.0 956.0 961.0 963.0 962.0 960.0 958.0 959.0 962.0 966.0 965.0 962.0 963.0 963.0 965.0 967.0 966.0 967.0 965.0 962.0 961.0 961.0 958.0 959.0 957.0 960.0 964.0 969.0 972.0 971.0 965.0 964.0 966.0 977.0 979.0 986.0 986.0 993.0 1007.0 1020.0 1035.0 1038.0 1029.0 1025.0 1020.0 1012.0 1008.0 1007.0 1001.0 997.0 996.0 989.0 982.0 977.0 971.0 967.0 965.0 963.0 958.0 959.0 959.0 958.0 962.0 962.0 961.0 955.0 954.0 957.0 961.0 962.0 959.0 946.0 928.0 924.0 935.0 971.0 1028.0 1115.0 1212.0 1308.0 1370.0 1408.0 1426.0 1422.0 1389.0 1320.0 1214.0 1086.0 958.0 873.0 884.0 922.0 940.0 942.0 941.0 946.0 943.0 943.0 939.0 942.0 942.0 942.0 939.0 937.0 938.0 939.0 938.0 937.0 934.0 931.0 935.0 937.0 938.0 934.0 931.0 930.0 933.0 940.0 940.0 942.0 939.0 941.0 945.0 949.0 946.0 943.0 944.0 944.0 945.0 943.0 948.0 954.0 955.0 955.0 960.0 964.0 960.0 956.0 953.0 954.0 958.0 967.0 971.0 968.0 967.0 969.0 975.0 981.0 983.0 984.0 987.0 988.0 992.0 996.0 999.0 1001.0 1003.0 1004.0 1008.0 1015.0 1015.0 1018.0 1025.0 1031.0 1042.0 1050.0 1059.0 1060.0 1062.0 1071.0 1077.0 1093.0 1102.0 1103.0 1103.0 1107.0 1114.0 1123.0 1130.0 1131.0 1134.0 1132.0 1133.0 1134.0 1136.0 1133.0 1131.0 1127.0 1122.0 1119.0 1110.0 1103.0 1095.0 1086.0 1080.0 1075.0 1069.0 1059.0 1054.0 1048.0 1045.0 1044.0 1034.0 1029.0 1022.0 1020.0 1017.0 1013.0 1008.0 1006.0 998.0 993.0 987.0 988.0 986.0 984.0 979.0 975.0 976.0 975.0 974.0 968.0 964.0 959.0 958.0 961.0 957.0 954.0 950.0 952.0 954.0 958.0 959.0 958.0 951.0 946.0 945.0 946.0 951.0 950.0 949.0 948.0 951.0 955.0 953.0 951.0 950.0 946.0 950.0 953.0 954.0 952.0 949.0 950.0 950.0 954.0 955.0 955.0 951.0 954.0 955.0 957.0 958.0 957.0 960.0 961.0 963.0 965.0 963.0 962.0 963.0 965.0 966.0 965.0 962.0 959.0 957.0 960.0 966.0 965.0 964.0 962.0 960.0 961.0 967.0 972.0 969.0 964.0 961.0 962.0 964.0 966.0 964.0 961.0 961.0 961.0 961.0 962.0 961.0 961.0 956.0 953.0 955.0 958.0 959.0 961.0 954.0 955.0 956.0 957.0 956.0 953.0 949.0 951.0 954.0 957.0 954.0 952.0 950.0 950.0 950.0 953.0 953.0 950.0 947.0 949.0 951.0 956.0 955.0 952.0 950.0 951.0 952.0 951.0 954.0 953.0 948.0 946.0 946.0 951.0 954.0 952.0 944.0 941.0 945.0 947.0 947.0 950.0 947.0 949.0 949.0 951.0 954.0 948.0 946.0 947.0 944.0 951.0 949.0 946.0 942.0 945.0 944.0 944.0 943.0 944.0 947.0 948.0 951.0 946.0 945.0 941.0 938.0 940.0 943.0 946.0 950.0 948.0 948.0 945.0 944.0 945.0 947.0 945.0 943.0 945.0 944.0 947.0 950.0 946.0 945.0 945.0 946.0 948.0 945.0 940.0 941.0 947.0 953.0 953.0 953.0 951.0 948.0 949.0 949.0 951.0 950.0 950.0 946.0 947.0 951.0 958.0 960.0 964.0 962.0 966.0 973.0 981.0 996.0 1008.0 1011.0 1012.0 1007.0 1005.0 999.0 989.0 986.0 981.0 980.0 984.0 983.0 976.0 966.0 966.0 963.0 962.0 952.0 941.0 933.0 935.0 937.0 942.0 944.0 942.0 939.0 937.0 942.0 946.0 950.0 947.0 943.0 938.0 930.0 922.0 918.0 923.0 943.0 994.0 1081.0 1190.0 1290.0 1359.0 1394.0 1412.0 1415.0 1396.0 1343.0 1244.0 1116.0 988.0 860.0 858.0 894.0 916.0 916.0 915.0 918.0 924.0 923.0 924.0 918.0 922.0 923.0 925.0 928.0 922.0 919.0 920.0 923.0 927.0 925.0 921.0 918.0 917.0 919.0 924.0 927.0 920.0 923.0 923.0 927.0 929.0 931.0 929.0 927.0 927.0 932.0 932.0 926.0 924.0 924.0 929.0 933.0 938.0 943.0 941.0 935.0 930.0 936.0 945.0 943.0 941.0 938.0 940.0 942.0 952.0 957.0 956.0 956.0 958.0 963.0 970.0 967.0 966.0 966.0 971.0 979.0 989.0 994.0 999.0 997.0 998.0 997.0 1002.0 1004.0 1011.0 1014.0 1025.0 1031.0 1042.0 1049.0 1055.0 1058.0 1066.0 1076.0 1084.0 1093.0 1099.0 1105.0 1106.0 1111.0 1118.0 1123.0 1123.0 1122.0 1121.0 1123.0 1128.0 1128.0 1124.0 1117.0 1107.0 1106.0 1104.0 1101.0 1095.0 1082.0 1074.0 1073.0 1070.0 1064.0 1054.0 1044.0 1042.0 1036.0 1034.0 1031.0 1026.0 1016.0 1008.0 1008.0 1005.0 1003.0 1001.0 994.0 989.0 992.0 993.0 991.0 985.0 982.0 978.0 979.0 976.0 973.0 971.0 962.0 960.0 962.0 965.0 964.0 962.0 960.0 958.0 955.0 952.0 955.0 955.0 953.0 954.0 954.0 953.0 956.0 953.0 953.0 952.0 958.0 962.0 960.0 959.0 957.0 954.0 953.0 953.0 958.0 953.0 958.0 957.0 958.0 963.0 968.0 969.0 971.0 970.0 972.0 973.0 973.0 970.0 969.0 971.0 966.0 972.0 975.0 976.0 974.0 973.0 971.0 971.0 969.0 970.0 969.0 970.0 972.0 977.0 975.0 972.0 968.0 968.0 970.0 976.0 975.0 969.0 967.0 970.0 971.0 973.0 968.0 967.0 964.0 964.0 964.0 963.0 958.0 961.0 957.0 956.0 962.0 963.0 961.0 956.0 953.0 956.0 960.0 961.0 957.0 954.0 953.0 957.0 961.0 963.0 955.0 952.0 949.0 951.0 952.0 954.0 956.0 956.0 954.0 957.0 961.0 960.0 961.0 956.0 946.0 947.0 951.0 951.0 952.0 952.0 950.0 951.0 954.0 953.0 953.0 952.0 945.0 944.0 945.0 947.0 949.0 952.0 946.0 944.0 945.0 957.0 958.0 953.0 948.0 945.0 946.0 950.0 954.0 953.0 954.0 949.0 951.0 954.0 958.0 951.0 951.0 952.0 954.0 957.0 957.0 951.0 945.0 947.0 950.0 951.0 950.0 944.0 942.0 946.0 944.0 949.0 950.0 950.0 945.0 948.0 949.0 952.0 953.0 954.0 956.0 957.0 956.0 960.0 962.0 962.0 962.0 966.0 973.0 981.0 987.0 994.0 1001.0 1009.0 1014.0 1012.0 1009.0 1000.0 996.0 988.0 986.0 988.0 987.0 983.0 978.0 973.0 971.0 968.0 965.0 961.0 954.0 951.0 951.0 954.0 953.0 948.0 944.0 944.0 948.0 952.0 953.0 951.0 948.0 949.0 946.0 949.0 945.0 934.0 922.0 928.0 956.0 1012.0 1086.0 1178.0 1266.0 1339.0 1386.0 1411.0 1417.0 1408.0 1366.0 1290.0 1179.0 1051.0 925.0 866.0 880.0 918.0 936.0 936.0 934.0 936.0 940.0 940.0 938.0 938.0 933.0 935.0 932.0 932.0 930.0 931.0 935.0 935.0 935.0 931.0 932.0 935.0 936.0 931.0 933.0 935.0 938.0 939.0 940.0 942.0 941.0 939.0 941.0 945.0 944.0 942.0 937.0 937.0 944.0 947.0 947.0 945.0 946.0 946.0 952.0 954.0 952.0 947.0 950.0 956.0 959.0 963.0 963.0 965.0 966.0 966.0 969.0 974.0 977.0 975.0 976.0 976.0 984.0 992.0 996.0 997.0 998.0 1002.0 1006.0 1013.0 1016.0 1016.0 1018.0 1023.0 1034.0 1041.0 1043.0 1052.0 1052.0 1057.0 1066.0 1078.0 1087.0 1091.0 1090.0 1099.0 1106.0 1114.0 1120.0 1121.0 1126.0 1134.0 1137.0 1142.0 1143.0 1137.0 1135.0 1132.0 1132.0 1131.0 1127.0 1120.0 1113.0 1111.0 1105.0 1099.0 1090.0 1084.0 1072.0 1066.0 1058.0 1058.0 1053.0 1044.0 1032.0 1028.0 1025.0 1022.0 1017.0 1012.0 1003.0 998.0 998.0 1000.0 1000.0 993.0 987.0 985.0 983.0 984.0 979.0 976.0 971.0 967.0 968.0 967.0 970.0 965.0 961.0 958.0 957.0 957.0 955.0 952.0 949.0 949.0 951.0 952.0 955.0 955.0 951.0 950.0 948.0 953.0 959.0 958.0 953.0 951.0 949.0 953.0 954.0 953.0 952.0 955.0 957.0 962.0 959.0 958.0 954.0 956.0 955.0 955.0 955.0 957.0 954.0 952.0 952.0 957.0 958.0 957.0 957.0 958.0 965.0 968.0 964.0 958.0 954.0 958.0 961.0 965.0 961.0 962.0 963.0 965.0 968.0 971.0 973.0 969.0 965.0 959.0 960.0 969.0 971.0 969.0 964.0 961.0 961.0 967.0 972.0 968.0 964.0 959.0 958.0 961.0 959.0 957.0 956.0 954.0 960.0 962.0 963.0 962.0 955.0 959.0 961.0 964.0 963.0 958.0 953.0 958.0 963.0 962.0 961.0 960.0 956.0 953.0 956.0 959.0 961.0 961.0 957.0 957.0 960.0 966.0 974.0 968.0 959.0 958.0 958.0 960.0 961.0 966.0 973.0 974.0 975.0 969.0 970.0 973.0 975.0 982.0 983.0 988.0 991.0 985.0 978.0 973.0 972.0 970.0 972.0 974.0 977.0 979.0 987.0 992.0 999.0 998.0 993.0 988.0 986.0 990.0 993.0 994.0 998.0 1001.0 1002.0 1002.0 999.0 1000.0 995.0 995.0 1000.0 1000.0 1004.0 1005.0 1002.0 997.0 999.0 1004.0 1005.0 999.0 994.0 993.0 998.0 1002.0 1004.0 1000.0 1000.0 1000.0 1006.0 1014.0 1016.0 1018.0 1021.0 1021.0 1020.0 1023.0 1029.0 1034.0 1033.0 1044.0 1058.0 1066.0 1067.0 1064.0 1055.0 1057.0 1063.0 1064.0 1057.0 1047.0 1042.0 1039.0 1037.0 1034.0 1024.0 1015.0 1005.0 1006.0 1013.0 1018.0 1014.0 1010.0 1001.0 993.0 984.0 979.0 980.0 989.0 993.0 994.0 994.0 995.0 991.0 984.0 980.0 977.0 974.0 987.0 1020.0 1072.0 1145.0 1242.0 1333.0 1399.0 1430.0 1439.0 1429.0 1406.0 1356.0 1264.0 1136.0 1008.0 922.0 930.0 972.0 994.0 990.0 982.0 986.0 990.0 998.0 996.0 1000.0 998.0 994.0 989.0 991.0 993.0 992.0 986.0 981.0 981.0 980.0 980.0 976.0 974.0 974.0 978.0 980.0 987.0 991.0 989.0 990.0 994.0 995.0 995.0 986.0 980.0 979.0 980.0 991.0 998.0 995.0 989.0 987.0 990.0 996.0 1003.0 1002.0 999.0 995.0 993.0 1005.0 1016.0 1026.0 1032.0 1030.0 1024.0 1020.0 1016.0 1010.0 1010.0 1012.0 1023.0 1029.0 1030.0 1035.0 1037.0 1034.0 1038.0 1047.0 1052.0 1056.0 1061.0 1065.0 1075.0 1083.0 1089.0 1095.0 1094.0 1097.0 1106.0 1115.0 1120.0 1124.0 1127.0 1132.0 1138.0 1140.0 1149.0 1151.0 1154.0 1157.0 1162.0 1166.0 1166.0 1166.0 1162.0 1156.0 1151.0 1147.0 1142.0 1137.0 1129.0 1123.0 1117.0 1112.0 1114.0 1111.0 1100.0 1088.0 1087.0 1080.0 1074.0 1066.0 1059.0 1051.0 1049.0 1051.0 1050.0 1044.0 1036.0 1033.0 1033.0 1026.0 1019.0 1009.0 1002.0 998.0 996.0 1002.0 1008.0 1008.0 1001.0 993.0 989.0 993.0 1002.0 1003.0 998.0 992.0 986.0 992.0 994.0 991.0 988.0 986.0 990.0 993.0 993.0 995.0 995.0 993.0 991.0 990.0 996.0 993.0 988.0 982.0 983.0 988.0 995.0 994.0 992.0 984.0 982.0 982.0 992.0 996.0 996.0 993.0 995.0 997.0 1000.0 1001.0 997.0 994.0 992.0 992.0 993.0 993.0 988.0 985.0 988.0 990.0 996.0 994.0 994.0 990.0 987.0 989.0 990.0 991.0 988.0 981.0 982.0 988.0 989.0 987.0 983.0 986.0 988.0 989.0 982.0 979.0 976.0 974.0 973.0 978.0 979.0 976.0 973.0 973.0 973.0 975.0 974.0 971.0 973.0 965.0 967.0 970.0 972.0 969.0 965.0 960.0 961.0 965.0 968.0 963.0 953.0 944.0 947.0 960.0 970.0 972.0 969.0 962.0 959.0 961.0 967.0 967.0 960.0 953.0 953.0 958.0 962.0 967.0 967.0 965.0 963.0 963.0 965.0 961.0 956.0 950.0 944.0 946.0 949.0 955.0 956.0 953.0 957.0 960.0 963.0 958.0 947.0 945.0 950.0 960.0 969.0 971.0 967.0 960.0 957.0 956.0 957.0 955.0 952.0 950.0 951.0 949.0 946.0 947.0 946.0 944.0 943.0 947.0 952.0 959.0 963.0 961.0 965.0 970.0 973.0 982.0 987.0 988.0 997.0 1006.0 1022.0 1032.0 1039.0 1034.0 1025.0 1016.0 1013.0 1003.0 991.0 979.0 983.0 991.0 995.0 986.0 968.0 951.0 941.0 945.0 949.0 941.0 932.0 928.0 932.0 935.0 937.0 934.0 940.0 940.0 938.0 925.0 923.0 925.0 925.0 911.0 899.0 901.0 925.0 974.0 1049.0 1140.0 1238.0 1316.0 1365.0 1393.0 1404.0 1390.0 1349.0 1259.0 1131.0 1003.0 875.0 817.0 865.0 905.0 910.0 903.0 900.0 906.0 911.0 914.0 914.0 916.0 916.0 918.0 919.0 918.0 914.0 908.0 908.0 902.0 899.0 896.0 895.0 891.0 883.0 879.0 882.0 890.0 895.0 901.0 906.0 913.0 914.0 908.0 904.0 897.0 897.0 896.0 899.0 900.0 902.0 902.0 902.0 905.0 909.0 916.0 918.0 918.0 919.0 919.0 924.0 926.0 925.0 927.0 931.0 929.0 933.0 937.0 948.0 956.0 953.0 942.0 940.0 945.0 956.0 965.0 971.0 974.0 979.0 982.0 984.0 988.0 995.0 1002.0 1017.0 1027.0 1033.0 1039.0 1045.0 1052.0 1058.0 1064.0 1070.0 1077.0 1083.0 1087.0 1093.0 1099.0 1105.0 1106.0 1100.0 1095.0 1089.0 1085.0 1077.0 1069.0 1063.0 1058.0 1054.0 1049.0 1040.0 1032.0 1026.0 1022.0 1016.0 1006.0 998.0 995.0 984.0 975.0 970.0 969.0 964.0 962.0 958.0 954.0 950.0 946.0 944.0 939.0 932.0 929.0 930.0 931.0 930.0 930.0 927.0 920.0 915.0 912.0 912.0 911.0 910.0 911.0 911.0 912.0 914.0 918.0 919.0 914.0 913.0 912.0 918.0 919.0 921.0 920.0 921.0 922.0 920.0 921.0 924.0 924.0 928.0 931.0 933.0 929.0 926.0 925.0 925.0 927.0 931.0 938.0 940.0 942.0 939.0 934.0 932.0 934.0 938.0 938.0 941.0 942.0 939.0 936.0 931.0 930.0 931.0 936.0 944.0 949.0 944.0 936.0 932.0 932.0 935.0 932.0 938.0 933.0 931.0 933.0 938.0 942.0 937.0 929.0 925.0 930.0 935.0 937.0 936.0 934.0 929.0 927.0 930.0 923.0 922.0 917.0 915.0 918.0 921.0 924.0 926.0 927.0 927.0 927.0 926.0 926.0 921.0 923.0 924.0 928.0 931.0 929.0 930.0 929.0 930.0 929.0 928.0 933.0 927.0 919.0 917.0 921.0 922.0 927.0 925.0 925.0 927.0 925.0 928.0 927.0 925.0 922.0 923.0 932.0 935.0 936.0 933.0 925.0 926.0 927.0 935.0 939.0 937.0 934.0 934.0 945.0 952.0 954.0 955.0 949.0 953.0 954.0 956.0 959.0 970.0 980.0 994.0 1004.0 1008.0 1007.0 1002.0 990.0 987.0 983.0 980.0 979.0 969.0 960.0 952.0 948.0 946.0 947.0 948.0 942.0 933.0 928.0 930.0 929.0 931.0 926.0 925.0 927.0 931.0 934.0 935.0 929.0 926.0 924.0 916.0 908.0 905.0 920.0 958.0 1026.0 1125.0 1230.0 1318.0 1368.0 1395.0 1407.0 1401.0 1371.0 1294.0 1166.0 1038.0 910.0 814.0 848.0 889.0 899.0 897.0 899.0 906.0 909.0 912.0 911.0 909.0 912.0 909.0 910.0 908.0 907.0 909.0 913.0 912.0 910.0 905.0 900.0 903.0 904.0 909.0 911.0 913.0 910.0 909.0 913.0 916.0 919.0 918.0 914.0 914.0 917.0 917.0 919.0 923.0 918.0 915.0 918.0 921.0 926.0 928.0 929.0 929.0 931.0 935.0 943.0 947.0 947.0 942.0 939.0 941.0 941.0 946.0 951.0 954.0 960.0 966.0 969.0 967.0 962.0 967.0 973.0 985.0 993.0 1000.0 999.0 1004.0 1011.0 1025.0 1035.0 1040.0 1045.0 1044.0 1043.0 1047.0 1063.0 1070.0 1081.0 1085.0 1093.0 1102.0 1110.0 1113.0 1112.0 1115.0 1117.0 1119.0 1120.0 1114.0 1110.0 1102.0 1098.0 1095.0 1092.0 1086.0 1079.0 1074.0 1069.0 1068.0 1061.0 1051.0 1041.0 1037.0 1032.0 1029.0 1018.0 1006.0 997.0 997.0 993.0 993.0 989.0 980.0 974.0 970.0 973.0 973.0 970.0 966.0 963.0 957.0 959.0 958.0 952.0 948.0 950.0 953.0 954.0 952.0 948.0 942.0 936.0 937.0 935.0 930.0 926.0 921.0 922.0 925.0 929.0 932.0 935.0 934.0 931.0 925.0 929.0 932.0 935.0 937.0 933.0 935.0 936.0 943.0 941.0 941.0 937.0 934.0 938.0 944.0 944.0 943.0 940.0 940.0 941.0 943.0 946.0 944.0 946.0 949.0 951.0 955.0 956.0 953.0 947.0 948.0 949.0 950.0 953.0 955.0 948.0 946.0 949.0 952.0 953.0 951.0 951.0 953.0 956.0 954.0 950.0 947.0 939.0 943.0 940.0 945.0 946.0 946.0 945.0 942.0 946.0 950.0 948.0 942.0 936.0 933.0 937.0 942.0 942.0 942.0 937.0 933.0 930.0 935.0 940.0 943.0 939.0 935.0 935.0 936.0 939.0 935.0 935.0 938.0 939.0 939.0 936.0 933.0 931.0 928.0 926.0 931.0 934.0 934.0 931.0 933.0 936.0 942.0 937.0 933.0 933.0 932.0 932.0 933.0 929.0 929.0 925.0 925.0 928.0 932.0 936.0 936.0 931.0 930.0 929.0 934.0 933.0 935.0 932.0 930.0 925.0 929.0 935.0 937.0 931.0 930.0 935.0 936.0 932.0 928.0 929.0 931.0 936.0 945.0 946.0 948.0 949.0 956.0 961.0 971.0 975.0 984.0 994.0 1001.0 1004.0 1004.0 1004.0 1005.0 1004.0 995.0 994.0 994.0 987.0 973.0 957.0 950.0 950.0 952.0 953.0 947.0 937.0 932.0 928.0 928.0 934.0 936.0 937.0 932.0 932.0 934.0 934.0 929.0 925.0 922.0 922.0 920.0 911.0 903.0 901.0 916.0 956.0 1018.0 1112.0 1214.0 1294.0 1350.0 1382.0 1398.0 1393.0 1374.0 1324.0 1234.0 1106.0 978.0 867.0 853.0 882.0 907.0 906.0 907.0 910.0 915.0 918.0 917.0 915.0 914.0 911.0 906.0 906.0 905.0 906.0 908.0 910.0 909.0 910.0 910.0 989.0 994.0 995.0 994.0 995.0 992.0 993.0 995.0 995.0 991.0 988.0 989.0 992.0 994.0 998.0 999.0 994.0 990.0 988.0 985.0 987.0 985.0 982.0 978.0 980.0 984.0 987.0 986.0 982.0 980.0 983.0 985.0 983.0 980.0 976.0 976.0 980.0 982.0 980.0 978.0 976.0 976.0 977.0 981.0 976.0 975.0 969.0 971.0 973.0 976.0 976.0 973.0 970.0 970.0 973.0 976.0 978.0 978.0 974.0 968.0 973.0 974.0 971.0 965.0 963.0 963.0 970.0 977.0 978.0 977.0 971.0 968.0 971.0 974.0 976.0 974.0 971.0 969.0 970.0 976.0 975.0 975.0 970.0 973.0 976.0 982.0 985.0 988.0 992.0 997.0 1003.0 1006.0 1003.0 998.0 997.0 1008.0 1027.0 1041.0 1045.0 1041.0 1038.0 1037.0 1038.0 1042.0 1035.0 1028.0 1017.0 1002.0 999.0 997.0 993.0 986.0 973.0 974.0 974.0 977.0 975.0 973.0 972.0 974.0 980.0 983.0 981.0 970.0 954.0 945.0 945.0 958.0 993.0 1055.0 1154.0 1264.0 1362.0 1422.0 1452.0 1455.0 1439.0 1390.0 1302.0 1182.0 1054.0 926.0 900.0 934.0 962.0 965.0 965.0 964.0 966.0 963.0 962.0 963.0 959.0 954.0 946.0 946.0 951.0 953.0 954.0 953.0 951.0 949.0 954.0 960.0 958.0 957.0 954.0 954.0 954.0 960.0 961.0 958.0 956.0 956.0 960.0 963.0 960.0 958.0 960.0 961.0 964.0 968.0 968.0 969.0 969.0 968.0 970.0 976.0 975.0 975.0 974.0 976.0 979.0 985.0 985.0 984.0 983.0 983.0 991.0 995.0 996.0 997.0 997.0 1000.0 1006.0 1012.0 1014.0 1012.0 1011.0 1015.0 1021.0 1029.0 1029.0 1027.0 1030.0 1032.0 1035.0 1042.0 1047.0 1049.0 1050.0 1054.0 1055.0 1062.0 1066.0 1064.0 1062.0 1063.0 1068.0 1072.0 1071.0 1063.0 1058.0 1060.0 1060.0 1060.0 1062.0 1051.0 1044.0 1043.0 1042.0 1040.0 1037.0 1028.0 1023.0 1024.0 1023.0 1024.0 1019.0 1013.0 1005.0 1006.0 1008.0 1010.0 1005.0 997.0 995.0 993.0 996.0 999.0 996.0 992.0 989.0 991.0 994.0 998.0 999.0 997.0 993.0 994.0 996.0 1001.0 999.0 999.0 997.0 998.0 1000.0 1002.0 1003.0 1003.0 997.0 1000.0 1002.0 1007.0 1006.0 1002.0 999.0 1000.0 1001.0 1003.0 1005.0 1005.0 1004.0 1004.0 1006.0 1011.0 1013.0 1010.0 1007.0 1005.0 1008.0 1009.0 1010.0 1007.0 1003.0 1004.0 1008.0 1009.0 1005.0 1002.0 1000.0 999.0 998.0 1005.0 1002.0 1001.0 1000.0 1002.0 999.0 1003.0 999.0 998.0 997.0 994.0 996.0 996.0 996.0 998.0 996.0 993.0 992.0 997.0 994.0 992.0 989.0 990.0 992.0 995.0 992.0 992.0 988.0 985.0 986.0 992.0 992.0 985.0 984.0 987.0 990.0 990.0 989.0 988.0 985.0 985.0 988.0 991.0 991.0 992.0 988.0 986.0 989.0 994.0 996.0 996.0 996.0 1000.0 1008.0 1013.0 1018.0 1015.0 1015.0 1018.0 1026.0 1042.0 1051.0 1054.0 1050.0 1050.0 1055.0 1059.0 1059.0 1056.0 1048.0 1041.0 1029.0 1022.0 1017.0 1007.0 1001.0 993.0 988.0 988.0 987.0 984.0 982.0 979.0 979.0 987.0 986.0 986.0 980.0 979.0 975.0 975.0 962.0 945.0 940.0 955.0 1003.0 1084.0 1194.0 1309.0 1392.0 1442.0 1464.0 1463.0 1449.0 1410.0 1321.0 1193.0 1065.0 937.0 902.0 938.0 965.0 970.0 969.0 968.0 973.0 972.0 965.0 962.0 963.0 964.0 961.0 956.0 954.0 954.0 959.0 960.0 958.0 956.0 955.0 955.0 959.0 958.0 960.0 954.0 950.0 948.0 952.0 958.0 961.0 958.0 955.0 956.0 960.0 964.0 966.0 966.0 961.0 963.0 964.0 968.0 973.0 973.0 970.0 972.0 976.0 980.0 982.0 983.0 982.0 983.0 984.0 990.0 990.0 992.0 991.0 990.0 995.0 1000.0 1004.0 1003.0 1006.0 1009.0 1015.0 1019.0 1023.0 1021.0 1021.0 1024.0 1028.0 1035.0 1038.0 1038.0 1039.0 1045.0 1049.0 1051.0 1056.0 1053.0 1054.0 1057.0 1061.0 1066.0 1070.0 1065.0 1065.0 1065.0 1067.0 1069.0 1063.0 1064.0 1055.0 1052.0 1053.0 1053.0 1050.0 1047.0 1039.0 1038.0 1038.0 1035.0 1029.0 1020.0 1019.0 1019.0 1019.0 1018.0 1013.0 1007.0 1001.0 1000.0 1000.0 1004.0 999.0 1003.0 999.0 998.0 999.0 1000.0 999.0 997.0 994.0 995.0 997.0 999.0 1000.0 999.0 999.0 1002.0 1002.0 1003.0 1007.0 1004.0 998.0 1000.0 1002.0 1008.0 1008.0 1008.0 1003.0 1004.0 1007.0 1007.0 1004.0 1004.0 1003.0 1004.0 1008.0 1011.0 1009.0 1008.0 1006.0 1008.0 1007.0 1007.0 1008.0 1007.0 1005.0 1003.0 1004.0 1006.0 1007.0 1006.0 1002.0 1001.0 1003.0 1004.0 1002.0 998.0 993.0 995.0 996.0 1000.0 1001.0 997.0 992.0 993.0 992.0 996.0 994.0 992.0 987.0 983.0 983.0 990.0 992.0 988.0 984.0 985.0 986.0 988.0 987.0 983.0 980.0 979.0 981.0 985.0 986.0 982.0 978.0 981.0 981.0 984.0 982.0 978.0 976.0 977.0 977.0 982.0 982.0 980.0 977.0 975.0 977.0 980.0 979.0 980.0 980.0 982.0 988.0 990.0 995.0 995.0 995.0 998.0 1005.0 1010.0 1014.0 1015.0 1018.0 1029.0 1039.0 1046.0 1046.0 1042.0 1036.0 1036.0 1042.0 1045.0 1039.0 1023.0 1008.0 1000.0 995.0 995.0 988.0 978.0 970.0 967.0 970.0 973.0 971.0 968.0 964.0 963.0 964.0 968.0 969.0 967.0 963.0 959.0 950.0 939.0 923.0 918.0 929.0 967.0 1032.0 1127.0 1238.0 1333.0 1402.0 1434.0 1447.0 1440.0 1419.0 1364.0 1261.0 1133.0 1005.0 886.0 891.0 930.0 952.0 950.0 946.0 947.0 952.0 944.0 940.0 938.0 934.0 937.0 936.0 933.0 933.0 930.0 933.0 935.0 935.0 932.0 929.0 928.0 932.0 936.0 937.0 935.0 933.0 933.0 935.0 935.0 936.0 935.0 930.0 933.0 937.0 940.0 942.0 939.0 938.0 937.0 941.0 944.0 946.0 942.0 939.0 941.0 946.0 951.0 951.0 954.0 955.0 956.0 959.0 964.0 968.0 965.0 963.0 967.0 967.0 972.0 976.0 977.0 976.0 979.0 986.0 989.0 993.0 993.0 988.0 992.0 1000.0 1006.0 1013.0 1010.0 1007.0 1005.0 1008.0 1017.0 1021.0 1022.0 1019.0 1023.0 1029.0 1030.0 1031.0 1034.0 1031.0 1030.0 1032.0 1035.0 1034.0 1031.0 1023.0 1027.0 1022.0 1020.0 1020.0 1015.0 1011.0 1009.0 1007.0 1006.0 1003.0 998.0 994.0 992.0 990.0 992.0 988.0 982.0 980.0 980.0 981.0 982.0 982.0 978.0 974.0 973.0 975.0 980.0 981.0 981.0 976.0 975.0 980.0 983.0 987.0 984.0 979.0 983.0 985.0 991.0 992.0 985.0 983.0 983.0 984.0 985.0 987.0 983.0 983.0 985.0 989.0 992.0 992.0 985.0 982.0 979.0 982.0 987.0 989.0 989.0 986.0 986.0 987.0 988.0 990.0 988.0 983.0 984.0 986.0 987.0 984.0 981.0 979.0 977.0 979.0 983.0 980.0 980.0 975.0 975.0 977.0 978.0 975.0 975.0 971.0 972.0 975.0 975.0 976.0 972.0 971.0 970.0 972.0 975.0 979.0 976.0 973.0 965.0 963.0 967.0 972.0 974.0 971.0 969.0 966.0 970.0 973.0 971.0 969.0 966.0 967.0 969.0 963.0 964.0 962.0 965.0 968.0 971.0 972.0 968.0 964.0 967.0 968.0 971.0 973.0 970.0 965.0 966.0 970.0 974.0 976.0 975.0 977.0 985.0 989.0 994.0 998.0 1000.0 997.0 998.0 1007.0 1018.0 1032.0 1039.0 1037.0 1036.0 1036.0 1039.0 1040.0 1037.0 1033.0 1026.0 1018.0 1009.0 1002.0 996.0 990.0 983.0 977.0 976.0 970.0 960.0 951.0 950.0 961.0 963.0 964.0 961.0 955.0 957.0 958.0 957.0 956.0 950.0 936.0 928.0 919.0 923.0 943.0 982.0 1045.0 1137.0 1242.0 1331.0 1392.0 1423.0 1432.0 1427.0 1415.0 1381.0 1308.0 1195.0 1067.0 951.0 893.0 900.0 928.0 944.0 944.0 947.0 951.0 956.0 956.0 952.0 948.0 943.0 942.0 945.0 942.0 938.0 932.0 930.0 938.0 947.0 950.0 948.0 939.0 938.0 940.0 944.0 948.0 947.0 944.0 946.0 947.0 949.0 953.0 950.0 949.0 947.0 948.0 948.0 947.0 943.0 941.0 947.0 955.0 961.0 957.0 955.0 956.0 954.0 959.0 961.0 961.0 961.0 958.0 960.0 964.0 970.0 970.0 972.0 976.0 976.0 980.0 981.0 979.0 976.0 976.0 977.0 977.0 987.0 990.0 991.0 992.0 991.0 995.0 996.0 999.0 998.0 997.0 1000.0 1005.0 1008.0 1010.0 1011.0 1013.0 1017.0 1021.0 1026.0 1031.0 1031.0 1028.0 1027.0 1023.0 1019.0 1016.0 1017.0 1025.0 1025.0 1028.0 1028.0 1028.0 1023.0 1023.0 1022.0 1020.0 1021.0 1017.0 1016.0 1012.0 1013.0 1011.0 1012.0 1011.0 1007.0 1004.0 1000.0 999.0 996.0 994.0 988.0 981.0 978.0 977.0 982.0 983.0 981.0 978.0 976.0 982.0 984.0 982.0 982.0 979.0 982.0 984.0 984.0 983.0 983.0 972.0 972.0 980.0 989.0 989.0 986.0 979.0 984.0 985.0 989.0 988.0 986.0 987.0 988.0 987.0 988.0 991.0 990.0 989.0 990.0 993.0 994.0 993.0 988.0 989.0 988.0 991.0 993.0 997.0 996.0 991.0 988.0 988.0 989.0 986.0 989.0 984.0 985.0 986.0 987.0 987.0 981.0 979.0 981.0 982.0 984.0 981.0 981.0 976.0 975.0 977.0 981.0 977.0 975.0 973.0 970.0 973.0 975.0 973.0 970.0 969.0 968.0 970.0 971.0 970.0 968.0 965.0 964.0 966.0 967.0 968.0 966.0 963.0 960.0 965.0 968.0 968.0 970.0 966.0 965.0 965.0 967.0 967.0 963.0 962.0 962.0 962.0 964.0 966.0 963.0 960.0 962.0 966.0 970.0 972.0 976.0 979.0 982.0 986.0 988.0 991.0 990.0 989.0 1001.0 1015.0 1029.0 1035.0 1035.0 1030.0 1031.0 1035.0 1037.0 1034.0 1029.0 1016.0 1004.0 998.0 996.0 992.0 987.0 975.0 964.0 958.0 955.0 955.0 956.0 952.0 951.0 955.0 960.0 958.0 952.0 947.0 948.0 949.0 951.0 945.0 931.0 916.0 916.0 936.0 977.0 1044.0 1139.0 1238.0 1323.0 1385.0 1418.0 1431.0 1429.0 1417.0 1384.0 1325.0 1218.0 1090.0 962.0 852.0 851.0 890.0 920.0 932.0 936.0 936.0 938.0 936.0 942.0 941.0 936.0 930.0 929.0 927.0 931.0 933.0 932.0 929.0 930.0 930.0 932.0 934.0 931.0 926.0 927.0 932.0 937.0 938.0 936.0 932.0 932.0 937.0 939.0 937.0 937.0 936.0 936.0 941.0 944.0 948.0 947.0 944.0 946.0 947.0 953.0 952.0 952.0 948.0 950.0 954.0 957.0 959.0 955.0 953.0 954.0 955.0 964.0 963.0 961.0 962.0 969.0 979.0 984.0 982.0 980.0 976.0 976.0 976.0 986.0 991.0 991.0 987.0 989.0 995.0 1000.0 1005.0 1004.0 998.0 1000.0 1006.0 1015.0 1019.0 1019.0 1015.0 1013.0 1016.0 1018.0 1025.0 1031.0 1032.0 1034.0 1032.0 1034.0 1032.0 1032.0 1030.0 1027.0 1031.0 1035.0 1033.0 1032.0 1030.0 1024.0 1023.0 1022.0 1024.0 1022.0 1019.0 1017.0 1013.0 1013.0 1007.0 1004.0 999.0 997.0 999.0 996.0 996.0 994.0 994.0 993.0 995.0 999.0 999.0 997.0 991.0 988.0 990.0 991.0 991.0 988.0 988.0 990.0 993.0 996.0 996.0 996.0 994.0 993.0 991.0 996.0 999.0 997.0 994.0 998.0 1001.0 1002.0 1001.0 1001.0 998.0 996.0 996.0 1000.0 1004.0 1001.0 1001.0 1001.0 1004.0 1006.0 1005.0 1006.0 1003.0 1000.0 999.0 1001.0 1000.0 999.0 1001.0 1002.0 1004.0 1000.0 993.0 984.0 984.0 992.0 997.0 1001.0 999.0 994.0 985.0 978.0 977.0 982.0 984.0 983.0 977.0 976.0 978.0 981.0 979.0 978.0 976.0 975.0 975.0 978.0 977.0 976.0 973.0 968.0 969.0 972.0 967.0 968.0 963.0 966.0 967.0 974.0 970.0 970.0 970.0 967.0 970.0 968.0 966.0 965.0 966.0 966.0 968.0 973.0 978.0 976.0 975.0 974.0 976.0 979.0 981.0 981.0 982.0 985.0 988.0 992.0 1000.0 1010.0 1018.0 1023.0 1029.0 1031.0 1032.0 1033.0 1031.0 1031.0 1026.0 1020.0 1013.0 999.0 988.0 984.0 976.0 974.0 966.0 961.0 952.0 952.0 952.0 958.0 956.0 954.0 951.0 949.0 951.0 954.0 956.0 952.0 943.0 932.0 924.0 931.0 959.0 1007.0 1082.0 1186.0 1292.0 1371.0 1410.0 1422.0 1410.0 1386.0 1330.0 1227.0 1099.0 971.0 847.0 844.0 878.0 908.0 919.0 920.0 919.0 925.0 929.0 934.0 932.0 925.0 924.0 921.0 921.0 926.0 925.0 924.0 920.0 914.0 918.0 924.0 926.0 925.0 919.0 918.0 920.0 921.0 923.0 924.0 921.0 923.0 923.0 928.0 926.0 926.0 922.0 923.0 924.0 928.0 929.0 930.0 927.0 930.0 931.0 935.0 936.0 932.0 931.0 931.0 932.0 941.0 941.0 945.0 942.0 943.0 944.0 950.0 953.0 952.0 951.0 951.0 955.0 960.0 964.0 966.0 963.0 962.0 966.0 969.0 971.0 973.0 974.0 977.0 983.0 984.0 986.0 985.0 985.0 990.0 993.0 997.0 1002.0 1002.0 1001.0 1002.0 1002.0 1008.0 1007.0 1007.0 1007.0 1007.0 1005.0 1009.0 1006.0 1001.0 997.0 995.0 997.0 997.0 995.0 990.0 986.0 983.0 981.0 979.0 978.0 973.0 967.0 966.0 963.0 965.0 963.0 959.0 955.0 955.0 953.0 954.0 957.0 952.0 947.0 946.0 949.0 953.0 952.0 952.0 946.0 947.0 948.0 956.0 954.0 954.0 954.0 952.0 954.0 957.0 958.0 954.0 953.0 955.0 957.0 960.0 963.0 960.0 956.0 957.0 961.0 962.0 964.0 962.0 959.0 957.0 962.0 964.0 964.0 961.0 961.0 960.0 960.0 965.0 964.0 962.0 960.0 958.0 961.0 960.0 959.0 957.0 955.0 953.0 953.0 954.0 959.0 957.0 952.0 950.0 952.0 951.0 949.0 948.0 944.0 942.0 946.0 948.0 947.0 944.0 941.0 943.0 941.0 944.0 946.0 944.0 939.0 939.0 941.0 940.0 941.0 940.0 938.0 936.0 938.0 942.0 942.0 940.0 940.0 937.0 942.0 945.0 949.0 951.0 951.0 954.0 962.0 968.0 970.0 971.0 975.0 985.0 1002.0 1012.0 1013.0 1011.0 1010.0 1012.0 1014.0 1016.0 1007.0 999.0 987.0 983.0 977.0 968.0 953.0 936.0 929.0 931.0 940.0 945.0 952.0 943.0 935.0 922.0 917.0 915.0 925.0 929.0 928.0 926.0 921.0 913.0 903.0 901.0 912.0 948.0 1011.0 1105.0 1214.0 1308.0 1371.0 1400.0 1408.0 1401.0 1361.0 1279.0 1159.0 1031.0 903.0 853.0 878.0 903.0 910.0 908.0 911.0 913.0 921.0 921.0 916.0 915.0 914.0 914.0 916.0 910.0 906.0 908.0 910.0 911.0 915.0 915.0 913.0 914.0 914.0 915.0 916.0 918.0 915.0 913.0 916.0 916.0 919.0 918.0 915.0 914.0 919.0 924.0 926.0 925.0 922.0 923.0 924.0 929.0 931.0 931.0 929.0 929.0 931.0 937.0 937.0 934.0 932.0 937.0 940.0 945.0 948.0 947.0 942.0 939.0 943.0 948.0 954.0 956.0 953.0 956.0 961.0 963.0 963.0 965.0 965.0 970.0 974.0 980.0 981.0 978.0 980.0 984.0 988.0 990.0 994.0 995.0 996.0 996.0 997.0 1004.0 1006.0 1002.0 997.0 999.0 1001.0 1001.0 1000.0 1000.0 996.0 995.0 995.0 995.0 993.0 989.0 983.0 979.0 978.0 978.0 973.0 969.0 963.0 959.0 960.0 953.0 950.0 951.0 946.0 945.0 946.0 947.0 943.0 939.0 938.0 935.0 942.0 945.0 943.0 944.0 943.0 942.0 945.0 948.0 948.0 948.0 941.0 945.0 947.0 951.0 955.0 953.0 946.0 949.0 954.0 958.0 958.0 958.0 954.0 953.0 957.0 963.0 959.0 961.0 956.0 954.0 956.0 963.0 965.0 963.0 960.0 957.0 963.0 963.0 963.0 962.0 958.0 956.0 957.0 961.0 962.0 960.0 956.0 953.0 957.0 959.0 959.0 953.0 950.0 950.0 951.0 956.0 953.0 953.0 950.0 949.0 952.0 952.0 953.0 950.0 948.0 950.0 951.0 954.0 956.0 955.0 959.0 961.0 968.0 970.0 974.0 975.0 974.0 983.0 994.0 1005.0 1013.0 1014.0 1013.0 1012.0 1013.0 1018.0 1019.0 1012.0 1000.0 989.0 980.0 977.0 973.0 966.0 957.0 949.0 948.0 947.0 946.0 945.0 940.0 935.0 937.0 944.0 944.0 941.0 939.0 937.0 939.0 940.0 936.0 929.0 929.0 947.0 985.0 1051.0 1137.0 1239.0 1320.0 1371.0 1396.0 1398.0 1377.0 1321.0 1219.0 1091.0 963.0 869.0 866.0 894.0 911.0 911.0 910.0 916.0 922.0 925.0 923.0 921.0 922.0 923.0 923.0 923.0 917.0 917.0 919.0 922.0 925.0 923.0 921.0 919.0 922.0 924.0 926.0 927.0 923.0 922.0 921.0 927.0 930.0 930.0 924.0 924.0 928.0 931.0 931.0 931.0 930.0 932.0 937.0 939.0 941.0 941.0 938.0 939.0 942.0 945.0 950.0 948.0 946.0 948.0 953.0 956.0 954.0 961.0 957.0 962.0 964.0 970.0 975.0 977.0 975.0 977.0 982.0 986.0 990.0 990.0 990.0 992.0 997.0 1005.0 1008.0 1008.0 1005.0 1009.0 1014.0 1018.0 1023.0 1025.0 1023.0 1023.0 1025.0 1027.0 1026.0 1028.0 1026.0 1024.0 1020.0 1018.0 1018.0 1018.0 1018.0 1012.0 1011.0 1013.0 1010.0 1005.0 997.0 990.0 987.0 985.0 981.0 975.0 968.0 965.0 965.0 968.0 966.0 963.0 958.0 955.0 954.0 959.0 960.0 956.0 953.0 953.0 954.0 956.0 958.0 953.0 953.0 953.0 954.0 956.0 959.0 956.0 954.0 953.0 960.0 963.0 964.0 965.0 961.0 961.0 964.0 967.0 969.0 971.0 971.0 969.0 969.0 973.0 975.0 975.0 974.0 972.0 974.0 975.0 977.0 978.0 974.0 976.0 975.0 981.0 981.0 977.0 978.0 976.0 978.0 980.0 980.0 976.0 973.0 971.0 974.0 976.0 975.0 972.0 969.0 967.0 968.0 969.0 971.0 970.0 966.0 965.0 965.0 968.0 968.0 967.0 965.0 962.0 963.0 967.0 972.0 974.0 976.0 980.0 985.0 991.0 993.0 991.0 991.0 996.0 1004.0 1020.0 1030.0 1033.0 1030.0 1025.0 1027.0 1031.0 1031.0 1023.0 1008.0 994.0 988.0 983.0 983.0 971.0 960.0 953.0 953.0 953.0 950.0 949.0 945.0 945.0 946.0 951.0 950.0 948.0 945.0 942.0 939.0 932.0 922.0 908.0 906.0 931.0 978.0 1057.0 1168.0 1277.0 1357.0 1406.0 1428.0 1427.0 1410.0 1356.0 1258.0 1130.0 1002.0 874.0 877.0 918.0 937.0 940.0 932.0 933.0 935.0 932.0 926.0 918.0 921.0 924.0 922.0 920.0 918.0 911.0 918.0 918.0 918.0 916.0 912.0 910.0 913.0 916.0 918.0 918.0 914.0 914.0 915.0 918.0 918.0 919.0 921.0 919.0 925.0 926.0 926.0 922.0 923.0 922.0 924.0 930.0 931.0 932.0 931.0 929.0 931.0 938.0 940.0 942.0 942.0 941.0 943.0 947.0 950.0 950.0 947.0 951.0 954.0 958.0 963.0 963.0 960.0 964.0 967.0 971.0 973.0 976.0 977.0 980.0 984.0 989.0 993.0 996.0 996.0 996.0 1002.0 1008.0 1011.0 1011.0 1013.0 1013.0 1017.0 1020.0 1023.0 1021.0 1015.0 1014.0 1017.0 1020.0 1020.0 1020.0 1013.0 1010.0 1008.0 1007.0 1006.0 1004.0 996.0 989.0 988.0 988.0 985.0 981.0 977.0 971.0 970.0 970.0 967.0 960.0 955.0 955.0 955.0 959.0 959.0 954.0 950.0 950.0 947.0 954.0 959.0 956.0 949.0 948.0 951.0 949.0 952.0 955.0 954.0 951.0 949.0 952.0 956.0 953.0 953.0 952.0 956.0 960.0 960.0 957.0 955.0 960.0 963.0 966.0 965.0 962.0 959.0 957.0 957.0 960.0 967.0 969.0 968.0 963.0 960.0 963.0 966.0 967.0 961.0 962.0 962.0 965.0 967.0 966.0 963.0 962.0 964.0 965.0 965.0 966.0 959.0 958.0 957.0 961.0 960.0 961.0 960.0 960.0 959.0 960.0 959.0 958.0 954.0 953.0 955.0 958.0 958.0 959.0 957.0 958.0 962.0 969.0 973.0 974.0 974.0 976.0 979.0 986.0 992.0 996.0 1004.0 1009.0 1019.0 1026.0 1025.0 1020.0 1019.0 1021.0 1021.0 1018.0 1011.0 997.0 984.0 979.0 975.0 968.0 964.0 956.0 947.0 942.0 943.0 943.0 948.0 946.0 940.0 940.0 942.0 944.0 946.0 943.0 938.0 936.0 932.0 926.0 913.0 901.0 902.0 928.0 987.0 1079.0 1196.0 1304.0 1377.0 1412.0 1427.0 1425.0 1403.0 1340.0 1228.0 1100.0 972.0 861.0 882.0 920.0 931.0 926.0 922.0 925.0 927.0 928.0 920.0 913.0 913.0 918.0 918.0 916.0 909.0 907.0 909.0 909.0 910.0 909.0 907.0 907.0 907.0 910.0 911.0 910.0 912.0 908.0 911.0 915.0 915.0 915.0 909.0 909.0 911.0 914.0 919.0 918.0 918.0 917.0 917.0 919.0 922.0 921.0 921.0 919.0 923.0 926.0 925.0 927.0 926.0 928.0 932.0 935.0 935.0 936.0 937.0 936.0 940.0 944.0 947.0 949.0 949.0 952.0 953.0 960.0 964.0 966.0 964.0 968.0 973.0 977.0 982.0 981.0 980.0 985.0 991.0 996.0 997.0 1000.0 999.0 1002.0 1006.0 1010.0 1011.0 1011.0 1008.0 1004.0 1005.0 1007.0 1006.0 999.0 1000.0 995.0 996.0 995.0 991.0 986.0 981.0 975.0 974.0 972.0 970.0 964.0 961.0 959.0 956.0 954.0 951.0 948.0 942.0 941.0 940.0 942.0 940.0 938.0 935.0 934.0 935.0 938.0 937.0 933.0 932.0 931.0 932.0 936.0 937.0 935.0 934.0 931.0 933.0 936.0 939.0 936.0 937.0 933.0 935.0 939.0 942.0 942.0 941.0 940.0 941.0 943.0 946.0 945.0 942.0 940.0 941.0 946.0 948.0 947.0 945.0 945.0 950.0 946.0 950.0 948.0 946.0 947.0 947.0 949.0 948.0 946.0 944.0 940.0 945.0 947.0 949.0 948.0 945.0 944.0 945.0 948.0 950.0 946.0 945.0 944.0 944.0 945.0 945.0 945.0 937.0 941.0 943.0 943.0 943.0 941.0 938.0 937.0 940.0 943.0 942.0 939.0 935.0 933.0 937.0 939.0 942.0 940.0 939.0 935.0 941.0 942.0 945.0 942.0 941.0 943.0 945.0 948.0 956.0 960.0 960.0 962.0 965.0 970.0 974.0 978.0 982.0 994.0 1006.0 1013.0 1018.0 1014.0 1009.0 1012.0 1015.0 1018.0 1011.0 999.0 981.0 973.0 970.0 963.0 959.0 947.0 939.0 932.0 935.0 936.0 936.0 935.0 932.0 931.0 933.0 933.0 935.0 934.0 931.0 931.0 927.0 919.0 911.0 913.0 927.0 969.0 1042.0 \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/ifcloud/run_script/direct/params",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"ifcloud",
+								"run_script",
+								"direct",
+								"params"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"scriptName\": \"calcBPM.py\", \r\n\t\"params\": \"962.0 962.0 962.0 962.0 962.0 962.0 962.0 962.0 966.0 967.0 965.0 961.0 963.0 964.0 968.0 969.0 969.0 970.0 972.0 976.0 979.0 981.0 983.0 980.0 983.0 990.0 994.0 993.0 996.0 998.0 1001.0 1009.0 1014.0 1012.0 1014.0 1016.0 1021.0 1025.0 1030.0 1033.0 1038.0 1040.0 1045.0 1050.0 1061.0 1069.0 1075.0 1078.0 1085.0 1093.0 1104.0 1110.0 1116.0 1116.0 1119.0 1128.0 1135.0 1141.0 1139.0 1139.0 1137.0 1138.0 1136.0 1134.0 1130.0 1121.0 1120.0 1117.0 1116.0 1108.0 1101.0 1095.0 1085.0 1081.0 1075.0 1066.0 1057.0 1048.0 1045.0 1041.0 1039.0 1032.0 1025.0 1016.0 1015.0 1013.0 1016.0 1010.0 1004.0 999.0 997.0 996.0 993.0 986.0 986.0 985.0 983.0 984.0 981.0 974.0 967.0 965.0 966.0 967.0 971.0 970.0 967.0 958.0 954.0 954.0 962.0 964.0 963.0 958.0 954.0 956.0 957.0 957.0 958.0 956.0 955.0 957.0 957.0 958.0 959.0 956.0 956.0 957.0 961.0 962.0 961.0 958.0 960.0 961.0 968.0 969.0 968.0 968.0 969.0 974.0 978.0 978.0 975.0 972.0 974.0 977.0 981.0 982.0 974.0 967.0 968.0 975.0 977.0 977.0 972.0 973.0 972.0 975.0 981.0 978.0 975.0 969.0 965.0 968.0 973.0 974.0 971.0 964.0 966.0 966.0 972.0 971.0 969.0 968.0 967.0 971.0 976.0 971.0 965.0 958.0 956.0 965.0 967.0 965.0 958.0 955.0 955.0 960.0 962.0 957.0 956.0 954.0 956.0 954.0 961.0 957.0 955.0 959.0 960.0 964.0 963.0 963.0 959.0 953.0 950.0 954.0 955.0 959.0 953.0 951.0 953.0 951.0 954.0 955.0 956.0 953.0 954.0 956.0 955.0 955.0 952.0 952.0 953.0 956.0 958.0 956.0 954.0 950.0 952.0 955.0 952.0 950.0 950.0 950.0 949.0 952.0 953.0 953.0 951.0 946.0 946.0 948.0 951.0 947.0 948.0 949.0 949.0 953.0 956.0 957.0 957.0 954.0 951.0 949.0 951.0 950.0 949.0 945.0 944.0 948.0 954.0 955.0 955.0 954.0 952.0 953.0 955.0 951.0 945.0 944.0 945.0 954.0 959.0 957.0 954.0 947.0 950.0 952.0 955.0 958.0 957.0 956.0 952.0 956.0 957.0 955.0 946.0 944.0 945.0 952.0 955.0 955.0 955.0 956.0 954.0 961.0 966.0 964.0 960.0 959.0 963.0 962.0 968.0 971.0 975.0 977.0 987.0 1004.0 1023.0 1031.0 1026.0 1018.0 1010.0 1006.0 1004.0 1001.0 997.0 992.0 987.0 988.0 987.0 979.0 977.0 972.0 966.0 963.0 961.0 952.0 947.0 947.0 948.0 953.0 957.0 960.0 960.0 957.0 958.0 957.0 958.0 956.0 950.0 939.0 931.0 932.0 960.0 1017.0 1104.0 1203.0 1291.0 1361.0 1404.0 1426.0 1420.0 1387.0 1318.0 1212.0 1084.0 956.0 871.0 879.0 914.0 934.0 935.0 932.0 933.0 937.0 941.0 946.0 945.0 941.0 937.0 934.0 936.0 941.0 943.0 941.0 939.0 938.0 938.0 937.0 939.0 940.0 940.0 941.0 942.0 942.0 946.0 946.0 941.0 938.0 933.0 942.0 947.0 948.0 946.0 947.0 948.0 947.0 953.0 953.0 954.0 954.0 952.0 955.0 961.0 966.0 966.0 960.0 964.0 969.0 973.0 975.0 973.0 974.0 979.0 981.0 980.0 986.0 992.0 1001.0 1009.0 1010.0 1007.0 1005.0 1005.0 1010.0 1020.0 1026.0 1031.0 1027.0 1027.0 1032.0 1044.0 1053.0 1063.0 1071.0 1074.0 1078.0 1084.0 1095.0 1108.0 1117.0 1123.0 1127.0 1129.0 1135.0 1144.0 1152.0 1154.0 1149.0 1147.0 1145.0 1153.0 1152.0 1144.0 1131.0 1129.0 1134.0 1137.0 1132.0 1128.0 1122.0 1114.0 1107.0 1097.0 1083.0 1076.0 1073.0 1067.0 1057.0 1054.0 1047.0 1041.0 1036.0 1029.0 1030.0 1030.0 1024.0 1016.0 1012.0 1005.0 1009.0 1010.0 1009.0 1003.0 998.0 996.0 994.0 997.0 990.0 985.0 982.0 982.0 985.0 982.0 982.0 979.0 975.0 972.0 974.0 976.0 976.0 975.0 974.0 973.0 974.0 978.0 979.0 979.0 983.0 984.0 981.0 974.0 967.0 969.0 973.0 975.0 980.0 982.0 977.0 972.0 971.0 972.0 978.0 987.0 992.0 986.0 986.0 989.0 992.0 995.0 995.0 993.0 992.0 994.0 996.0 997.0 998.0 996.0 993.0 990.0 992.0 993.0 991.0 990.0 990.0 991.0 993.0 999.0 998.0 990.0 983.0 980.0 982.0 985.0 983.0 982.0 982.0 987.0 989.0 988.0 985.0 984.0 981.0 977.0 979.0 982.0 979.0 975.0 975.0 974.0 973.0 975.0 970.0 970.0 974.0 973.0 975.0 981.0 981.0 975.0 970.0 966.0 967.0 976.0 977.0 973.0 969.0 960.0 963.0 971.0 973.0 972.0 966.0 957.0 962.0 971.0 970.0 963.0 957.0 957.0 961.0 965.0 966.0 964.0 962.0 962.0 964.0 965.0 967.0 966.0 962.0 960.0 964.0 967.0 965.0 964.0 960.0 955.0 964.0 965.0 964.0 963.0 963.0 961.0 962.0 965.0 966.0 960.0 962.0 961.0 967.0 970.0 971.0 969.0 968.0 964.0 957.0 959.0 959.0 959.0 958.0 956.0 962.0 965.0 966.0 966.0 968.0 969.0 970.0 972.0 970.0 965.0 962.0 962.0 965.0 969.0 967.0 961.0 961.0 962.0 965.0 968.0 968.0 967.0 966.0 965.0 967.0 967.0 972.0 969.0 966.0 968.0 967.0 977.0 982.0 987.0 989.0 994.0 1002.0 1007.0 1019.0 1029.0 1036.0 1034.0 1030.0 1023.0 1015.0 1005.0 1001.0 1002.0 1002.0 1006.0 1004.0 997.0 988.0 979.0 976.0 978.0 973.0 967.0 962.0 962.0 968.0 972.0 970.0 967.0 960.0 960.0 964.0 972.0 971.0 964.0 950.0 941.0 934.0 937.0 955.0 998.0 1080.0 1182.0 1282.0 1354.0 1397.0 1423.0 1430.0 1418.0 1385.0 1312.0 1184.0 1056.0 928.0 876.0 917.0 953.0 958.0 952.0 946.0 951.0 956.0 965.0 960.0 951.0 940.0 939.0 942.0 945.0 945.0 943.0 941.0 940.0 942.0 945.0 943.0 943.0 941.0 944.0 950.0 952.0 953.0 951.0 946.0 946.0 949.0 957.0 959.0 956.0 951.0 950.0 956.0 961.0 964.0 962.0 963.0 964.0 966.0 971.0 973.0 972.0 972.0 973.0 969.0 973.0 976.0 975.0 980.0 984.0 992.0 994.0 994.0 995.0 997.0 1001.0 1004.0 1008.0 1015.0 1019.0 1022.0 1027.0 1034.0 1043.0 1048.0 1049.0 1050.0 1057.0 1068.0 1079.0 1086.0 1094.0 1099.0 1103.0 1109.0 1120.0 1133.0 1139.0 1138.0 1139.0 1144.0 1152.0 1151.0 1147.0 1147.0 1145.0 1146.0 1144.0 1139.0 1127.0 1123.0 1112.0 1112.0 1113.0 1106.0 1092.0 1077.0 1073.0 1070.0 1067.0 1059.0 1049.0 1035.0 1031.0 1027.0 1026.0 1021.0 1016.0 1015.0 1010.0 1013.0 1012.0 1006.0 999.0 991.0 982.0 984.0 984.0 983.0 980.0 973.0 973.0 970.0 971.0 973.0 974.0 969.0 967.0 965.0 966.0 969.0 968.0 964.0 962.0 961.0 960.0 967.0 959.0 956.0 953.0 954.0 956.0 957.0 957.0 955.0 959.0 958.0 955.0 955.0 952.0 958.0 960.0 958.0 959.0 958.0 957.0 961.0 962.0 964.0 970.0 970.0 969.0 966.0 965.0 964.0 968.0 965.0 967.0 965.0 968.0 972.0 970.0 967.0 964.0 966.0 966.0 966.0 969.0 964.0 963.0 966.0 966.0 968.0 968.0 970.0 965.0 963.0 960.0 960.0 964.0 966.0 967.0 964.0 963.0 963.0 964.0 961.0 960.0 961.0 959.0 963.0 970.0 969.0 966.0 960.0 960.0 967.0 972.0 964.0 957.0 953.0 956.0 962.0 965.0 965.0 962.0 958.0 953.0 958.0 959.0 961.0 958.0 956.0 956.0 964.0 969.0 965.0 958.0 951.0 952.0 958.0 961.0 962.0 961.0 957.0 956.0 959.0 960.0 962.0 960.0 963.0 962.0 962.0 961.0 961.0 959.0 958.0 955.0 960.0 964.0 964.0 963.0 960.0 960.0 963.0 962.0 956.0 951.0 951.0 956.0 959.0 959.0 962.0 961.0 963.0 963.0 966.0 967.0 967.0 962.0 960.0 964.0 966.0 967.0 958.0 954.0 953.0 956.0 960.0 960.0 961.0 958.0 958.0 959.0 965.0 966.0 965.0 968.0 958.0 958.0 958.0 964.0 966.0 966.0 965.0 961.0 959.0 967.0 968.0 972.0 971.0 974.0 983.0 991.0 996.0 997.0 996.0 1003.0 1009.0 1026.0 1031.0 1031.0 1029.0 1022.0 1018.0 1010.0 1003.0 1001.0 999.0 992.0 991.0 990.0 987.0 982.0 974.0 971.0 969.0 969.0 963.0 967.0 969.0 974.0 975.0 972.0 965.0 963.0 959.0 956.0 955.0 952.0 946.0 937.0 938.0 967.0 1028.0 1118.0 1225.0 1318.0 1378.0 1414.0 1430.0 1426.0 1397.0 1331.0 1214.0 1086.0 958.0 874.0 901.0 941.0 953.0 947.0 943.0 951.0 958.0 957.0 954.0 946.0 942.0 942.0 941.0 946.0 946.0 948.0 947.0 948.0 945.0 941.0 937.0 939.0 943.0 947.0 946.0 945.0 944.0 943.0 946.0 949.0 947.0 950.0 952.0 953.0 957.0 961.0 958.0 952.0 953.0 954.0 955.0 963.0 965.0 972.0 965.0 964.0 966.0 971.0 973.0 976.0 974.0 974.0 977.0 980.0 987.0 991.0 994.0 993.0 998.0 1000.0 1003.0 1005.0 1012.0 1016.0 1024.0 1028.0 1030.0 1034.0 1036.0 1043.0 1049.0 1058.0 1064.0 1073.0 1075.0 1081.0 1090.0 1099.0 1104.0 1108.0 1108.0 1115.0 1124.0 1132.0 1136.0 1136.0 1140.0 1140.0 1141.0 1143.0 1141.0 1136.0 1129.0 1122.0 1119.0 1115.0 1111.0 1106.0 1095.0 1081.0 1073.0 1065.0 1059.0 1054.0 1053.0 1048.0 1036.0 1030.0 1023.0 1014.0 1011.0 1012.0 1011.0 1008.0 1005.0 999.0 994.0 992.0 992.0 992.0 987.0 980.0 974.0 975.0 975.0 975.0 971.0 970.0 969.0 972.0 973.0 972.0 964.0 957.0 955.0 959.0 961.0 966.0 966.0 962.0 958.0 956.0 957.0 960.0 960.0 958.0 957.0 956.0 960.0 967.0 971.0 968.0 966.0 961.0 963.0 968.0 966.0 964.0 963.0 966.0 969.0 970.0 968.0 965.0 961.0 968.0 976.0 979.0 975.0 973.0 972.0 971.0 970.0 974.0 975.0 974.0 974.0 973.0 973.0 979.0 981.0 974.0 973.0 973.0 975.0 978.0 979.0 977.0 975.0 976.0 974.0 971.0 969.0 966.0 965.0 962.0 964.0 966.0 967.0 966.0 963.0 964.0 966.0 965.0 963.0 962.0 961.0 960.0 967.0 969.0 968.0 965.0 964.0 962.0 965.0 966.0 963.0 960.0 957.0 960.0 962.0 963.0 964.0 961.0 958.0 955.0 957.0 960.0 962.0 959.0 955.0 950.0 955.0 959.0 959.0 959.0 957.0 957.0 961.0 964.0 961.0 962.0 961.0 958.0 960.0 964.0 961.0 959.0 957.0 959.0 961.0 961.0 962.0 954.0 952.0 955.0 960.0 965.0 966.0 965.0 960.0 959.0 959.0 960.0 956.0 958.0 958.0 957.0 963.0 962.0 965.0 959.0 956.0 956.0 961.0 963.0 962.0 960.0 958.0 959.0 962.0 966.0 965.0 962.0 963.0 963.0 965.0 967.0 966.0 967.0 965.0 962.0 961.0 961.0 958.0 959.0 957.0 960.0 964.0 969.0 972.0 971.0 965.0 964.0 966.0 977.0 979.0 986.0 986.0 993.0 1007.0 1020.0 1035.0 1038.0 1029.0 1025.0 1020.0 1012.0 1008.0 1007.0 1001.0 997.0 996.0 989.0 982.0 977.0 971.0 967.0 965.0 963.0 958.0 959.0 959.0 958.0 962.0 962.0 961.0 955.0 954.0 957.0 961.0 962.0 959.0 946.0 928.0 924.0 935.0 971.0 1028.0 1115.0 1212.0 1308.0 1370.0 1408.0 1426.0 1422.0 1389.0 1320.0 1214.0 1086.0 958.0 873.0 884.0 922.0 940.0 942.0 941.0 946.0 943.0 943.0 939.0 942.0 942.0 942.0 939.0 937.0 938.0 939.0 938.0 937.0 934.0 931.0 935.0 937.0 938.0 934.0 931.0 930.0 933.0 940.0 940.0 942.0 939.0 941.0 945.0 949.0 946.0 943.0 944.0 944.0 945.0 943.0 948.0 954.0 955.0 955.0 960.0 964.0 960.0 956.0 953.0 954.0 958.0 967.0 971.0 968.0 967.0 969.0 975.0 981.0 983.0 984.0 987.0 988.0 992.0 996.0 999.0 1001.0 1003.0 1004.0 1008.0 1015.0 1015.0 1018.0 1025.0 1031.0 1042.0 1050.0 1059.0 1060.0 1062.0 1071.0 1077.0 1093.0 1102.0 1103.0 1103.0 1107.0 1114.0 1123.0 1130.0 1131.0 1134.0 1132.0 1133.0 1134.0 1136.0 1133.0 1131.0 1127.0 1122.0 1119.0 1110.0 1103.0 1095.0 1086.0 1080.0 1075.0 1069.0 1059.0 1054.0 1048.0 1045.0 1044.0 1034.0 1029.0 1022.0 1020.0 1017.0 1013.0 1008.0 1006.0 998.0 993.0 987.0 988.0 986.0 984.0 979.0 975.0 976.0 975.0 974.0 968.0 964.0 959.0 958.0 961.0 957.0 954.0 950.0 952.0 954.0 958.0 959.0 958.0 951.0 946.0 945.0 946.0 951.0 950.0 949.0 948.0 951.0 955.0 953.0 951.0 950.0 946.0 950.0 953.0 954.0 952.0 949.0 950.0 950.0 954.0 955.0 955.0 951.0 954.0 955.0 957.0 958.0 957.0 960.0 961.0 963.0 965.0 963.0 962.0 963.0 965.0 966.0 965.0 962.0 959.0 957.0 960.0 966.0 965.0 964.0 962.0 960.0 961.0 967.0 972.0 969.0 964.0 961.0 962.0 964.0 966.0 964.0 961.0 961.0 961.0 961.0 962.0 961.0 961.0 956.0 953.0 955.0 958.0 959.0 961.0 954.0 955.0 956.0 957.0 956.0 953.0 949.0 951.0 954.0 957.0 954.0 952.0 950.0 950.0 950.0 953.0 953.0 950.0 947.0 949.0 951.0 956.0 955.0 952.0 950.0 951.0 952.0 951.0 954.0 953.0 948.0 946.0 946.0 951.0 954.0 952.0 944.0 941.0 945.0 947.0 947.0 950.0 947.0 949.0 949.0 951.0 954.0 948.0 946.0 947.0 944.0 951.0 949.0 946.0 942.0 945.0 944.0 944.0 943.0 944.0 947.0 948.0 951.0 946.0 945.0 941.0 938.0 940.0 943.0 946.0 950.0 948.0 948.0 945.0 944.0 945.0 947.0 945.0 943.0 945.0 944.0 947.0 950.0 946.0 945.0 945.0 946.0 948.0 945.0 940.0 941.0 947.0 953.0 953.0 953.0 951.0 948.0 949.0 949.0 951.0 950.0 950.0 946.0 947.0 951.0 958.0 960.0 964.0 962.0 966.0 973.0 981.0 996.0 1008.0 1011.0 1012.0 1007.0 1005.0 999.0 989.0 986.0 981.0 980.0 984.0 983.0 976.0 966.0 966.0 963.0 962.0 952.0 941.0 933.0 935.0 937.0 942.0 944.0 942.0 939.0 937.0 942.0 946.0 950.0 947.0 943.0 938.0 930.0 922.0 918.0 923.0 943.0 994.0 1081.0 1190.0 1290.0 1359.0 1394.0 1412.0 1415.0 1396.0 1343.0 1244.0 1116.0 988.0 860.0 858.0 894.0 916.0 916.0 915.0 918.0 924.0 923.0 924.0 918.0 922.0 923.0 925.0 928.0 922.0 919.0 920.0 923.0 927.0 925.0 921.0 918.0 917.0 919.0 924.0 927.0 920.0 923.0 923.0 927.0 929.0 931.0 929.0 927.0 927.0 932.0 932.0 926.0 924.0 924.0 929.0 933.0 938.0 943.0 941.0 935.0 930.0 936.0 945.0 943.0 941.0 938.0 940.0 942.0 952.0 957.0 956.0 956.0 958.0 963.0 970.0 967.0 966.0 966.0 971.0 979.0 989.0 994.0 999.0 997.0 998.0 997.0 1002.0 1004.0 1011.0 1014.0 1025.0 1031.0 1042.0 1049.0 1055.0 1058.0 1066.0 1076.0 1084.0 1093.0 1099.0 1105.0 1106.0 1111.0 1118.0 1123.0 1123.0 1122.0 1121.0 1123.0 1128.0 1128.0 1124.0 1117.0 1107.0 1106.0 1104.0 1101.0 1095.0 1082.0 1074.0 1073.0 1070.0 1064.0 1054.0 1044.0 1042.0 1036.0 1034.0 1031.0 1026.0 1016.0 1008.0 1008.0 1005.0 1003.0 1001.0 994.0 989.0 992.0 993.0 991.0 985.0 982.0 978.0 979.0 976.0 973.0 971.0 962.0 960.0 962.0 965.0 964.0 962.0 960.0 958.0 955.0 952.0 955.0 955.0 953.0 954.0 954.0 953.0 956.0 953.0 953.0 952.0 958.0 962.0 960.0 959.0 957.0 954.0 953.0 953.0 958.0 953.0 958.0 957.0 958.0 963.0 968.0 969.0 971.0 970.0 972.0 973.0 973.0 970.0 969.0 971.0 966.0 972.0 975.0 976.0 974.0 973.0 971.0 971.0 969.0 970.0 969.0 970.0 972.0 977.0 975.0 972.0 968.0 968.0 970.0 976.0 975.0 969.0 967.0 970.0 971.0 973.0 968.0 967.0 964.0 964.0 964.0 963.0 958.0 961.0 957.0 956.0 962.0 963.0 961.0 956.0 953.0 956.0 960.0 961.0 957.0 954.0 953.0 957.0 961.0 963.0 955.0 952.0 949.0 951.0 952.0 954.0 956.0 956.0 954.0 957.0 961.0 960.0 961.0 956.0 946.0 947.0 951.0 951.0 952.0 952.0 950.0 951.0 954.0 953.0 953.0 952.0 945.0 944.0 945.0 947.0 949.0 952.0 946.0 944.0 945.0 957.0 958.0 953.0 948.0 945.0 946.0 950.0 954.0 953.0 954.0 949.0 951.0 954.0 958.0 951.0 951.0 952.0 954.0 957.0 957.0 951.0 945.0 947.0 950.0 951.0 950.0 944.0 942.0 946.0 944.0 949.0 950.0 950.0 945.0 948.0 949.0 952.0 953.0 954.0 956.0 957.0 956.0 960.0 962.0 962.0 962.0 966.0 973.0 981.0 987.0 994.0 1001.0 1009.0 1014.0 1012.0 1009.0 1000.0 996.0 988.0 986.0 988.0 987.0 983.0 978.0 973.0 971.0 968.0 965.0 961.0 954.0 951.0 951.0 954.0 953.0 948.0 944.0 944.0 948.0 952.0 953.0 951.0 948.0 949.0 946.0 949.0 945.0 934.0 922.0 928.0 956.0 1012.0 1086.0 1178.0 1266.0 1339.0 1386.0 1411.0 1417.0 1408.0 1366.0 1290.0 1179.0 1051.0 925.0 866.0 880.0 918.0 936.0 936.0 934.0 936.0 940.0 940.0 938.0 938.0 933.0 935.0 932.0 932.0 930.0 931.0 935.0 935.0 935.0 931.0 932.0 935.0 936.0 931.0 933.0 935.0 938.0 939.0 940.0 942.0 941.0 939.0 941.0 945.0 944.0 942.0 937.0 937.0 944.0 947.0 947.0 945.0 946.0 946.0 952.0 954.0 952.0 947.0 950.0 956.0 959.0 963.0 963.0 965.0 966.0 966.0 969.0 974.0 977.0 975.0 976.0 976.0 984.0 992.0 996.0 997.0 998.0 1002.0 1006.0 1013.0 1016.0 1016.0 1018.0 1023.0 1034.0 1041.0 1043.0 1052.0 1052.0 1057.0 1066.0 1078.0 1087.0 1091.0 1090.0 1099.0 1106.0 1114.0 1120.0 1121.0 1126.0 1134.0 1137.0 1142.0 1143.0 1137.0 1135.0 1132.0 1132.0 1131.0 1127.0 1120.0 1113.0 1111.0 1105.0 1099.0 1090.0 1084.0 1072.0 1066.0 1058.0 1058.0 1053.0 1044.0 1032.0 1028.0 1025.0 1022.0 1017.0 1012.0 1003.0 998.0 998.0 1000.0 1000.0 993.0 987.0 985.0 983.0 984.0 979.0 976.0 971.0 967.0 968.0 967.0 970.0 965.0 961.0 958.0 957.0 957.0 955.0 952.0 949.0 949.0 951.0 952.0 955.0 955.0 951.0 950.0 948.0 953.0 959.0 958.0 953.0 951.0 949.0 953.0 954.0 953.0 952.0 955.0 957.0 962.0 959.0 958.0 954.0 956.0 955.0 955.0 955.0 957.0 954.0 952.0 952.0 957.0 958.0 957.0 957.0 958.0 965.0 968.0 964.0 958.0 954.0 958.0 961.0 965.0 961.0 962.0 963.0 965.0 968.0 971.0 973.0 969.0 965.0 959.0 960.0 969.0 971.0 969.0 964.0 961.0 961.0 967.0 972.0 968.0 964.0 959.0 958.0 961.0 959.0 957.0 956.0 954.0 960.0 962.0 963.0 962.0 955.0 959.0 961.0 964.0 963.0 958.0 953.0 958.0 963.0 962.0 961.0 960.0 956.0 953.0 956.0 959.0 961.0 961.0 957.0 957.0 960.0 966.0 974.0 968.0 959.0 958.0 958.0 960.0 961.0 966.0 973.0 974.0 975.0 969.0 970.0 973.0 975.0 982.0 983.0 988.0 991.0 985.0 978.0 973.0 972.0 970.0 972.0 974.0 977.0 979.0 987.0 992.0 999.0 998.0 993.0 988.0 986.0 990.0 993.0 994.0 998.0 1001.0 1002.0 1002.0 999.0 1000.0 995.0 995.0 1000.0 1000.0 1004.0 1005.0 1002.0 997.0 999.0 1004.0 1005.0 999.0 994.0 993.0 998.0 1002.0 1004.0 1000.0 1000.0 1000.0 1006.0 1014.0 1016.0 1018.0 1021.0 1021.0 1020.0 1023.0 1029.0 1034.0 1033.0 1044.0 1058.0 1066.0 1067.0 1064.0 1055.0 1057.0 1063.0 1064.0 1057.0 1047.0 1042.0 1039.0 1037.0 1034.0 1024.0 1015.0 1005.0 1006.0 1013.0 1018.0 1014.0 1010.0 1001.0 993.0 984.0 979.0 980.0 989.0 993.0 994.0 994.0 995.0 991.0 984.0 980.0 977.0 974.0 987.0 1020.0 1072.0 1145.0 1242.0 1333.0 1399.0 1430.0 1439.0 1429.0 1406.0 1356.0 1264.0 1136.0 1008.0 922.0 930.0 972.0 994.0 990.0 982.0 986.0 990.0 998.0 996.0 1000.0 998.0 994.0 989.0 991.0 993.0 992.0 986.0 981.0 981.0 980.0 980.0 976.0 974.0 974.0 978.0 980.0 987.0 991.0 989.0 990.0 994.0 995.0 995.0 986.0 980.0 979.0 980.0 991.0 998.0 995.0 989.0 987.0 990.0 996.0 1003.0 1002.0 999.0 995.0 993.0 1005.0 1016.0 1026.0 1032.0 1030.0 1024.0 1020.0 1016.0 1010.0 1010.0 1012.0 1023.0 1029.0 1030.0 1035.0 1037.0 1034.0 1038.0 1047.0 1052.0 1056.0 1061.0 1065.0 1075.0 1083.0 1089.0 1095.0 1094.0 1097.0 1106.0 1115.0 1120.0 1124.0 1127.0 1132.0 1138.0 1140.0 1149.0 1151.0 1154.0 1157.0 1162.0 1166.0 1166.0 1166.0 1162.0 1156.0 1151.0 1147.0 1142.0 1137.0 1129.0 1123.0 1117.0 1112.0 1114.0 1111.0 1100.0 1088.0 1087.0 1080.0 1074.0 1066.0 1059.0 1051.0 1049.0 1051.0 1050.0 1044.0 1036.0 1033.0 1033.0 1026.0 1019.0 1009.0 1002.0 998.0 996.0 1002.0 1008.0 1008.0 1001.0 993.0 989.0 993.0 1002.0 1003.0 998.0 992.0 986.0 992.0 994.0 991.0 988.0 986.0 990.0 993.0 993.0 995.0 995.0 993.0 991.0 990.0 996.0 993.0 988.0 982.0 983.0 988.0 995.0 994.0 992.0 984.0 982.0 982.0 992.0 996.0 996.0 993.0 995.0 997.0 1000.0 1001.0 997.0 994.0 992.0 992.0 993.0 993.0 988.0 985.0 988.0 990.0 996.0 994.0 994.0 990.0 987.0 989.0 990.0 991.0 988.0 981.0 982.0 988.0 989.0 987.0 983.0 986.0 988.0 989.0 982.0 979.0 976.0 974.0 973.0 978.0 979.0 976.0 973.0 973.0 973.0 975.0 974.0 971.0 973.0 965.0 967.0 970.0 972.0 969.0 965.0 960.0 961.0 965.0 968.0 963.0 953.0 944.0 947.0 960.0 970.0 972.0 969.0 962.0 959.0 961.0 967.0 967.0 960.0 953.0 953.0 958.0 962.0 967.0 967.0 965.0 963.0 963.0 965.0 961.0 956.0 950.0 944.0 946.0 949.0 955.0 956.0 953.0 957.0 960.0 963.0 958.0 947.0 945.0 950.0 960.0 969.0 971.0 967.0 960.0 957.0 956.0 957.0 955.0 952.0 950.0 951.0 949.0 946.0 947.0 946.0 944.0 943.0 947.0 952.0 959.0 963.0 961.0 965.0 970.0 973.0 982.0 987.0 988.0 997.0 1006.0 1022.0 1032.0 1039.0 1034.0 1025.0 1016.0 1013.0 1003.0 991.0 979.0 983.0 991.0 995.0 986.0 968.0 951.0 941.0 945.0 949.0 941.0 932.0 928.0 932.0 935.0 937.0 934.0 940.0 940.0 938.0 925.0 923.0 925.0 925.0 911.0 899.0 901.0 925.0 974.0 1049.0 1140.0 1238.0 1316.0 1365.0 1393.0 1404.0 1390.0 1349.0 1259.0 1131.0 1003.0 875.0 817.0 865.0 905.0 910.0 903.0 900.0 906.0 911.0 914.0 914.0 916.0 916.0 918.0 919.0 918.0 914.0 908.0 908.0 902.0 899.0 896.0 895.0 891.0 883.0 879.0 882.0 890.0 895.0 901.0 906.0 913.0 914.0 908.0 904.0 897.0 897.0 896.0 899.0 900.0 902.0 902.0 902.0 905.0 909.0 916.0 918.0 918.0 919.0 919.0 924.0 926.0 925.0 927.0 931.0 929.0 933.0 937.0 948.0 956.0 953.0 942.0 940.0 945.0 956.0 965.0 971.0 974.0 979.0 982.0 984.0 988.0 995.0 1002.0 1017.0 1027.0 1033.0 1039.0 1045.0 1052.0 1058.0 1064.0 1070.0 1077.0 1083.0 1087.0 1093.0 1099.0 1105.0 1106.0 1100.0 1095.0 1089.0 1085.0 1077.0 1069.0 1063.0 1058.0 1054.0 1049.0 1040.0 1032.0 1026.0 1022.0 1016.0 1006.0 998.0 995.0 984.0 975.0 970.0 969.0 964.0 962.0 958.0 954.0 950.0 946.0 944.0 939.0 932.0 929.0 930.0 931.0 930.0 930.0 927.0 920.0 915.0 912.0 912.0 911.0 910.0 911.0 911.0 912.0 914.0 918.0 919.0 914.0 913.0 912.0 918.0 919.0 921.0 920.0 921.0 922.0 920.0 921.0 924.0 924.0 928.0 931.0 933.0 929.0 926.0 925.0 925.0 927.0 931.0 938.0 940.0 942.0 939.0 934.0 932.0 934.0 938.0 938.0 941.0 942.0 939.0 936.0 931.0 930.0 931.0 936.0 944.0 949.0 944.0 936.0 932.0 932.0 935.0 932.0 938.0 933.0 931.0 933.0 938.0 942.0 937.0 929.0 925.0 930.0 935.0 937.0 936.0 934.0 929.0 927.0 930.0 923.0 922.0 917.0 915.0 918.0 921.0 924.0 926.0 927.0 927.0 927.0 926.0 926.0 921.0 923.0 924.0 928.0 931.0 929.0 930.0 929.0 930.0 929.0 928.0 933.0 927.0 919.0 917.0 921.0 922.0 927.0 925.0 925.0 927.0 925.0 928.0 927.0 925.0 922.0 923.0 932.0 935.0 936.0 933.0 925.0 926.0 927.0 935.0 939.0 937.0 934.0 934.0 945.0 952.0 954.0 955.0 949.0 953.0 954.0 956.0 959.0 970.0 980.0 994.0 1004.0 1008.0 1007.0 1002.0 990.0 987.0 983.0 980.0 979.0 969.0 960.0 952.0 948.0 946.0 947.0 948.0 942.0 933.0 928.0 930.0 929.0 931.0 926.0 925.0 927.0 931.0 934.0 935.0 929.0 926.0 924.0 916.0 908.0 905.0 920.0 958.0 1026.0 1125.0 1230.0 1318.0 1368.0 1395.0 1407.0 1401.0 1371.0 1294.0 1166.0 1038.0 910.0 814.0 848.0 889.0 899.0 897.0 899.0 906.0 909.0 912.0 911.0 909.0 912.0 909.0 910.0 908.0 907.0 909.0 913.0 912.0 910.0 905.0 900.0 903.0 904.0 909.0 911.0 913.0 910.0 909.0 913.0 916.0 919.0 918.0 914.0 914.0 917.0 917.0 919.0 923.0 918.0 915.0 918.0 921.0 926.0 928.0 929.0 929.0 931.0 935.0 943.0 947.0 947.0 942.0 939.0 941.0 941.0 946.0 951.0 954.0 960.0 966.0 969.0 967.0 962.0 967.0 973.0 985.0 993.0 1000.0 999.0 1004.0 1011.0 1025.0 1035.0 1040.0 1045.0 1044.0 1043.0 1047.0 1063.0 1070.0 1081.0 1085.0 1093.0 1102.0 1110.0 1113.0 1112.0 1115.0 1117.0 1119.0 1120.0 1114.0 1110.0 1102.0 1098.0 1095.0 1092.0 1086.0 1079.0 1074.0 1069.0 1068.0 1061.0 1051.0 1041.0 1037.0 1032.0 1029.0 1018.0 1006.0 997.0 997.0 993.0 993.0 989.0 980.0 974.0 970.0 973.0 973.0 970.0 966.0 963.0 957.0 959.0 958.0 952.0 948.0 950.0 953.0 954.0 952.0 948.0 942.0 936.0 937.0 935.0 930.0 926.0 921.0 922.0 925.0 929.0 932.0 935.0 934.0 931.0 925.0 929.0 932.0 935.0 937.0 933.0 935.0 936.0 943.0 941.0 941.0 937.0 934.0 938.0 944.0 944.0 943.0 940.0 940.0 941.0 943.0 946.0 944.0 946.0 949.0 951.0 955.0 956.0 953.0 947.0 948.0 949.0 950.0 953.0 955.0 948.0 946.0 949.0 952.0 953.0 951.0 951.0 953.0 956.0 954.0 950.0 947.0 939.0 943.0 940.0 945.0 946.0 946.0 945.0 942.0 946.0 950.0 948.0 942.0 936.0 933.0 937.0 942.0 942.0 942.0 937.0 933.0 930.0 935.0 940.0 943.0 939.0 935.0 935.0 936.0 939.0 935.0 935.0 938.0 939.0 939.0 936.0 933.0 931.0 928.0 926.0 931.0 934.0 934.0 931.0 933.0 936.0 942.0 937.0 933.0 933.0 932.0 932.0 933.0 929.0 929.0 925.0 925.0 928.0 932.0 936.0 936.0 931.0 930.0 929.0 934.0 933.0 935.0 932.0 930.0 925.0 929.0 935.0 937.0 931.0 930.0 935.0 936.0 932.0 928.0 929.0 931.0 936.0 945.0 946.0 948.0 949.0 956.0 961.0 971.0 975.0 984.0 994.0 1001.0 1004.0 1004.0 1004.0 1005.0 1004.0 995.0 994.0 994.0 987.0 973.0 957.0 950.0 950.0 952.0 953.0 947.0 937.0 932.0 928.0 928.0 934.0 936.0 937.0 932.0 932.0 934.0 934.0 929.0 925.0 922.0 922.0 920.0 911.0 903.0 901.0 916.0 956.0 1018.0 1112.0 1214.0 1294.0 1350.0 1382.0 1398.0 1393.0 1374.0 1324.0 1234.0 1106.0 978.0 867.0 853.0 882.0 907.0 906.0 907.0 910.0 915.0 918.0 917.0 915.0 914.0 911.0 906.0 906.0 905.0 906.0 908.0 910.0 909.0 910.0 910.0 989.0 994.0 995.0 994.0 995.0 992.0 993.0 995.0 995.0 991.0 988.0 989.0 992.0 994.0 998.0 999.0 994.0 990.0 988.0 985.0 987.0 985.0 982.0 978.0 980.0 984.0 987.0 986.0 982.0 980.0 983.0 985.0 983.0 980.0 976.0 976.0 980.0 982.0 980.0 978.0 976.0 976.0 977.0 981.0 976.0 975.0 969.0 971.0 973.0 976.0 976.0 973.0 970.0 970.0 973.0 976.0 978.0 978.0 974.0 968.0 973.0 974.0 971.0 965.0 963.0 963.0 970.0 977.0 978.0 977.0 971.0 968.0 971.0 974.0 976.0 974.0 971.0 969.0 970.0 976.0 975.0 975.0 970.0 973.0 976.0 982.0 985.0 988.0 992.0 997.0 1003.0 1006.0 1003.0 998.0 997.0 1008.0 1027.0 1041.0 1045.0 1041.0 1038.0 1037.0 1038.0 1042.0 1035.0 1028.0 1017.0 1002.0 999.0 997.0 993.0 986.0 973.0 974.0 974.0 977.0 975.0 973.0 972.0 974.0 980.0 983.0 981.0 970.0 954.0 945.0 945.0 958.0 993.0 1055.0 1154.0 1264.0 1362.0 1422.0 1452.0 1455.0 1439.0 1390.0 1302.0 1182.0 1054.0 926.0 900.0 934.0 962.0 965.0 965.0 964.0 966.0 963.0 962.0 963.0 959.0 954.0 946.0 946.0 951.0 953.0 954.0 953.0 951.0 949.0 954.0 960.0 958.0 957.0 954.0 954.0 954.0 960.0 961.0 958.0 956.0 956.0 960.0 963.0 960.0 958.0 960.0 961.0 964.0 968.0 968.0 969.0 969.0 968.0 970.0 976.0 975.0 975.0 974.0 976.0 979.0 985.0 985.0 984.0 983.0 983.0 991.0 995.0 996.0 997.0 997.0 1000.0 1006.0 1012.0 1014.0 1012.0 1011.0 1015.0 1021.0 1029.0 1029.0 1027.0 1030.0 1032.0 1035.0 1042.0 1047.0 1049.0 1050.0 1054.0 1055.0 1062.0 1066.0 1064.0 1062.0 1063.0 1068.0 1072.0 1071.0 1063.0 1058.0 1060.0 1060.0 1060.0 1062.0 1051.0 1044.0 1043.0 1042.0 1040.0 1037.0 1028.0 1023.0 1024.0 1023.0 1024.0 1019.0 1013.0 1005.0 1006.0 1008.0 1010.0 1005.0 997.0 995.0 993.0 996.0 999.0 996.0 992.0 989.0 991.0 994.0 998.0 999.0 997.0 993.0 994.0 996.0 1001.0 999.0 999.0 997.0 998.0 1000.0 1002.0 1003.0 1003.0 997.0 1000.0 1002.0 1007.0 1006.0 1002.0 999.0 1000.0 1001.0 1003.0 1005.0 1005.0 1004.0 1004.0 1006.0 1011.0 1013.0 1010.0 1007.0 1005.0 1008.0 1009.0 1010.0 1007.0 1003.0 1004.0 1008.0 1009.0 1005.0 1002.0 1000.0 999.0 998.0 1005.0 1002.0 1001.0 1000.0 1002.0 999.0 1003.0 999.0 998.0 997.0 994.0 996.0 996.0 996.0 998.0 996.0 993.0 992.0 997.0 994.0 992.0 989.0 990.0 992.0 995.0 992.0 992.0 988.0 985.0 986.0 992.0 992.0 985.0 984.0 987.0 990.0 990.0 989.0 988.0 985.0 985.0 988.0 991.0 991.0 992.0 988.0 986.0 989.0 994.0 996.0 996.0 996.0 1000.0 1008.0 1013.0 1018.0 1015.0 1015.0 1018.0 1026.0 1042.0 1051.0 1054.0 1050.0 1050.0 1055.0 1059.0 1059.0 1056.0 1048.0 1041.0 1029.0 1022.0 1017.0 1007.0 1001.0 993.0 988.0 988.0 987.0 984.0 982.0 979.0 979.0 987.0 986.0 986.0 980.0 979.0 975.0 975.0 962.0 945.0 940.0 955.0 1003.0 1084.0 1194.0 1309.0 1392.0 1442.0 1464.0 1463.0 1449.0 1410.0 1321.0 1193.0 1065.0 937.0 902.0 938.0 965.0 970.0 969.0 968.0 973.0 972.0 965.0 962.0 963.0 964.0 961.0 956.0 954.0 954.0 959.0 960.0 958.0 956.0 955.0 955.0 959.0 958.0 960.0 954.0 950.0 948.0 952.0 958.0 961.0 958.0 955.0 956.0 960.0 964.0 966.0 966.0 961.0 963.0 964.0 968.0 973.0 973.0 970.0 972.0 976.0 980.0 982.0 983.0 982.0 983.0 984.0 990.0 990.0 992.0 991.0 990.0 995.0 1000.0 1004.0 1003.0 1006.0 1009.0 1015.0 1019.0 1023.0 1021.0 1021.0 1024.0 1028.0 1035.0 1038.0 1038.0 1039.0 1045.0 1049.0 1051.0 1056.0 1053.0 1054.0 1057.0 1061.0 1066.0 1070.0 1065.0 1065.0 1065.0 1067.0 1069.0 1063.0 1064.0 1055.0 1052.0 1053.0 1053.0 1050.0 1047.0 1039.0 1038.0 1038.0 1035.0 1029.0 1020.0 1019.0 1019.0 1019.0 1018.0 1013.0 1007.0 1001.0 1000.0 1000.0 1004.0 999.0 1003.0 999.0 998.0 999.0 1000.0 999.0 997.0 994.0 995.0 997.0 999.0 1000.0 999.0 999.0 1002.0 1002.0 1003.0 1007.0 1004.0 998.0 1000.0 1002.0 1008.0 1008.0 1008.0 1003.0 1004.0 1007.0 1007.0 1004.0 1004.0 1003.0 1004.0 1008.0 1011.0 1009.0 1008.0 1006.0 1008.0 1007.0 1007.0 1008.0 1007.0 1005.0 1003.0 1004.0 1006.0 1007.0 1006.0 1002.0 1001.0 1003.0 1004.0 1002.0 998.0 993.0 995.0 996.0 1000.0 1001.0 997.0 992.0 993.0 992.0 996.0 994.0 992.0 987.0 983.0 983.0 990.0 992.0 988.0 984.0 985.0 986.0 988.0 987.0 983.0 980.0 979.0 981.0 985.0 986.0 982.0 978.0 981.0 981.0 984.0 982.0 978.0 976.0 977.0 977.0 982.0 982.0 980.0 977.0 975.0 977.0 980.0 979.0 980.0 980.0 982.0 988.0 990.0 995.0 995.0 995.0 998.0 1005.0 1010.0 1014.0 1015.0 1018.0 1029.0 1039.0 1046.0 1046.0 1042.0 1036.0 1036.0 1042.0 1045.0 1039.0 1023.0 1008.0 1000.0 995.0 995.0 988.0 978.0 970.0 967.0 970.0 973.0 971.0 968.0 964.0 963.0 964.0 968.0 969.0 967.0 963.0 959.0 950.0 939.0 923.0 918.0 929.0 967.0 1032.0 1127.0 1238.0 1333.0 1402.0 1434.0 1447.0 1440.0 1419.0 1364.0 1261.0 1133.0 1005.0 886.0 891.0 930.0 952.0 950.0 946.0 947.0 952.0 944.0 940.0 938.0 934.0 937.0 936.0 933.0 933.0 930.0 933.0 935.0 935.0 932.0 929.0 928.0 932.0 936.0 937.0 935.0 933.0 933.0 935.0 935.0 936.0 935.0 930.0 933.0 937.0 940.0 942.0 939.0 938.0 937.0 941.0 944.0 946.0 942.0 939.0 941.0 946.0 951.0 951.0 954.0 955.0 956.0 959.0 964.0 968.0 965.0 963.0 967.0 967.0 972.0 976.0 977.0 976.0 979.0 986.0 989.0 993.0 993.0 988.0 992.0 1000.0 1006.0 1013.0 1010.0 1007.0 1005.0 1008.0 1017.0 1021.0 1022.0 1019.0 1023.0 1029.0 1030.0 1031.0 1034.0 1031.0 1030.0 1032.0 1035.0 1034.0 1031.0 1023.0 1027.0 1022.0 1020.0 1020.0 1015.0 1011.0 1009.0 1007.0 1006.0 1003.0 998.0 994.0 992.0 990.0 992.0 988.0 982.0 980.0 980.0 981.0 982.0 982.0 978.0 974.0 973.0 975.0 980.0 981.0 981.0 976.0 975.0 980.0 983.0 987.0 984.0 979.0 983.0 985.0 991.0 992.0 985.0 983.0 983.0 984.0 985.0 987.0 983.0 983.0 985.0 989.0 992.0 992.0 985.0 982.0 979.0 982.0 987.0 989.0 989.0 986.0 986.0 987.0 988.0 990.0 988.0 983.0 984.0 986.0 987.0 984.0 981.0 979.0 977.0 979.0 983.0 980.0 980.0 975.0 975.0 977.0 978.0 975.0 975.0 971.0 972.0 975.0 975.0 976.0 972.0 971.0 970.0 972.0 975.0 979.0 976.0 973.0 965.0 963.0 967.0 972.0 974.0 971.0 969.0 966.0 970.0 973.0 971.0 969.0 966.0 967.0 969.0 963.0 964.0 962.0 965.0 968.0 971.0 972.0 968.0 964.0 967.0 968.0 971.0 973.0 970.0 965.0 966.0 970.0 974.0 976.0 975.0 977.0 985.0 989.0 994.0 998.0 1000.0 997.0 998.0 1007.0 1018.0 1032.0 1039.0 1037.0 1036.0 1036.0 1039.0 1040.0 1037.0 1033.0 1026.0 1018.0 1009.0 1002.0 996.0 990.0 983.0 977.0 976.0 970.0 960.0 951.0 950.0 961.0 963.0 964.0 961.0 955.0 957.0 958.0 957.0 956.0 950.0 936.0 928.0 919.0 923.0 943.0 982.0 1045.0 1137.0 1242.0 1331.0 1392.0 1423.0 1432.0 1427.0 1415.0 1381.0 1308.0 1195.0 1067.0 951.0 893.0 900.0 928.0 944.0 944.0 947.0 951.0 956.0 956.0 952.0 948.0 943.0 942.0 945.0 942.0 938.0 932.0 930.0 938.0 947.0 950.0 948.0 939.0 938.0 940.0 944.0 948.0 947.0 944.0 946.0 947.0 949.0 953.0 950.0 949.0 947.0 948.0 948.0 947.0 943.0 941.0 947.0 955.0 961.0 957.0 955.0 956.0 954.0 959.0 961.0 961.0 961.0 958.0 960.0 964.0 970.0 970.0 972.0 976.0 976.0 980.0 981.0 979.0 976.0 976.0 977.0 977.0 987.0 990.0 991.0 992.0 991.0 995.0 996.0 999.0 998.0 997.0 1000.0 1005.0 1008.0 1010.0 1011.0 1013.0 1017.0 1021.0 1026.0 1031.0 1031.0 1028.0 1027.0 1023.0 1019.0 1016.0 1017.0 1025.0 1025.0 1028.0 1028.0 1028.0 1023.0 1023.0 1022.0 1020.0 1021.0 1017.0 1016.0 1012.0 1013.0 1011.0 1012.0 1011.0 1007.0 1004.0 1000.0 999.0 996.0 994.0 988.0 981.0 978.0 977.0 982.0 983.0 981.0 978.0 976.0 982.0 984.0 982.0 982.0 979.0 982.0 984.0 984.0 983.0 983.0 972.0 972.0 980.0 989.0 989.0 986.0 979.0 984.0 985.0 989.0 988.0 986.0 987.0 988.0 987.0 988.0 991.0 990.0 989.0 990.0 993.0 994.0 993.0 988.0 989.0 988.0 991.0 993.0 997.0 996.0 991.0 988.0 988.0 989.0 986.0 989.0 984.0 985.0 986.0 987.0 987.0 981.0 979.0 981.0 982.0 984.0 981.0 981.0 976.0 975.0 977.0 981.0 977.0 975.0 973.0 970.0 973.0 975.0 973.0 970.0 969.0 968.0 970.0 971.0 970.0 968.0 965.0 964.0 966.0 967.0 968.0 966.0 963.0 960.0 965.0 968.0 968.0 970.0 966.0 965.0 965.0 967.0 967.0 963.0 962.0 962.0 962.0 964.0 966.0 963.0 960.0 962.0 966.0 970.0 972.0 976.0 979.0 982.0 986.0 988.0 991.0 990.0 989.0 1001.0 1015.0 1029.0 1035.0 1035.0 1030.0 1031.0 1035.0 1037.0 1034.0 1029.0 1016.0 1004.0 998.0 996.0 992.0 987.0 975.0 964.0 958.0 955.0 955.0 956.0 952.0 951.0 955.0 960.0 958.0 952.0 947.0 948.0 949.0 951.0 945.0 931.0 916.0 916.0 936.0 977.0 1044.0 1139.0 1238.0 1323.0 1385.0 1418.0 1431.0 1429.0 1417.0 1384.0 1325.0 1218.0 1090.0 962.0 852.0 851.0 890.0 920.0 932.0 936.0 936.0 938.0 936.0 942.0 941.0 936.0 930.0 929.0 927.0 931.0 933.0 932.0 929.0 930.0 930.0 932.0 934.0 931.0 926.0 927.0 932.0 937.0 938.0 936.0 932.0 932.0 937.0 939.0 937.0 937.0 936.0 936.0 941.0 944.0 948.0 947.0 944.0 946.0 947.0 953.0 952.0 952.0 948.0 950.0 954.0 957.0 959.0 955.0 953.0 954.0 955.0 964.0 963.0 961.0 962.0 969.0 979.0 984.0 982.0 980.0 976.0 976.0 976.0 986.0 991.0 991.0 987.0 989.0 995.0 1000.0 1005.0 1004.0 998.0 1000.0 1006.0 1015.0 1019.0 1019.0 1015.0 1013.0 1016.0 1018.0 1025.0 1031.0 1032.0 1034.0 1032.0 1034.0 1032.0 1032.0 1030.0 1027.0 1031.0 1035.0 1033.0 1032.0 1030.0 1024.0 1023.0 1022.0 1024.0 1022.0 1019.0 1017.0 1013.0 1013.0 1007.0 1004.0 999.0 997.0 999.0 996.0 996.0 994.0 994.0 993.0 995.0 999.0 999.0 997.0 991.0 988.0 990.0 991.0 991.0 988.0 988.0 990.0 993.0 996.0 996.0 996.0 994.0 993.0 991.0 996.0 999.0 997.0 994.0 998.0 1001.0 1002.0 1001.0 1001.0 998.0 996.0 996.0 1000.0 1004.0 1001.0 1001.0 1001.0 1004.0 1006.0 1005.0 1006.0 1003.0 1000.0 999.0 1001.0 1000.0 999.0 1001.0 1002.0 1004.0 1000.0 993.0 984.0 984.0 992.0 997.0 1001.0 999.0 994.0 985.0 978.0 977.0 982.0 984.0 983.0 977.0 976.0 978.0 981.0 979.0 978.0 976.0 975.0 975.0 978.0 977.0 976.0 973.0 968.0 969.0 972.0 967.0 968.0 963.0 966.0 967.0 974.0 970.0 970.0 970.0 967.0 970.0 968.0 966.0 965.0 966.0 966.0 968.0 973.0 978.0 976.0 975.0 974.0 976.0 979.0 981.0 981.0 982.0 985.0 988.0 992.0 1000.0 1010.0 1018.0 1023.0 1029.0 1031.0 1032.0 1033.0 1031.0 1031.0 1026.0 1020.0 1013.0 999.0 988.0 984.0 976.0 974.0 966.0 961.0 952.0 952.0 952.0 958.0 956.0 954.0 951.0 949.0 951.0 954.0 956.0 952.0 943.0 932.0 924.0 931.0 959.0 1007.0 1082.0 1186.0 1292.0 1371.0 1410.0 1422.0 1410.0 1386.0 1330.0 1227.0 1099.0 971.0 847.0 844.0 878.0 908.0 919.0 920.0 919.0 925.0 929.0 934.0 932.0 925.0 924.0 921.0 921.0 926.0 925.0 924.0 920.0 914.0 918.0 924.0 926.0 925.0 919.0 918.0 920.0 921.0 923.0 924.0 921.0 923.0 923.0 928.0 926.0 926.0 922.0 923.0 924.0 928.0 929.0 930.0 927.0 930.0 931.0 935.0 936.0 932.0 931.0 931.0 932.0 941.0 941.0 945.0 942.0 943.0 944.0 950.0 953.0 952.0 951.0 951.0 955.0 960.0 964.0 966.0 963.0 962.0 966.0 969.0 971.0 973.0 974.0 977.0 983.0 984.0 986.0 985.0 985.0 990.0 993.0 997.0 1002.0 1002.0 1001.0 1002.0 1002.0 1008.0 1007.0 1007.0 1007.0 1007.0 1005.0 1009.0 1006.0 1001.0 997.0 995.0 997.0 997.0 995.0 990.0 986.0 983.0 981.0 979.0 978.0 973.0 967.0 966.0 963.0 965.0 963.0 959.0 955.0 955.0 953.0 954.0 957.0 952.0 947.0 946.0 949.0 953.0 952.0 952.0 946.0 947.0 948.0 956.0 954.0 954.0 954.0 952.0 954.0 957.0 958.0 954.0 953.0 955.0 957.0 960.0 963.0 960.0 956.0 957.0 961.0 962.0 964.0 962.0 959.0 957.0 962.0 964.0 964.0 961.0 961.0 960.0 960.0 965.0 964.0 962.0 960.0 958.0 961.0 960.0 959.0 957.0 955.0 953.0 953.0 954.0 959.0 957.0 952.0 950.0 952.0 951.0 949.0 948.0 944.0 942.0 946.0 948.0 947.0 944.0 941.0 943.0 941.0 944.0 946.0 944.0 939.0 939.0 941.0 940.0 941.0 940.0 938.0 936.0 938.0 942.0 942.0 940.0 940.0 937.0 942.0 945.0 949.0 951.0 951.0 954.0 962.0 968.0 970.0 971.0 975.0 985.0 1002.0 1012.0 1013.0 1011.0 1010.0 1012.0 1014.0 1016.0 1007.0 999.0 987.0 983.0 977.0 968.0 953.0 936.0 929.0 931.0 940.0 945.0 952.0 943.0 935.0 922.0 917.0 915.0 925.0 929.0 928.0 926.0 921.0 913.0 903.0 901.0 912.0 948.0 1011.0 1105.0 1214.0 1308.0 1371.0 1400.0 1408.0 1401.0 1361.0 1279.0 1159.0 1031.0 903.0 853.0 878.0 903.0 910.0 908.0 911.0 913.0 921.0 921.0 916.0 915.0 914.0 914.0 916.0 910.0 906.0 908.0 910.0 911.0 915.0 915.0 913.0 914.0 914.0 915.0 916.0 918.0 915.0 913.0 916.0 916.0 919.0 918.0 915.0 914.0 919.0 924.0 926.0 925.0 922.0 923.0 924.0 929.0 931.0 931.0 929.0 929.0 931.0 937.0 937.0 934.0 932.0 937.0 940.0 945.0 948.0 947.0 942.0 939.0 943.0 948.0 954.0 956.0 953.0 956.0 961.0 963.0 963.0 965.0 965.0 970.0 974.0 980.0 981.0 978.0 980.0 984.0 988.0 990.0 994.0 995.0 996.0 996.0 997.0 1004.0 1006.0 1002.0 997.0 999.0 1001.0 1001.0 1000.0 1000.0 996.0 995.0 995.0 995.0 993.0 989.0 983.0 979.0 978.0 978.0 973.0 969.0 963.0 959.0 960.0 953.0 950.0 951.0 946.0 945.0 946.0 947.0 943.0 939.0 938.0 935.0 942.0 945.0 943.0 944.0 943.0 942.0 945.0 948.0 948.0 948.0 941.0 945.0 947.0 951.0 955.0 953.0 946.0 949.0 954.0 958.0 958.0 958.0 954.0 953.0 957.0 963.0 959.0 961.0 956.0 954.0 956.0 963.0 965.0 963.0 960.0 957.0 963.0 963.0 963.0 962.0 958.0 956.0 957.0 961.0 962.0 960.0 956.0 953.0 957.0 959.0 959.0 953.0 950.0 950.0 951.0 956.0 953.0 953.0 950.0 949.0 952.0 952.0 953.0 950.0 948.0 950.0 951.0 954.0 956.0 955.0 959.0 961.0 968.0 970.0 974.0 975.0 974.0 983.0 994.0 1005.0 1013.0 1014.0 1013.0 1012.0 1013.0 1018.0 1019.0 1012.0 1000.0 989.0 980.0 977.0 973.0 966.0 957.0 949.0 948.0 947.0 946.0 945.0 940.0 935.0 937.0 944.0 944.0 941.0 939.0 937.0 939.0 940.0 936.0 929.0 929.0 947.0 985.0 1051.0 1137.0 1239.0 1320.0 1371.0 1396.0 1398.0 1377.0 1321.0 1219.0 1091.0 963.0 869.0 866.0 894.0 911.0 911.0 910.0 916.0 922.0 925.0 923.0 921.0 922.0 923.0 923.0 923.0 917.0 917.0 919.0 922.0 925.0 923.0 921.0 919.0 922.0 924.0 926.0 927.0 923.0 922.0 921.0 927.0 930.0 930.0 924.0 924.0 928.0 931.0 931.0 931.0 930.0 932.0 937.0 939.0 941.0 941.0 938.0 939.0 942.0 945.0 950.0 948.0 946.0 948.0 953.0 956.0 954.0 961.0 957.0 962.0 964.0 970.0 975.0 977.0 975.0 977.0 982.0 986.0 990.0 990.0 990.0 992.0 997.0 1005.0 1008.0 1008.0 1005.0 1009.0 1014.0 1018.0 1023.0 1025.0 1023.0 1023.0 1025.0 1027.0 1026.0 1028.0 1026.0 1024.0 1020.0 1018.0 1018.0 1018.0 1018.0 1012.0 1011.0 1013.0 1010.0 1005.0 997.0 990.0 987.0 985.0 981.0 975.0 968.0 965.0 965.0 968.0 966.0 963.0 958.0 955.0 954.0 959.0 960.0 956.0 953.0 953.0 954.0 956.0 958.0 953.0 953.0 953.0 954.0 956.0 959.0 956.0 954.0 953.0 960.0 963.0 964.0 965.0 961.0 961.0 964.0 967.0 969.0 971.0 971.0 969.0 969.0 973.0 975.0 975.0 974.0 972.0 974.0 975.0 977.0 978.0 974.0 976.0 975.0 981.0 981.0 977.0 978.0 976.0 978.0 980.0 980.0 976.0 973.0 971.0 974.0 976.0 975.0 972.0 969.0 967.0 968.0 969.0 971.0 970.0 966.0 965.0 965.0 968.0 968.0 967.0 965.0 962.0 963.0 967.0 972.0 974.0 976.0 980.0 985.0 991.0 993.0 991.0 991.0 996.0 1004.0 1020.0 1030.0 1033.0 1030.0 1025.0 1027.0 1031.0 1031.0 1023.0 1008.0 994.0 988.0 983.0 983.0 971.0 960.0 953.0 953.0 953.0 950.0 949.0 945.0 945.0 946.0 951.0 950.0 948.0 945.0 942.0 939.0 932.0 922.0 908.0 906.0 931.0 978.0 1057.0 1168.0 1277.0 1357.0 1406.0 1428.0 1427.0 1410.0 1356.0 1258.0 1130.0 1002.0 874.0 877.0 918.0 937.0 940.0 932.0 933.0 935.0 932.0 926.0 918.0 921.0 924.0 922.0 920.0 918.0 911.0 918.0 918.0 918.0 916.0 912.0 910.0 913.0 916.0 918.0 918.0 914.0 914.0 915.0 918.0 918.0 919.0 921.0 919.0 925.0 926.0 926.0 922.0 923.0 922.0 924.0 930.0 931.0 932.0 931.0 929.0 931.0 938.0 940.0 942.0 942.0 941.0 943.0 947.0 950.0 950.0 947.0 951.0 954.0 958.0 963.0 963.0 960.0 964.0 967.0 971.0 973.0 976.0 977.0 980.0 984.0 989.0 993.0 996.0 996.0 996.0 1002.0 1008.0 1011.0 1011.0 1013.0 1013.0 1017.0 1020.0 1023.0 1021.0 1015.0 1014.0 1017.0 1020.0 1020.0 1020.0 1013.0 1010.0 1008.0 1007.0 1006.0 1004.0 996.0 989.0 988.0 988.0 985.0 981.0 977.0 971.0 970.0 970.0 967.0 960.0 955.0 955.0 955.0 959.0 959.0 954.0 950.0 950.0 947.0 954.0 959.0 956.0 949.0 948.0 951.0 949.0 952.0 955.0 954.0 951.0 949.0 952.0 956.0 953.0 953.0 952.0 956.0 960.0 960.0 957.0 955.0 960.0 963.0 966.0 965.0 962.0 959.0 957.0 957.0 960.0 967.0 969.0 968.0 963.0 960.0 963.0 966.0 967.0 961.0 962.0 962.0 965.0 967.0 966.0 963.0 962.0 964.0 965.0 965.0 966.0 959.0 958.0 957.0 961.0 960.0 961.0 960.0 960.0 959.0 960.0 959.0 958.0 954.0 953.0 955.0 958.0 958.0 959.0 957.0 958.0 962.0 969.0 973.0 974.0 974.0 976.0 979.0 986.0 992.0 996.0 1004.0 1009.0 1019.0 1026.0 1025.0 1020.0 1019.0 1021.0 1021.0 1018.0 1011.0 997.0 984.0 979.0 975.0 968.0 964.0 956.0 947.0 942.0 943.0 943.0 948.0 946.0 940.0 940.0 942.0 944.0 946.0 943.0 938.0 936.0 932.0 926.0 913.0 901.0 902.0 928.0 987.0 1079.0 1196.0 1304.0 1377.0 1412.0 1427.0 1425.0 1403.0 1340.0 1228.0 1100.0 972.0 861.0 882.0 920.0 931.0 926.0 922.0 925.0 927.0 928.0 920.0 913.0 913.0 918.0 918.0 916.0 909.0 907.0 909.0 909.0 910.0 909.0 907.0 907.0 907.0 910.0 911.0 910.0 912.0 908.0 911.0 915.0 915.0 915.0 909.0 909.0 911.0 914.0 919.0 918.0 918.0 917.0 917.0 919.0 922.0 921.0 921.0 919.0 923.0 926.0 925.0 927.0 926.0 928.0 932.0 935.0 935.0 936.0 937.0 936.0 940.0 944.0 947.0 949.0 949.0 952.0 953.0 960.0 964.0 966.0 964.0 968.0 973.0 977.0 982.0 981.0 980.0 985.0 991.0 996.0 997.0 1000.0 999.0 1002.0 1006.0 1010.0 1011.0 1011.0 1008.0 1004.0 1005.0 1007.0 1006.0 999.0 1000.0 995.0 996.0 995.0 991.0 986.0 981.0 975.0 974.0 972.0 970.0 964.0 961.0 959.0 956.0 954.0 951.0 948.0 942.0 941.0 940.0 942.0 940.0 938.0 935.0 934.0 935.0 938.0 937.0 933.0 932.0 931.0 932.0 936.0 937.0 935.0 934.0 931.0 933.0 936.0 939.0 936.0 937.0 933.0 935.0 939.0 942.0 942.0 941.0 940.0 941.0 943.0 946.0 945.0 942.0 940.0 941.0 946.0 948.0 947.0 945.0 945.0 950.0 946.0 950.0 948.0 946.0 947.0 947.0 949.0 948.0 946.0 944.0 940.0 945.0 947.0 949.0 948.0 945.0 944.0 945.0 948.0 950.0 946.0 945.0 944.0 944.0 945.0 945.0 945.0 937.0 941.0 943.0 943.0 943.0 941.0 938.0 937.0 940.0 943.0 942.0 939.0 935.0 933.0 937.0 939.0 942.0 940.0 939.0 935.0 941.0 942.0 945.0 942.0 941.0 943.0 945.0 948.0 956.0 960.0 960.0 962.0 965.0 970.0 974.0 978.0 982.0 994.0 1006.0 1013.0 1018.0 1014.0 1009.0 1012.0 1015.0 1018.0 1011.0 999.0 981.0 973.0 970.0 963.0 959.0 947.0 939.0 932.0 935.0 936.0 936.0 935.0 932.0 931.0 933.0 933.0 935.0 934.0 931.0 931.0 927.0 919.0 911.0 913.0 927.0 969.0 1042.0 \"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/ifcloud/run_script/direct/params",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"ifcloud",
+										"run_script",
+										"direct",
+										"params"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "346"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15a-lEvJgKCHk4W1hXtgzNDNFzwDzj4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Jan 2025 01:03:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"58.39217655922238 59.03034242325759 58.67664332013746 58.29933567965774 57.712781978889005 59.504799356027206 62.849747091218845 64.91178319276139 88.12456704473786 90.9817099018807 95.2395005393877 76.42416952893474 75.36741806122437 75.27655715412965 77.15574127502381 81.64800459929867 85.38438238860849 87.10334921792045 86.63881061121369\\n\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GW neoFassEcg",
+			"item": [
+				{
+					"name": "/.well-known/smart-configuration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/neoFassEcg/.well-known/smart-configuration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"neoFassEcg",
+								".well-known",
+								"smart-configuration"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/neoFassEcg/.well-known/smart-configuration",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"neoFassEcg",
+										".well-known",
+										"smart-configuration"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "455"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c7-+WzNfJGHPi/xI4EnFxyJB4O3ht4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Apr 2025 23:49:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorization_endpoint\": \"undefined/auth/register\",\n    \"token_endpoint\": \"undefined/auth/token\",\n    \"token_endpoint_auth_methods_supported\": [\n        \"private_key_jwt\"\n    ],\n    \"grant_types_supported\": [\n        \"authorization_code\",\n        \"client_credentials\"\n    ],\n    \"scopes_supported\": [\n        \"patient/*.rs\"\n    ],\n    \"response_types_supported\": [\n        \"code\"\n    ],\n    \"capabilities\": [\n        \"client-confidential-asymmetric\"\n    ],\n    \"code_challenge_methods_supported\": [\n        \"S256\"\n    ],\n    \"token_endpoint_auth_signing_alg_values_supported\": [\n        \"RS384\",\n        \"ES384\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/neoFassEcg/auth/register?redirect_uri=/api-docs&scope=patient/*.rs&token_endpoint=/auth/token&client_id=67eacf0237bd52430adc8f4d&aud=asd&state=asd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"neoFassEcg",
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "redirect_uri",
+									"value": "/api-docs"
+								},
+								{
+									"key": "scope",
+									"value": "patient/*.rs"
+								},
+								{
+									"key": "token_endpoint",
+									"value": "/auth/token"
+								},
+								{
+									"key": "client_id",
+									"value": "67eacf0237bd52430adc8f4d"
+								},
+								{
+									"key": "aud",
+									"value": "asd"
+								},
+								{
+									"key": "state",
+									"value": "asd"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/neoFassEcg/auth/register?redirect_uri=/api-docs&scope=patient/*.rs&token_endpoint=/auth/token&client_id=67eacf0237bd52430adc8f4d&aud=asd&state=asd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"neoFassEcg",
+										"auth",
+										"register"
+									],
+									"query": [
+										{
+											"key": "redirect_uri",
+											"value": "/api-docs"
+										},
+										{
+											"key": "scope",
+											"value": "patient/*.rs"
+										},
+										{
+											"key": "token_endpoint",
+											"value": "/auth/token"
+										},
+										{
+											"key": "client_id",
+											"value": "67eacf0237bd52430adc8f4d"
+										},
+										{
+											"key": "aud",
+											"value": "asd"
+										},
+										{
+											"key": "state",
+											"value": "asd"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1775"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6ef-nGY+KGTvwXha5Uk8qRn/LWtD+oI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Apr 2025 23:57:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"<html>\\n    <head>\\n        <style>\\n            body {\\n                background-color: #143d59;\\n            }\\n            .center {\\n                position: fixed;\\n                left: 50%;\\n                transform: translateX(-50%);\\n                display: flex;\\n                flex-direction: column;\\n                align-items: center;\\n            }\\n            .flex {\\n                display: flex;\\n                flex-direction: column;\\n                align-items: center;\\n                justify-content: center;\\n            }\\n            input {\\n                -webkit-appearance: none;\\n                appearance: none;\\n                border-radius: 1em;\\n                margin: 1em;\\n                border: 1px solid white;\\n                padding: 0.3rem;\\n                width: 100%;\\n            }\\n        </style>\\n    </head>\\n    <body>\\n        <div class=\\\"center\\\">\\n            <img src=\\\"/logo.png\\\" style=\\\"width: 50%; height: auto;\\\" />\\n            <form method=\\\"POST\\\" action=\\\"/auth/login\\\">\\n                <input type=\\\"hidden\\\" name=\\\"redirect_uri\\\" value=\\\"/api-docs\\\">\\n                <input type=\\\"hidden\\\" name=\\\"state\\\" value=\\\"asd\\\">\\n                <input type=\\\"hidden\\\" name=\\\"aud\\\" value=\\\"asd\\\">\\n                <input type=\\\"hidden\\\" name=\\\"scope\\\" value=\\\"patient/*.rs\\\">\\n                <input type=\\\"hidden\\\" name=\\\"client_id\\\" value=\\\"67eacf0237bd52430adc8f4d\\\">\\n                <div class=\\\"flex\\\">\\n                    <input type=\\\"text\\\" name=\\\"cpf\\\">\\n                    <input type=\\\"password\\\" name=\\\"senha\\\">\\n                    \\n                    <input type=\\\"submit\\\" value=\\\"Login\\\">\\n                </div>\\n            </form>\\n        </div>\\n    </body>\\n</html>\""
+						}
+					]
+				},
+				{
+					"name": "/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"redirect_uri\": \"/api-docs\",\r\n    \"scope\": \"patient/*.rs\",\r\n    \"token_endpoint\": \"/auth/token\",\r\n    \"client_id\": \"67eacf0237bd52430adc8f4d\",\r\n    \"aud\": \"placeholder\",\r\n    \"state\": \"placeholder\",\r\n    \"cpf\": \"04824900042\",\r\n    \"senha\": \"healthgate\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/neoFassEcg/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"neoFassEcg",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"redirect_uri\": \"/api-docs\",\r\n    \"scope\": \"patient/*.rs\",\r\n    \"token_endpoint\": \"/auth/token\",\r\n    \"client_id\": \"67eacf0237bd52430adc8f4d\",\r\n    \"aud\": \"placeholder\",\r\n    \"state\": \"placeholder\",\r\n    \"cpf\": \"04824900042\",\r\n    \"senha\": \"healthgate\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/neoFassEcg/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"neoFassEcg",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1882"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"75a-fqKGxaSFkeSTimIYz7KOkT7VLa4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 00:02:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"<html>\\n    <head>\\n        <style>\\n            body {\\n                background-color: #143d59;\\n            }\\n            .center {\\n                position: fixed;\\n                left: 50%;\\n                transform: translateX(-50%);\\n                display: flex;\\n                flex-direction: column;\\n                align-items: center;\\n            }\\n            .flex {\\n                display: flex;\\n                flex-direction: column;\\n                align-items: center;\\n                justify-content: center;\\n            }\\n            input {\\n                -webkit-appearance: none;\\n                appearance: none;\\n                border-radius: 1em;\\n                margin: 1em;\\n                border: 1px solid white;\\n                padding: 0.3rem;\\n                width: 100%;\\n            }\\n        </style>\\n    </head>\\n    <body>\\n        <div class=\\\"center\\\">\\n            <img src=\\\"/logo.png\\\" style=\\\"width: 50%; height: auto;\\\" />\\n            <form method=\\\"POST\\\" action=\\\"/auth/login\\\">\\n                <input type=\\\"hidden\\\" name=\\\"redirect_uri\\\" value=\\\"/api-docs\\\">\\n                <input type=\\\"hidden\\\" name=\\\"state\\\" value=\\\"placeholder\\\">\\n                <input type=\\\"hidden\\\" name=\\\"aud\\\" value=\\\"placeholder\\\">\\n                <input type=\\\"hidden\\\" name=\\\"scope\\\" value=\\\"patient/*.rs\\\">\\n                <input type=\\\"hidden\\\" name=\\\"client_id\\\" value=\\\"67eacf0237bd52430adc8f4d\\\">\\n                <div class=\\\"flex\\\">\\n                    <input type=\\\"text\\\" name=\\\"cpf\\\">\\n                    <input type=\\\"password\\\" name=\\\"senha\\\">\\n                    \\n                        <p style=\\\"color: red\\\">Login not found</p>\\n                    \\n                    <input type=\\\"submit\\\" value=\\\"Login\\\">\\n                </div>\\n            </form>\\n        </div>\\n    </body>\\n</html>\""
+						}
+					]
+				},
+				{
+					"name": "/authorize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"redirect_uri\": \"/api-docs\",\r\n    \"scope\": \"patient/*.rs\",\r\n    \"token_endpoint\": \"/auth/token\",\r\n    \"client_id\": \"67eacf0237bd52430adc8f4d\",\r\n    \"paciente_id\": \"67eacf0237bd52430adc8f4d\",\r\n    \"aud\": \"placeholder\",\r\n    \"state\": \"placeholder\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/neoFassEcg/auth/authorize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"neoFassEcg",
+								"auth",
+								"authorize"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"redirect_uri\": \"/api-docs\",\r\n    \"scope\": \"patient/*.rs\",\r\n    \"token_endpoint\": \"/auth/token\",\r\n    \"client_id\": \"67eacf0237bd52430adc8f4d\",\r\n    \"paciente_id\": \"67eacf0237bd52430adc8f4d\",\r\n    \"aud\": \"placeholder\",\r\n    \"state\": \"placeholder\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/neoFassEcg/auth/authorize",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"neoFassEcg",
+										"auth",
+										"authorize"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3271"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc7-gdJ2Y1iRzmeyH0qaKIlLTjUgiQ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 00:07:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"\\n<!-- HTML for static distribution bundle build -->\\n<!DOCTYPE html>\\n<html lang=\\\"en\\\">\\n<head>\\n  <meta charset=\\\"UTF-8\\\">\\n  \\n  <title>Swagger UI</title>\\n  <link rel=\\\"stylesheet\\\" type=\\\"text/css\\\" href=\\\"./swagger-ui.css\\\" >\\n  <link rel=\\\"icon\\\" type=\\\"image/png\\\" href=\\\"./favicon-32x32.png\\\" sizes=\\\"32x32\\\" /><link rel=\\\"icon\\\" type=\\\"image/png\\\" href=\\\"./favicon-16x16.png\\\" sizes=\\\"16x16\\\" />\\n  <style>\\n    html\\n    {\\n      box-sizing: border-box;\\n      overflow: -moz-scrollbars-vertical;\\n      overflow-y: scroll;\\n    }\\n    *,\\n    *:before,\\n    *:after\\n    {\\n      box-sizing: inherit;\\n    }\\n\\n    body {\\n      margin:0;\\n      background: #fafafa;\\n    }\\n  </style>\\n</head>\\n\\n<body>\\n\\n<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\" style=\\\"position:absolute;width:0;height:0\\\">\\n  <defs>\\n    <symbol viewBox=\\\"0 0 20 20\\\" id=\\\"unlocked\\\">\\n      <path d=\\\"M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V6h2v-.801C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8z\\\"></path>\\n    </symbol>\\n\\n    <symbol viewBox=\\\"0 0 20 20\\\" id=\\\"locked\\\">\\n      <path d=\\\"M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8zM12 8H8V5.199C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8z\\\"/>\\n    </symbol>\\n\\n    <symbol viewBox=\\\"0 0 20 20\\\" id=\\\"close\\\">\\n      <path d=\\\"M14.348 14.849c-.469.469-1.229.469-1.697 0L10 11.819l-2.651 3.029c-.469.469-1.229.469-1.697 0-.469-.469-.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-.469-.469-.469-1.228 0-1.697.469-.469 1.228-.469 1.697 0L10 8.183l2.651-3.031c.469-.469 1.228-.469 1.697 0 .469.469.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c.469.469.469 1.229 0 1.698z\\\"/>\\n    </symbol>\\n\\n    <symbol viewBox=\\\"0 0 20 20\\\" id=\\\"large-arrow\\\">\\n      <path d=\\\"M13.25 10L6.109 2.58c-.268-.27-.268-.707 0-.979.268-.27.701-.27.969 0l7.83 7.908c.268.271.268.709 0 .979l-7.83 7.908c-.268.271-.701.27-.969 0-.268-.269-.268-.707 0-.979L13.25 10z\\\"/>\\n    </symbol>\\n\\n    <symbol viewBox=\\\"0 0 20 20\\\" id=\\\"large-arrow-down\\\">\\n      <path d=\\\"M17.418 6.109c.272-.268.709-.268.979 0s.271.701 0 .969l-7.908 7.83c-.27.268-.707.268-.979 0l-7.908-7.83c-.27-.268-.27-.701 0-.969.271-.268.709-.268.979 0L10 13.25l7.418-7.141z\\\"/>\\n    </symbol>\\n\\n\\n    <symbol viewBox=\\\"0 0 24 24\\\" id=\\\"jump-to\\\">\\n      <path d=\\\"M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z\\\"/>\\n    </symbol>\\n\\n    <symbol viewBox=\\\"0 0 24 24\\\" id=\\\"expand\\\">\\n      <path d=\\\"M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z\\\"/>\\n    </symbol>\\n\\n  </defs>\\n</svg>\\n\\n<div id=\\\"swagger-ui\\\"></div>\\n\\n<script src=\\\"./swagger-ui-bundle.js\\\"> </script>\\n<script src=\\\"./swagger-ui-standalone-preset.js\\\"> </script>\\n<script src=\\\"./swagger-ui-init.js\\\"> </script>\\n\\n\\n\\n<style>\\n  .swagger-ui .topbar .download-url-wrapper { display: none } undefined\\n</style>\\n</body>\\n\\n</html>\\n\""
+						}
+					]
+				},
+				{
+					"name": "/token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"grant_type\": \"authorization_code\",\r\n    \"scope\":\"patient/*.rs\",\r\n    \"code\": \"undefined\",\r\n    \"redirect_uri\": \"/api-docs\",\r\n    \"client_id\": \"67eacf0237bd52430adc8f4d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/neoFassEcg/auth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"neoFassEcg",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"grant_type\": \"authorization_code\",\r\n    \"scope\":\"patient/*.rs\",\r\n    \"code\": \"undefined\",\r\n    \"redirect_uri\": \"/api-docs\",\r\n    \"client_id\": \"67eacf0237bd52430adc8f4d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/neoFassEcg/auth/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"neoFassEcg",
+										"auth",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25-oh0Ov1g+YflP7JbzvP+1Bxck9tc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 00:10:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 401,\n    \"message\": \"Invalid auth\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CADASTRO DE ROTAS",
+			"item": [
+				{
+					"name": "Rotas cadastradas",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Rota",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nameProject\": \"FASS_ECG\",\n  \"sourcePath\": \"/Observation/{id}/data/{minute}\",\n  \"routeParams\" : {\n    \"0\": \"id\",\n    \"1\": \"minute\"\n  },\n  \"queryParams\":{},\n  \"targetUrl\": \"https://biosignalinfhir.if4health.com.br/baseR4/Observation/{id}/data/{minute}\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"accept\": \"application/fhir+json\",\n    \"content-type\": \"application/fhir+json\"\n  },\n  \"description\": \"Permite consultar os dados de uma observação clínica de um paciente específica ({id}) em um intervalo de tempo específico ({minute})\"\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/routes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"routes"
+							],
+							"query": [
+								{
+									"key": "exemplo",
+									"value": "123",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "registrar usuário",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 - ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin1\",\n    \"password\": \"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-6FCsbHB1q0aXgxXJiiMwNkjJOY0\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 14:06:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuário registrado com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Logar usuário",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 - ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "208"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d0-XW40hUrgneizOBhgcyrVmmgFAzk\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 14:10:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDY1MWE2MTEwZGZlODNiNjc2ZTMxYiIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NDUyNDQ2MjYsImV4cCI6MTc0NTI0ODIyNn0.wZL7PUl03kiKtCnFVtkgn_2RvEX5FSKjWwhTfX8yT3I\"\n}"
+				}
+			]
+		}
+	]
+}

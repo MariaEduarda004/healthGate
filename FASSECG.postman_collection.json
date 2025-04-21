@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "d7b5e136-4996-4ded-8b4b-9f92bc4ca4e0",
+		"name": "FASSECG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38704281"
+	},
+	"item": [
+		{
+			"name": "POST Observation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSIsImV4cGlyZXNfaW4iOjM2MDAsImlhdCI6MTc0NDY3NTcwOCwiZXhwIjoxNzQ0Njc5MzA4fQ.WaukOKU9Pa-a6n6Lyh_eIyYiBG8k09BIkKz9TCUO_SYs2j94GGasam7m89eA1dpiO3x4XtSSG5UU88I4x4Bg8SlVyv66scqh7F7DITvxrIYgsKpOpQeh3070ohw6Yg5wHZbbHYnayYKn94axdR3NMEkZKjouR19FJZBvQ2N86T59gtqvKlZmE8G8Brl7-r6R9JIyPxMFkzPTcoGDpjQDpaTDE05PNgLmio9gNIhyic9hd8IzkN2EGWI_XTp-XOdkK8qeBSBhDeKkQkt3AtT7PpndriO0Whe9Nk0xXfngER0zjwlH9JReIDHAgG6uXQ2ZinkF-WMw6Ku3IVUENGHK-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resourceType\": \"Observation\",\r\n    \"status\": \"preliminary\",\r\n    \"category\": [\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"https://if4health.netlify.app/\",\r\n                    \"code\": \"procedure\",\r\n                    \"display\": \"Procedure\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"device\": {\r\n        \"display\": \"12 lead EKG Device Metric\"\r\n    },\r\n    \"component\": [\r\n        {\r\n            \"code\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\r\n                    }\r\n                ]\r\n            },\r\n            \"valueSampledData\": {\r\n                \"origin\": {\r\n                    \"value\": 2048\r\n                },\r\n                \"period\": 10,\r\n                \"factor\": 1.612,\r\n                \"lowerLimit\": -3300,\r\n                \"upperLimit\": 3300,\r\n                \"dimensions\": 1,\r\n                \"data\": \"1 1 1 1 1\"\r\n            }\r\n        },\r\n        {\r\n            \"code\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\r\n                    }\r\n                ]\r\n            },\r\n            \"valueSampledData\": {\r\n                \"origin\": {\r\n                    \"value\": 2048\r\n                },\r\n                \"period\": 10,\r\n                \"factor\": 1.612,\r\n                \"lowerLimit\": -3300,\r\n                \"upperLimit\": 3300,\r\n                \"dimensions\": 1,\r\n                \"data\": \"10 10 10 10 10\"\r\n            }\r\n        },\r\n        {\r\n            \"code\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\r\n                    }\r\n                ]\r\n            },\r\n            \"valueSampledData\": {\r\n                \"origin\": {\r\n                    \"value\": 2048\r\n                },\r\n                \"period\": 10,\r\n                \"factor\": 1.612,\r\n                \"lowerLimit\": -3300,\r\n                \"upperLimit\": 3300,\r\n                \"dimensions\": 1,\r\n                \"data\": \"100 100 100 100 100\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://200.132.47.35:8000/Observation/",
+					"protocol": "http",
+					"host": [
+						"200",
+						"132",
+						"47",
+						"35"
+					],
+					"port": "8000",
+					"path": [
+						"Observation",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 - ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"Observation\",\r\n    \"status\": \"preliminary\",\r\n    \"category\": [\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"https://if4health.netlify.app/\",\r\n                    \"code\": \"procedure\",\r\n                    \"display\": \"Procedure\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"device\": {\r\n        \"display\": \"12 lead EKG Device Metric\"\r\n    },\r\n    \"component\": [\r\n        {\r\n            \"code\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\r\n                    }\r\n                ]\r\n            },\r\n            \"valueSampledData\": {\r\n                \"origin\": {\r\n                    \"value\": 2048\r\n                },\r\n                \"period\": 10,\r\n                \"factor\": 1.612,\r\n                \"lowerLimit\": -3300,\r\n                \"upperLimit\": 3300,\r\n                \"dimensions\": 1,\r\n                \"data\": \"1 1 1 1 1\"\r\n            }\r\n        },\r\n        {\r\n            \"code\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\r\n                    }\r\n                ]\r\n            },\r\n            \"valueSampledData\": {\r\n                \"origin\": {\r\n                    \"value\": 2048\r\n                },\r\n                \"period\": 10,\r\n                \"factor\": 1.612,\r\n                \"lowerLimit\": -3300,\r\n                \"upperLimit\": 3300,\r\n                \"dimensions\": 1,\r\n                \"data\": \"10 10 10 10 10\"\r\n            }\r\n        },\r\n        {\r\n            \"code\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\r\n                    }\r\n                ]\r\n            },\r\n            \"valueSampledData\": {\r\n                \"origin\": {\r\n                    \"value\": 2048\r\n                },\r\n                \"period\": 10,\r\n                \"factor\": 1.612,\r\n                \"lowerLimit\": -3300,\r\n                \"upperLimit\": 3300,\r\n                \"dimensions\": 1,\r\n                \"data\": \"100 100 100 100 100\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://200.132.47.35:8000/Observation/",
+							"protocol": "http",
+							"host": [
+								"200",
+								"132",
+								"47",
+								"35"
+							],
+							"port": "8000",
+							"path": [
+								"Observation",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "958"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3be-lAO3NU6zj81u0SQq/RISSotzoE4\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 00:14:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"resourceType\": \"Observation\",\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_67fda4d2cc0ea7c771c6d785_0\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_67fda4d2cc0ea7c771c6d785_1\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_67fda4d2cc0ea7c771c6d785_2\"\n            }\n        }\n    ],\n    \"id\": \"67fda4d2cc0ea7c771c6d785\",\n    \"_id\": \"67fda4d2cc0ea7c771c6d785\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH Observation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSIsImV4cGlyZXNfaW4iOjM2MDAsImlhdCI6MTc0NDY3NTcwOCwiZXhwIjoxNzQ0Njc5MzA4fQ.WaukOKU9Pa-a6n6Lyh_eIyYiBG8k09BIkKz9TCUO_SYs2j94GGasam7m89eA1dpiO3x4XtSSG5UU88I4x4Bg8SlVyv66scqh7F7DITvxrIYgsKpOpQeh3070ohw6Yg5wHZbbHYnayYKn94axdR3NMEkZKjouR19FJZBvQ2N86T59gtqvKlZmE8G8Brl7-r6R9JIyPxMFkzPTcoGDpjQDpaTDE05PNgLmio9gNIhyic9hd8IzkN2EGWI_XTp-XOdkK8qeBSBhDeKkQkt3AtT7PpndriO0Whe9Nk0xXfngER0zjwlH9JReIDHAgG6uXQ2ZinkF-WMw6Ku3IVUENGHK-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"op\": \"add\",\r\n        \"path\": \"/component/0/valueSampledData/data\",\r\n        \"value\": \"2 2 2 2 2\"\r\n    },\r\n    {\r\n        \"op\": \"add\",\r\n        \"path\": \"/component/1/valueSampledData/data\",\r\n        \"value\": \"20 20 20 20 20\"\r\n    },\r\n    {\r\n        \"op\": \"add\",\r\n        \"path\": \"/component/2/valueSampledData/data\",\r\n        \"value\": \"200 200 200 200 200\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://200.132.47.35:8000/Observation/67fda4d2cc0ea7c771c6d785",
+					"protocol": "http",
+					"host": [
+						"200",
+						"132",
+						"47",
+						"35"
+					],
+					"port": "8000",
+					"path": [
+						"Observation",
+						"67fda4d2cc0ea7c771c6d785"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201 - created",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"op\": \"add\",\r\n        \"path\": \"/component/0/valueSampledData/data\",\r\n        \"value\": \"2 2 2 2 2\"\r\n    },\r\n    {\r\n        \"op\": \"add\",\r\n        \"path\": \"/component/1/valueSampledData/data\",\r\n        \"value\": \"20 20 20 20 20\"\r\n    },\r\n    {\r\n        \"op\": \"add\",\r\n        \"path\": \"/component/2/valueSampledData/data\",\r\n        \"value\": \"200 200 200 200 200\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/baseR4/Observation/66fb4e0170d2f051107c79e4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"baseR4",
+								"Observation",
+								"66fb4e0170d2f051107c79e4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "958"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3be-uQ9OeLzm6fNiFigpEHM0oKj3tVw\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Oct 2024 01:22:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66fb4e0170d2f051107c79e4\",\n    \"resourceType\": \"Observation\",\n    \"status\": \"preliminary\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_66fb4e0170d2f051107c79e4_0\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_66fb4e0170d2f051107c79e4_1\"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"data_66fb4e0170d2f051107c79e4_2\"\n            }\n        }\n    ],\n    \"id\": \"66fb4e0170d2f051107c79e4\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Observation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSIsImV4cGlyZXNfaW4iOjM2MDAsImlhdCI6MTc0NDY3NTcwOCwiZXhwIjoxNzQ0Njc5MzA4fQ.WaukOKU9Pa-a6n6Lyh_eIyYiBG8k09BIkKz9TCUO_SYs2j94GGasam7m89eA1dpiO3x4XtSSG5UU88I4x4Bg8SlVyv66scqh7F7DITvxrIYgsKpOpQeh3070ohw6Yg5wHZbbHYnayYKn94axdR3NMEkZKjouR19FJZBvQ2N86T59gtqvKlZmE8G8Brl7-r6R9JIyPxMFkzPTcoGDpjQDpaTDE05PNgLmio9gNIhyic9hd8IzkN2EGWI_XTp-XOdkK8qeBSBhDeKkQkt3AtT7PpndriO0Whe9Nk0xXfngER0zjwlH9JReIDHAgG6uXQ2ZinkF-WMw6Ku3IVUENGHK-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://200.132.47.35:8000/Observation/67fda4d2cc0ea7c771c6d785",
+					"protocol": "http",
+					"host": [
+						"200",
+						"132",
+						"47",
+						"35"
+					],
+					"port": "8000",
+					"path": [
+						"Observation",
+						"67fda4d2cc0ea7c771c6d785"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 - ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://200.132.47.35:8000/Observation/67fda3accc0ea7c771c6d768",
+							"protocol": "http",
+							"host": [
+								"200",
+								"132",
+								"47",
+								"35"
+							],
+							"port": "8000",
+							"path": [
+								"Observation",
+								"67fda3accc0ea7c771c6d768"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "904"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"388-SoaCUkjEpXbIotby0GmUnqFXG3Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 00:13:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"67fda3accc0ea7c771c6d768\",\n    \"id\": \"67fda3accc0ea7c771c6d768\",\n    \"resourceType\": \"Observation\",\n    \"status\": \"final\",\n    \"category\": [\n        {\n            \"coding\": [\n                {\n                    \"system\": \"https://if4health.netlify.app/\",\n                    \"code\": \"procedure\",\n                    \"display\": \"Procedure\"\n                }\n            ]\n        }\n    ],\n    \"device\": {\n        \"display\": \"12 lead EKG Device Metric\"\n    },\n    \"component\": [\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_I\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"1 1 1 1 1 \"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_II\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"10 10 10 10 10 \"\n            }\n        },\n        {\n            \"code\": {\n                \"coding\": [\n                    {\n                        \"display\": \"MDC_ECG_ELEC_POTL_III\"\n                    }\n                ]\n            },\n            \"valueSampledData\": {\n                \"origin\": {\n                    \"value\": 2048\n                },\n                \"period\": 10,\n                \"factor\": 1.612,\n                \"lowerLimit\": -3300,\n                \"upperLimit\": 3300,\n                \"dimensions\": 1,\n                \"data\": \"100 100 100 100 100 \"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "PUT Observation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSIsImV4cGlyZXNfaW4iOjM2MDAsImlhdCI6MTc0NDY3NTcwOCwiZXhwIjoxNzQ0Njc5MzA4fQ.WaukOKU9Pa-a6n6Lyh_eIyYiBG8k09BIkKz9TCUO_SYs2j94GGasam7m89eA1dpiO3x4XtSSG5UU88I4x4Bg8SlVyv66scqh7F7DITvxrIYgsKpOpQeh3070ohw6Yg5wHZbbHYnayYKn94axdR3NMEkZKjouR19FJZBvQ2N86T59gtqvKlZmE8G8Brl7-r6R9JIyPxMFkzPTcoGDpjQDpaTDE05PNgLmio9gNIhyic9hd8IzkN2EGWI_XTp-XOdkK8qeBSBhDeKkQkt3AtT7PpndriO0Whe9Nk0xXfngER0zjwlH9JReIDHAgG6uXQ2ZinkF-WMw6Ku3IVUENGHK-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"final\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://200.132.47.35:8000/Observation/67fda4d2cc0ea7c771c6d785",
+					"protocol": "http",
+					"host": [
+						"200",
+						"132",
+						"47",
+						"35"
+					],
+					"port": "8000",
+					"path": [
+						"Observation",
+						"67fda4d2cc0ea7c771c6d785"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 - ok",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"final\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://200.132.47.35:8000/Observation/67fda4d2cc0ea7c771c6d785",
+							"protocol": "http",
+							"host": [
+								"200",
+								"132",
+								"47",
+								"35"
+							],
+							"port": "8000",
+							"path": [
+								"Observation",
+								"67fda4d2cc0ea7c771c6d785"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "12"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c-W0pd7fRQ0EBtQr48vRFxJbE5vFw\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 00:17:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"Atualizado\""
+				}
+			]
+		}
+	]
+}

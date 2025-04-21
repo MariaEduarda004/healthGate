@@ -9,11 +9,11 @@ const authMiddleware = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.JWT_SECRET);
-        req.user = decoded; // Adiciona os dados do usuário ao request
+        req.user = decoded; 
         next();
     } catch (err) {
         res.status(403).json({ message: 'Token inválido' });
     }
 };
 
-module.exports = authMiddleware; // ⚠️ Certifique-se de que está exportando corretamente
+module.exports = authMiddleware; 

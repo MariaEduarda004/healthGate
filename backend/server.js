@@ -3,21 +3,56 @@ const mongoose = require('mongoose');
 const Route = require('./models/Route');
 const axios = require('axios');
 const https = require('https');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 const { pathToRegexp, match } = require('path-to-regexp');
+const { authenticate, router: authRoutes } = require('./routes/authRoutes');
 const routeRoutes = require('./routes/routeRoutes');
-const authRoutes = require('./routes/authRoutes');
+const Log = require('./models/Log');
+const logRoutes = require('./routes/logRoutes');
 require('dotenv').config();
 
-const app = express();
+const app = express(); 
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static('public'));
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use('/api/admin', routeRoutes);
+app.use('/api/admin', logRoutes);
+app.use('/api/auth', authRoutes);
 
 mongoose.connect('mongodb://localhost:27017/healthgate', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB conectado')).catch(err => console.error(err));
 
-app.use('/api/admin', routeRoutes);
-app.use('/api/auth', authRoutes);
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.get('/routes', authenticate, async (req, res) => {
+    try {
+        const routes = await Route.find();
+        res.render('routes', { routes, user: req.user }); 
+    } catch (error) {
+        res.status(500).send('Erro ao carregar rotas');
+    }
+});
+
+app.get('/routes/new', authenticate, (req, res) => {
+    res.render('newRoute');
+});
+
+app.get('/logout', (req, res) => {
+    res.clearCookie('token'); 
+    res.redirect('/login'); 
+});
+
 
 app.use((req, res, next) => {
     if (req.method === 'PUT') {
@@ -47,9 +82,9 @@ async function getAccessTokenForFassECG() {
     }
 
     try {
-        const tokenResponse = await axios.post('http://localhost:8080/auth/token', {
-            client_id: '67eacf0237bd52430adc8f4d',
-            code: 'codigo pre definifo'
+        const tokenResponse = await axios.post('http://200.132.47.35:8000/auth/token', {
+            client_id: 'gateway',
+            code: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOnsiJG9pZCI6IjY3ZjVhMmFkYzRhN2I0NDgyZjc5ZmM2ZiJ9LCJjbGllbnRfaWQiOiJnYXRld2F5IiwiY2xpZW50X3NlY3JldCI6IjEyMyIsInNjb3BlIjoiYWxsLyouY3J1ZHMiLCJncmFudF90eXBlIjoiY2xpZW50X2NyZWRlbnRpYWxzIn0.xRx5EILoYfnoBs9p1jvafyk8xkYqBa_PFtBig5LV454'
         });
 
         const token = tokenResponse.data.access_token;
@@ -79,30 +114,16 @@ async function handleRequest(req, res, projectName) {
         let matchingRoute = null;
         let params = {};
 
-        // for (const route of routes) {
-        //     const matcher = match(route.sourcePath, { decode: decodeURIComponent });
-        //     const matchResult = matcher(req.path);
-        //     if (matchResult) {
-        //         matchingRoute = route;
-        //         params = matchResult.params;
-        //         break;
-        //     }
-        // }
-
         for (const route of routes) {
-          console.log("Testando rota:", route.sourcePath);
-          
-          const routeRegex = pathToRegexp(route.sourcePath);
-          const matcher = match(route.sourcePath, { decode: decodeURIComponent });
-          const matchResult = matcher(req.path);
+            const routeRegex = pathToRegexp(route.sourcePath);
+            const matcher = match(route.sourcePath, { decode: decodeURIComponent });
+            const matchResult = matcher(req.path);
 
-          console.log("Resultado do match para", route.sourcePath, ":", matchResult);
-
-          if (matchResult) {
-              matchingRoute = route;
-              params = matchResult.params;
-              break;
-          }
+            if (matchResult) {
+                matchingRoute = route;
+                params = matchResult.params;
+                break;
+            }
         }
 
         if (!matchingRoute) {
@@ -140,11 +161,6 @@ async function handleRequest(req, res, projectName) {
 
         const agent = new https.Agent({ rejectUnauthorized: false });
 
-        console.log("Redirecionando para:", targetUrl);
-        console.log("Método:", matchingRoute.method);
-        console.log("Cabeçalhos:", headers);
-        console.log("Corpo da requisição:", req.body);
-
         const response = await axios({
             method: matchingRoute.method,
             url: targetUrl,
@@ -153,12 +169,39 @@ async function handleRequest(req, res, projectName) {
             httpsAgent: agent
         });
 
+        // Salvar o log da requisição no MongoDB
+        await Log.create({
+            method: req.method,
+            path: req.originalUrl,
+            headers: req.headers,
+            body: req.body,
+            query: req.query,
+            statusCode: response.status,
+            responseBody: response.data,
+            projectName: projectName
+        });
+
         res.status(response.status).json(response.data);
+
     } catch (error) {
         console.error('Erro ao redirecionar a requisição:', error);
+
+        // Mesmo em caso de erro, vamos salvar o log
+        await Log.create({
+            method: req.method,
+            path: req.originalUrl,
+            headers: req.headers,
+            body: req.body,
+            query: req.query,
+            statusCode: error.response?.status || 500,
+            responseBody: error.response?.data || { error: error.message },
+            projectName: projectName
+        });
+
         res.status(500).json({ message: 'Erro ao redirecionar a requisição', error: error.message });
     }
 }
+
 
 app.use('/api/fassecg',  (req, res) => handleRequest(req, res, "FASS_ECG"));
 app.use('/api/ifcloud',  (req, res) => handleRequest(req, res, "IF_CLOUD"));
