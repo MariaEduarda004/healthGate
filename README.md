@@ -54,6 +54,9 @@ Antes de executar o projeto, certifique-se de que as seguintes dependências est
 4. Configure as variáveis de ambiente no arquivo `.env`. Exemplo:
    ```bash
    JWT_SECRET=<seu jwt aqui>
+   FASS_ECG_AUTH_URL=https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/token
+   FASS_ECG_CLIENT_ID=gateway
+   FASS_ECG_AUTH_CODE= <code gerado pelo H2Cloud>
    ```
 
 5. Inicie o servidor de backend:
