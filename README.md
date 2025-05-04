@@ -1,5 +1,5 @@
 # HealthGate
-### O **HealthGate** é um sistema projetado para facilitar a integração dos sistemas desenvolvidos no grupo IF4heath: https://if4health.netlify.app/. Ele permite o cadastro e gerenciamento de rotas existentes nos sistemas FASS-ECG, IF-CLOUD e neoFassEcg, criando um Gateway eficiente e seguro para rotear requisições.
+### O **HealthGate** é um sistema projetado para facilitar a integração dos sistemas desenvolvidos no grupo IF4heath: https://if4health.netlify.app/. Ele permite o cadastro e gerenciamento de rotas existentes nos sistemas FASS-ECG, IF-CLOUD e H2Cloud, criando um Gateway eficiente e seguro para rotear requisições.
 
 ![Diagrama HealthGate](./assets/GATEWAY.jpg)
 ## Funcionalidades
