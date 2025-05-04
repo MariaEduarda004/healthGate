@@ -82,9 +82,9 @@ async function getAccessTokenForFassECG() {
     }
 
     try {
-        const tokenResponse = await axios.post('http://200.132.47.35:8000/auth/token', {
-            client_id: 'gateway',
-            code: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOnsiJG9pZCI6IjY3ZjVhMmFkYzRhN2I0NDgyZjc5ZmM2ZiJ9LCJjbGllbnRfaWQiOiJnYXRld2F5IiwiY2xpZW50X3NlY3JldCI6IjEyMyIsInNjb3BlIjoiYWxsLyouY3J1ZHMiLCJncmFudF90eXBlIjoiY2xpZW50X2NyZWRlbnRpYWxzIn0.xRx5EILoYfnoBs9p1jvafyk8xkYqBa_PFtBig5LV454'
+        const tokenResponse = await axios.post(process.env.FASS_ECG_AUTH_URL, {
+            client_id: process.env.FASS_ECG_CLIENT_ID,
+            code: process.env.FASS_ECG_AUTH_CODE
         });
 
         const token = tokenResponse.data.access_token;
@@ -144,10 +144,11 @@ async function handleRequest(req, res, projectName) {
         };
 
         if (projectName === "FASS_ECG" && matchingRoute.method === 'PATCH') {
-            headers = {
-                'content-type': 'application/json-patch+json',
-                'accept': 'application/json-patch+json'
-            };
+            // headers = {
+            //     'content-type': 'application/json-patch+json',
+            //     'accept': 'application/json-patch+json'
+            // };
+            // console.log("Headers para PATCH:", headers);
         } else if (projectName === "FASS_ECG" && matchingRoute.method === 'PUT') {
             headers = {
                 'content-type': 'application/fhir+json',

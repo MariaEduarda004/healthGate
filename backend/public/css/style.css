@@ -35,3 +35,15 @@ body {
   margin: 0 auto 20px;
   height: 60px;
 }
+.card {
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-weight: bold;
+}

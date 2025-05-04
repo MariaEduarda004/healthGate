@@ -14,7 +14,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSIsImV4cGlyZXNfaW4iOjM2MDAsImlhdCI6MTc0NDY3NTcwOCwiZXhwIjoxNzQ0Njc5MzA4fQ.WaukOKU9Pa-a6n6Lyh_eIyYiBG8k09BIkKz9TCUO_SYs2j94GGasam7m89eA1dpiO3x4XtSSG5UU88I4x4Bg8SlVyv66scqh7F7DITvxrIYgsKpOpQeh3070ohw6Yg5wHZbbHYnayYKn94axdR3NMEkZKjouR19FJZBvQ2N86T59gtqvKlZmE8G8Brl7-r6R9JIyPxMFkzPTcoGDpjQDpaTDE05PNgLmio9gNIhyic9hd8IzkN2EGWI_XTp-XOdkK8qeBSBhDeKkQkt3AtT7PpndriO0Whe9Nk0xXfngER0zjwlH9JReIDHAgG6uXQ2ZinkF-WMw6Ku3IVUENGHK-g",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzaCIsImNsaWVudF9pZCI6ImdhdGV3YXkiLCJleHBpcmVzX2luIjozNjAwLCJpYXQiOjE3NDU0NTE3OTMsImV4cCI6MTc0NTQ1NTM5M30.e-fIvX038MVG2E0Uqe7hvwi0T3Hl7KJSvzBN15hSFbVWtSBz6WFS1RN46T7T5lABHjB4op7GFkvtkU19t7gepP-ssJmmv_9HpUe8_XR25nv0hdJOiUtUo_xXfCVRBFw1_jDP4ndSIjVht-Gxi5XhjBqOe-QGCLhnus1S3hv2NAucMD1eH3W00TnfWKhAbRbLdjG6ksFgwX83v045NypVfjnfURIc17gytHb3CLxMaO5b7U7EW-M7D5HP1R5JlqcJZ-TUPp6q7P16Qdio-PBIoO3ZDfHSA2MSToJnTvDgkRVH4NPdX48J1puLMTqyv19JsHTpFzfkWjlQ0TYkVGnBug",
 							"type": "string"
 						}
 					]
@@ -47,16 +47,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://200.132.47.35:8000/Observation/",
-					"protocol": "http",
+					"raw": "https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/",
+					"protocol": "https",
 					"host": [
-						"200",
-						"132",
-						"47",
-						"35"
+						"if4health",
+						"charqueadas",
+						"ifsul",
+						"edu",
+						"br"
 					],
-					"port": "8000",
 					"path": [
+						"biosignalinfhir",
 						"Observation",
 						""
 					]
@@ -159,7 +160,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSIsImV4cGlyZXNfaW4iOjM2MDAsImlhdCI6MTc0NDY3NTcwOCwiZXhwIjoxNzQ0Njc5MzA4fQ.WaukOKU9Pa-a6n6Lyh_eIyYiBG8k09BIkKz9TCUO_SYs2j94GGasam7m89eA1dpiO3x4XtSSG5UU88I4x4Bg8SlVyv66scqh7F7DITvxrIYgsKpOpQeh3070ohw6Yg5wHZbbHYnayYKn94axdR3NMEkZKjouR19FJZBvQ2N86T59gtqvKlZmE8G8Brl7-r6R9JIyPxMFkzPTcoGDpjQDpaTDE05PNgLmio9gNIhyic9hd8IzkN2EGWI_XTp-XOdkK8qeBSBhDeKkQkt3AtT7PpndriO0Whe9Nk0xXfngER0zjwlH9JReIDHAgG6uXQ2ZinkF-WMw6Ku3IVUENGHK-g",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFsbC8qLmNydWRzaCIsImNsaWVudF9pZCI6ImdhdGV3YXkiLCJleHBpcmVzX2luIjozNjAwLCJpYXQiOjE3NDU0NTE3OTMsImV4cCI6MTc0NTQ1NTM5M30.e-fIvX038MVG2E0Uqe7hvwi0T3Hl7KJSvzBN15hSFbVWtSBz6WFS1RN46T7T5lABHjB4op7GFkvtkU19t7gepP-ssJmmv_9HpUe8_XR25nv0hdJOiUtUo_xXfCVRBFw1_jDP4ndSIjVht-Gxi5XhjBqOe-QGCLhnus1S3hv2NAucMD1eH3W00TnfWKhAbRbLdjG6ksFgwX83v045NypVfjnfURIc17gytHb3CLxMaO5b7U7EW-M7D5HP1R5JlqcJZ-TUPp6q7P16Qdio-PBIoO3ZDfHSA2MSToJnTvDgkRVH4NPdX48J1puLMTqyv19JsHTpFzfkWjlQ0TYkVGnBug",
 							"type": "string"
 						}
 					]
@@ -176,18 +177,19 @@
 					}
 				},
 				"url": {
-					"raw": "http://200.132.47.35:8000/Observation/67fda4d2cc0ea7c771c6d785",
-					"protocol": "http",
+					"raw": "https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/68097b21a498f02fcd60653c",
+					"protocol": "https",
 					"host": [
-						"200",
-						"132",
-						"47",
-						"35"
+						"if4health",
+						"charqueadas",
+						"ifsul",
+						"edu",
+						"br"
 					],
-					"port": "8000",
 					"path": [
+						"biosignalinfhir",
 						"Observation",
-						"67fda4d2cc0ea7c771c6d785"
+						"68097b21a498f02fcd60653c"
 					]
 				}
 			},
@@ -294,16 +296,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://200.132.47.35:8000/Observation/67fda4d2cc0ea7c771c6d785",
-					"protocol": "http",
+					"raw": "https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/67fda4d2cc0ea7c771c6d785",
+					"protocol": "https",
 					"host": [
-						"200",
-						"132",
-						"47",
-						"35"
+						"if4health",
+						"charqueadas",
+						"ifsul",
+						"edu",
+						"br"
 					],
-					"port": "8000",
 					"path": [
+						"biosignalinfhir",
 						"Observation",
 						"67fda4d2cc0ea7c771c6d785"
 					]
@@ -407,16 +410,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://200.132.47.35:8000/Observation/67fda4d2cc0ea7c771c6d785",
-					"protocol": "http",
+					"raw": "https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/67fda4d2cc0ea7c771c6d785",
+					"protocol": "https",
 					"host": [
-						"200",
-						"132",
-						"47",
-						"35"
+						"if4health",
+						"charqueadas",
+						"ifsul",
+						"edu",
+						"br"
 					],
-					"port": "8000",
 					"path": [
+						"biosignalinfhir",
 						"Observation",
 						"67fda4d2cc0ea7c771c6d785"
 					]
