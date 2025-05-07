@@ -1,6 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User'); // Criar um modelo de usuário no MongoDB
+const User = require('../models/User'); 
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 const router = express.Router();
@@ -9,8 +10,9 @@ router.post('/register', async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        // Salvar a senha diretamente (sem hash)
-        const user = new User({ username, password });
+        
+        const hashedPassword = await bcrypt.hash(password, 10); // Gera o hash da senha
+        const user = new User({ username, password: hashedPassword });
         await user.save();
 
         res.json({ message: 'Usuário registrado com sucesso' });
@@ -24,7 +26,7 @@ router.post('/login', async (req, res) => {
 
     try {
         const user = await User.findOne({ username });
-        if (!user || password !== user.password) {
+        if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(400).json({ message: 'Usuário ou senha inválidos' });
         }
 
