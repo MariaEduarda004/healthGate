@@ -22,7 +22,7 @@ exports.createRoute = async (req, res) => {
     await newRoute.save();
     console.log('Rota salva com sucesso no banco:', newRoute);
 
-    res.redirect('/routes');
+    res.redirect('/healthgate/routes');
   } catch (error) {
     console.error('Erro ao cadastrar rota:', error.message);
     res.status(500).send('Erro ao cadastrar rota: ' + error.message);

@@ -17,25 +17,27 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('public'));
+
+app.use('/healthgate', express.static(path.join(__dirname, 'public')));
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use('/api/admin', routeRoutes);
-app.use('/api/admin', logRoutes);
-app.use('/api/auth', authRoutes);
+app.use('/healthgate/api/admin', routeRoutes);
+app.use('/healthgate/api/admin', logRoutes);
+app.use('/healthgate/api/auth', authRoutes);
 
 mongoose.connect('mongodb://localhost:27017/healthgate', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB conectado')).catch(err => console.error(err));
 
-app.get('/login', (req, res) => {
+app.get('/healthgate/login', (req, res) => {
     res.render('login');
 });
 
-app.get('/routes', authenticate, async (req, res) => {
+app.get('/healthgate/routes', authenticate, async (req, res) => {
     try {
         const routes = await Route.find();
         res.render('routes', { routes, user: req.user }); 
@@ -44,13 +46,13 @@ app.get('/routes', authenticate, async (req, res) => {
     }
 });
 
-app.get('/routes/new', authenticate, (req, res) => {
+app.get('/healthgate/routes/new', authenticate, (req, res) => {
     res.render('newRoute');
 });
 
-app.get('/logout', (req, res) => {
+app.get('/healthgate/logout', (req, res) => {
     res.clearCookie('token'); 
-    res.redirect('/login'); 
+    res.redirect('/healthgate/login'); 
 });
 
 
@@ -143,13 +145,7 @@ async function handleRequest(req, res, projectName) {
             'accept': 'application/json'
         };
 
-        if (projectName === "FASS_ECG" && matchingRoute.method === 'PATCH') {
-            // headers = {
-            //     'content-type': 'application/json-patch+json',
-            //     'accept': 'application/json-patch+json'
-            // };
-            // console.log("Headers para PATCH:", headers);
-        } else if (projectName === "FASS_ECG" && matchingRoute.method === 'PUT') {
+        if (projectName === "FASS_ECG" && matchingRoute.method === 'PUT') {
             headers = {
                 'content-type': 'application/fhir+json',
                 'accept': 'application/fhir+json'
@@ -170,7 +166,6 @@ async function handleRequest(req, res, projectName) {
             httpsAgent: agent
         });
 
-        // Salvar o log da requisição no MongoDB
         await Log.create({
             method: req.method,
             path: req.originalUrl,
@@ -187,7 +182,6 @@ async function handleRequest(req, res, projectName) {
     } catch (error) {
         console.error('Erro ao redirecionar a requisição:', error);
 
-        // Mesmo em caso de erro, vamos salvar o log
         await Log.create({
             method: req.method,
             path: req.originalUrl,
@@ -204,7 +198,7 @@ async function handleRequest(req, res, projectName) {
 }
 
 
-app.use('/api/fassecg',  (req, res) => handleRequest(req, res, "FASS_ECG"));
-app.use('/api/ifcloud',  (req, res) => handleRequest(req, res, "IF_CLOUD"));
-app.use('/api/neoFassEcg',  (req, res) => handleRequest(req, res, "neoFassEcg"));
+app.use('/healthgate/api/fassecg',  (req, res) => handleRequest(req, res, "FASS_ECG"));
+app.use('/healthgate/api/ifcloud',  (req, res) => handleRequest(req, res, "IF_CLOUD"));
+app.use('/healthgate/api/neoFassEcg',  (req, res) => handleRequest(req, res, "neoFassEcg"));
 app.listen(3001, () => console.log('Servidor rodando na porta 3001'));
