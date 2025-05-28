@@ -76,6 +76,24 @@
     <% }) %>
   });
 
+  function deleteRoute(id) {
+    if (!confirm("Tem certeza que deseja excluir esta rota?")) return;
+
+    fetch(`/healthgate/api/admin/routes/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => {
+      if (!res.ok) throw new Error("Erro ao excluir rota");
+      return res.json();
+    })
+    .then(data => {
+      alert(data.message);
+      location.reload(); // atualiza a página
+    })
+    .catch(error => {
+      alert("Erro ao excluir: " + error.message);
+    });
+  }
 </script>
 
 

@@ -7,6 +7,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const { pathToRegexp, match } = require('path-to-regexp');
 const { authenticate, router: authRoutes } = require('./routes/authRoutes');
+const authUniversal = require('./middlewares/authUniversal');
 const routeRoutes = require('./routes/routeRoutes');
 const Log = require('./models/Log');
 const logRoutes = require('./routes/logRoutes');
@@ -37,7 +38,7 @@ app.get('/healthgate/login', (req, res) => {
     res.render('login');
 });
 
-app.get('/healthgate/routes', authenticate, async (req, res) => {
+app.get('/healthgate/routes', authUniversal, async (req, res) => {
     try {
         const routes = await Route.find();
         res.render('routes', { routes, user: req.user }); 
@@ -46,7 +47,7 @@ app.get('/healthgate/routes', authenticate, async (req, res) => {
     }
 });
 
-app.get('/healthgate/routes/new', authenticate, (req, res) => {
+app.get('/healthgate/routes/new', authUniversal, (req, res) => {
     res.render('newRoute');
 });
 

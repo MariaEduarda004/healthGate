@@ -1680,6 +1680,21 @@
 				{
 					"name": "Rotas cadastradas",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin1",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -1701,6 +1716,65 @@
 						}
 					},
 					"response": [
+						{
+							"name": "401 - nao autorizada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://if4health.charqueadas.ifsul.edu.br/healthgate/api/admin/routes",
+									"protocol": "https",
+									"host": [
+										"if4health",
+										"charqueadas",
+										"ifsul",
+										"edu",
+										"br"
+									],
+									"path": [
+										"healthgate",
+										"api",
+										"admin",
+										"routes"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 01:43:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-iztVQzWR4IUnivtOtS1gLTsm+LQ\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Não autenticado. Use token ou Basic Auth\"\n}"
+						},
 						{
 							"name": "200 - ok",
 							"originalRequest": {
@@ -1734,7 +1808,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 24 May 2025 21:56:35 GMT"
+									"value": "Wed, 28 May 2025 01:43:40 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -1742,7 +1816,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "7460"
+									"value": "7897"
 								},
 								{
 									"key": "Connection",
@@ -1754,27 +1828,54 @@
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1d24-7U59AZnNmxwHwri+A/KY+OjfLI0\""
+									"value": "W/\"1ed9-HEx9zGwTSmrroqMqb6zR1i4DCjE\""
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"_id\": \"682fad97311de00bcc3783c4\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6832373f88e6de072dd77bd4\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/fhir+json\",\n            \"Content-Type\": \"application/fhir+json\"\n        },\n        \"description\": \"Cria uma nova observação clínica no servidor FHIR.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323b63fbc62c818225a0e1\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id/data/:minute\",\n        \"routeParams\": {\n            \"0\": \"id\",\n            \"1\": \"minute\"\n        },\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:minute\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Consulta dados de uma observação clínica específica ({id}) para um intervalo de tempo ({minute}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323b99fbc62c818225a0e4\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id/data/:start/:end\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:start/:end\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Consulta dados de uma observação clínica ({id}) para um intervalo de tempo definido por {start} e {end}.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323bbbfbc62c818225a0e7\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {},\n        \"description\": \"Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323be7fbc62c818225a0ea\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"PUT\",\n        \"headers\": {},\n        \"description\": \"Sinaliza troca de status da transmissão.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323c1afbc62c818225a0ed\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"PATCH\",\n        \"headers\": {},\n        \"description\": \"Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323c3bfbc62c818225a0f0\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"DELETE\",\n        \"headers\": {},\n        \"description\": \"Exclui uma observação clínica existente usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323cabfbc62c818225a0f3\",\n        \"nameProject\": \"IF_CLOUD\",\n        \"sourcePath\": \"/run_script/direct/:script_name\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/:script_name\",\n        \"method\": \"GET\",\n        \"headers\": {},\n        \"description\": \"Executa o script script_name salvo em IF-Cloud sem parâmetros de entrada\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323ccbfbc62c818225a0f6\",\n        \"nameProject\": \"IF_CLOUD\",\n        \"sourcePath\": \"/run_script/direct/params\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/params\",\n        \"method\": \"POST\",\n        \"headers\": {},\n        \"description\": \"Executa um script salvo em IF-Cloud com parâmetros de entrada\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323cebfbc62c818225a0f9\",\n        \"nameProject\": \"IF_CLOUD\",\n        \"sourcePath\": \"/run_script/operation\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/operation\",\n        \"method\": \"POST\",\n        \"headers\": {},\n        \"description\": \"IF-Cloud executa um script de acordo com o JSON de configuração e modifica o conteúdo de uma chave de um recurso FHIR proveniente da API de CRUD $(FHIR_API_URL)\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323d12fbc62c818225a0fc\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/.well-known/smart-configuration\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/.well-known/smart-configuration\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Mostra as configurações para autenticação\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323d5dfbc62c818225a0ff\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/register\",\n        \"routeParams\": {},\n        \"queryParams\": {\n            \"redirect_uri\": \"/api-docs\",\n            \"scope\": \"patient/*.rs\",\n            \"token_endpoint\": \"/auth/token\",\n            \"client_id\": \"67eacf0237bd52430adc8f4d\",\n            \"aud\": \"asd\",\n            \"state\": \"asd\"\n        },\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/register\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Inicia o processo de autenticação\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323ddffbc62c818225a102\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323e06fbc62c818225a106\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323e2dfbc62c818225a109\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/authorize\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/authorize\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Confirma a autorização da aplicação pelo usuário\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323e5dfbc62c818225a10c\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/token\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/token\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Gera um token com os grant_types: 'authorization_code' e 'client_credentials\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323ffbfbc62c818225a136\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68324039fbc62c818225a13b\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    }\n]"
+							"body": "[\n    {\n        \"_id\": \"682fad97311de00bcc3783c4\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6832373f88e6de072dd77bd4\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/fhir+json\",\n            \"Content-Type\": \"application/fhir+json\"\n        },\n        \"description\": \"Cria uma nova observação clínica no servidor FHIR.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323b63fbc62c818225a0e1\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id/data/:minute\",\n        \"routeParams\": {\n            \"0\": \"id\",\n            \"1\": \"minute\"\n        },\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:minute\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Consulta dados de uma observação clínica específica ({id}) para um intervalo de tempo ({minute}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323b99fbc62c818225a0e4\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id/data/:start/:end\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:start/:end\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Consulta dados de uma observação clínica ({id}) para um intervalo de tempo definido por {start} e {end}.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323bbbfbc62c818225a0e7\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {},\n        \"description\": \"Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323be7fbc62c818225a0ea\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"PUT\",\n        \"headers\": {},\n        \"description\": \"Sinaliza troca de status da transmissão.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323c1afbc62c818225a0ed\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"PATCH\",\n        \"headers\": {},\n        \"description\": \"Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323c3bfbc62c818225a0f0\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"DELETE\",\n        \"headers\": {},\n        \"description\": \"Exclui uma observação clínica existente usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323cabfbc62c818225a0f3\",\n        \"nameProject\": \"IF_CLOUD\",\n        \"sourcePath\": \"/run_script/direct/:script_name\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/:script_name\",\n        \"method\": \"GET\",\n        \"headers\": {},\n        \"description\": \"Executa o script script_name salvo em IF-Cloud sem parâmetros de entrada\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323ccbfbc62c818225a0f6\",\n        \"nameProject\": \"IF_CLOUD\",\n        \"sourcePath\": \"/run_script/direct/params\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/params\",\n        \"method\": \"POST\",\n        \"headers\": {},\n        \"description\": \"Executa um script salvo em IF-Cloud com parâmetros de entrada\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323cebfbc62c818225a0f9\",\n        \"nameProject\": \"IF_CLOUD\",\n        \"sourcePath\": \"/run_script/operation\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/operation\",\n        \"method\": \"POST\",\n        \"headers\": {},\n        \"description\": \"IF-Cloud executa um script de acordo com o JSON de configuração e modifica o conteúdo de uma chave de um recurso FHIR proveniente da API de CRUD $(FHIR_API_URL)\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323d12fbc62c818225a0fc\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/.well-known/smart-configuration\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/.well-known/smart-configuration\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Mostra as configurações para autenticação\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323d5dfbc62c818225a0ff\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/register\",\n        \"routeParams\": {},\n        \"queryParams\": {\n            \"redirect_uri\": \"/api-docs\",\n            \"scope\": \"patient/*.rs\",\n            \"token_endpoint\": \"/auth/token\",\n            \"client_id\": \"67eacf0237bd52430adc8f4d\",\n            \"aud\": \"asd\",\n            \"state\": \"asd\"\n        },\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/register\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Inicia o processo de autenticação\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323ddffbc62c818225a102\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323e06fbc62c818225a106\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323e2dfbc62c818225a109\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/authorize\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/authorize\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Confirma a autorização da aplicação pelo usuário\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323e5dfbc62c818225a10c\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/token\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/token\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Gera um token com os grant_types: 'authorization_code' e 'client_credentials\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68323ffbfbc62c818225a136\",\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68324039fbc62c818225a13b\",\n        \"nameProject\": \"neoFassEcg\",\n        \"sourcePath\": \"/auth/login\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login\",\n        \"method\": \"POST\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"content-type\": \"application/json\"\n        },\n        \"description\": \"Efetua o login do usuário, sendo paciente ou médico\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68364bf155e54b206213b82b\",\n        \"nameProject\": \"FASS_ECGggggg\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).\",\n        \"__v\": 0\n    }\n]"
 						}
 					]
 				},
 				{
 					"name": "Cadastrar Rota",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin1",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "user",
+								"value": "admin1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "pass",
+								"value": "admin123",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:id\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).\"\n    }",
+							"raw": "{\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:idddddddddddddddd\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).\"\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1806,15 +1907,219 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "401 - nao autorizada",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "user",
+										"value": "admin1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "pass",
+										"value": "admin123",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:idddddddddddddddd\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://if4health.charqueadas.ifsul.edu.br/healthgate/api/admin/routes",
+									"protocol": "https",
+									"host": [
+										"if4health",
+										"charqueadas",
+										"ifsul",
+										"edu",
+										"br"
+									],
+									"path": [
+										"healthgate",
+										"api",
+										"admin",
+										"routes"
+									],
+									"query": [
+										{
+											"key": "exemplo",
+											"value": "123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 01:44:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-iztVQzWR4IUnivtOtS1gLTsm+LQ\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Não autenticado. Use token ou Basic Auth\"\n}"
+						},
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "user",
+										"value": "admin1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "pass",
+										"value": "admin123",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"nameProject\": \"FASS_ECG\",\n        \"sourcePath\": \"/Observation/:idddddddddddddddd\",\n        \"routeParams\": {},\n        \"queryParams\": {},\n        \"targetUrl\": \"https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id\",\n        \"method\": \"GET\",\n        \"headers\": {\n            \"accept\": \"application/json\",\n            \"Authorization\": \"Bearer <token>\"\n        },\n        \"description\": \"Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://if4health.charqueadas.ifsul.edu.br/healthgate/api/admin/routes",
+									"protocol": "https",
+									"host": [
+										"if4health",
+										"charqueadas",
+										"ifsul",
+										"edu",
+										"br"
+									],
+									"path": [
+										"healthgate",
+										"api",
+										"admin",
+										"routes"
+									],
+									"query": [
+										{
+											"key": "exemplo",
+											"value": "123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 01:44:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3bf9-ZHpUPKmmdqrazvpTXg8WtV9zNA0\""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"pt-BR\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Rotas - Health Gate</title>\n        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n        <link href=\"/healthgate/css/style.css\" rel=\"stylesheet\">\n        <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    </head>\n    <body>\n        <nav class=\"navbar navbar-expand-lg\">\n            <div class=\"container-fluid\">\n                <a class=\"navbar-brand\" href=\"/healthgate/routes\">\n                    <img src=\"/healthgate/images/logo-healthgate.png\" alt=\"Health Gate\" height=\"40\">\n    \n                </a>\n                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">\n                    <span class=\"navbar-toggler-icon\"></span>\n                </button>\n                <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n                    <ul class=\"navbar-nav ms-auto\">\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/routes\">Rotas</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/api/admin/logs\">Logs</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/logout\">Logout</a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </nav>\n        <div class=\"container mt-5\">\n            <div class=\"d-flex justify-content-between align-items-center mb-4\">\n                <h2>Rotas Cadastradas</h2>\n                <a href=\"/healthgate/routes/new\" class=\"btn btn-primary\">Cadastrar Nova Rota</a>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">FASS_ECG</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-FASS_ECG\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                                <th>Ações</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>GET</td>\n                                <td>Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('682fad97311de00bcc3783c4')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/</td>\n                                <td>POST</td>\n                                <td>Cria uma nova observação clínica no servidor FHIR.</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('6832373f88e6de072dd77bd4')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id/data/:minute</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:minute</td>\n                                <td>GET</td>\n                                <td>Consulta dados de uma observação clínica específica ({id}) para um intervalo de tempo ({minute}).</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323b63fbc62c818225a0e1')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id/data/:start/:end</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:start/:end</td>\n                                <td>GET</td>\n                                <td>Consulta dados de uma observação clínica ({id}) para um intervalo de tempo definido por {start} e {end}.</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323b99fbc62c818225a0e4')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>GET</td>\n                                <td>Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323bbbfbc62c818225a0e7')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>PUT</td>\n                                <td>Sinaliza troca de status da transmissão.</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323be7fbc62c818225a0ea')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>PATCH</td>\n                                <td>Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323c1afbc62c818225a0ed')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>DELETE</td>\n                                <td>Exclui uma observação clínica existente usando o ID do recurso ({id}).</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323c3bfbc62c818225a0f0')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323ddffbc62c818225a102')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323e06fbc62c818225a106')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323ffbfbc62c818225a136')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:idddddddddddddddd</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>GET</td>\n                                <td>Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68366a7351f03fe2f2a976c1')\">Excluir</button>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">IF_CLOUD</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-IF_CLOUD\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                                <th>Ações</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/direct/:script_name</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/:script_name</td>\n                                <td>GET</td>\n                                <td>Executa o script script_name salvo em IF-Cloud sem parâmetros de entrada</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323cabfbc62c818225a0f3')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/direct/params</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/params</td>\n                                <td>POST</td>\n                                <td>Executa um script salvo em IF-Cloud com parâmetros de entrada</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323ccbfbc62c818225a0f6')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/operation</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/operation</td>\n                                <td>POST</td>\n                                <td>IF-Cloud executa um script de acordo com o JSON de configuração e modifica o conteúdo de uma chave de um recurso FHIR proveniente da API de CRUD $(FHIR_API_URL)</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323cebfbc62c818225a0f9')\">Excluir</button>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">neoFassEcg</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-neoFassEcg\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                                <th>Ações</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/.well-known/smart-configuration</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/.well-known/smart-configuration</td>\n                                <td>GET</td>\n                                <td>Mostra as configurações para autenticação</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323d12fbc62c818225a0fc')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/register</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/register</td>\n                                <td>POST</td>\n                                <td>Inicia o processo de autenticação</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323d5dfbc62c818225a0ff')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/authorize</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/authorize</td>\n                                <td>POST</td>\n                                <td>Confirma a autorização da aplicação pelo usuário</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323e2dfbc62c818225a109')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/token</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/token</td>\n                                <td>POST</td>\n                                <td>Gera um token com os grant_types: &#39;authorization_code&#39; e &#39;client_credentials</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68323e5dfbc62c818225a10c')\">Excluir</button>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                                <td>\n                                    <button class=\"btn btn-danger btn-sm\" onclick=\"deleteRoute('68324039fbc62c818225a13b')\">Excluir</button>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n        <script src=\"https://code.jquery.com/jquery-3.7.1.min.js\"></script>\n        <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n        <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n        <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n        <script>\n  document.addEventListener(\"DOMContentLoaded\", function () {\n    \n      $('#table-FASS_ECG').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n      $('#table-IF_CLOUD').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n      $('#table-neoFassEcg').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n  });\nfunction deleteRoute(id) {\n    if (!confirm(\"Tem certeza que deseja excluir esta rota?\")) return;\n\n    fetch(`/healthgate/api/admin/routes/${id}`, {\n      method: 'DELETE'\n    })\n    .then(res => {\n      if (!res.ok) throw new Error(\"Erro ao excluir rota\");\n      return res.json();\n    })\n    .then(data => {\n      alert(data.message);\n      location.reload(); // atualiza a página\n    })\n    .catch(error => {\n      alert(\"Erro ao excluir: \" + error.message);\n    });\n  }\n</script>\n    </body>\n</html>"
+						}
+					]
 				},
 				{
 					"name": "Deletar Rota",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin1",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/healthgate/api/admin/routes/68364c2e41dfc05081137c44",
+							"raw": "http://localhost:3001/healthgate/api/admin/routes/683650881da227623d34e2fc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1825,7 +2130,7 @@
 								"api",
 								"admin",
 								"routes",
-								"68364c2e41dfc05081137c44"
+								"683650881da227623d34e2fc"
 							]
 						}
 					},
@@ -1886,6 +2191,63 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"message\": \"Rota excluída com sucesso\"\n}"
+						},
+						{
+							"name": "404 - not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/healthgate/api/admin/routes/683650881da227623d34e2fc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"healthgate",
+										"api",
+										"admin",
+										"routes",
+										"683650881da227623d34e2fc"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22-XAuPXr16Yb/bpOtDWZQ32yQUdBk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 01:44:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Rota não encontrada\"\n}"
 						}
 					]
 				}

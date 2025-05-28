@@ -52,5 +52,3 @@ exports.deleteRoute = async (req, res) => {
   }
 };
 
-
-
