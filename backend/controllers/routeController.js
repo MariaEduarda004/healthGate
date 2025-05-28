@@ -37,3 +37,20 @@ exports.getRoutes = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.deleteRoute = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedRoute = await Route.findByIdAndDelete(id);
+    if (!deletedRoute) {
+      return res.status(404).json({ message: 'Rota não encontrada' });
+    }
+    res.json({ message: 'Rota excluída com sucesso' });
+  } catch (error) {
+    console.error('Erro ao excluir rota:', error.message);
+    res.status(500).json({ message: 'Erro ao excluir rota: ' + error.message });
+  }
+};
+
+
+

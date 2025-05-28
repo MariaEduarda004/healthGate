@@ -30,6 +30,7 @@
               <th>Target URL</th>
               <th>Método</th>
               <th>Descrição</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -40,6 +41,9 @@
                 <td><%= route.targetUrl %></td>
                 <td><%= route.method %></td>
                 <td><%= route.description %></td>
+                 <td>
+                  <button class="btn btn-danger btn-sm" onclick="deleteRoute('<%= route._id %>')">Excluir</button>
+                </td>
               </tr>
             <% }) %>
           </tbody>
@@ -71,7 +75,9 @@
       });
     <% }) %>
   });
+
 </script>
+
 
 </body>
 </html>

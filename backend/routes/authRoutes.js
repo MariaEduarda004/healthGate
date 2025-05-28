@@ -36,7 +36,7 @@ router.post('/login', async (req, res) => {
 
         // Armazena o token no cookie
         res.cookie('token', token, { httpOnly: true });
-        res.redirect('/routes'); // Redireciona para a página de rotas após login
+        res.redirect('/healthgate/routes'); // Redireciona para a página de rotas após login
     } catch (err) {
         res.status(500).json({ message: 'Erro ao autenticar usuário', error: err.message });
     }
@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
 const authenticate = (req, res, next) => {
     const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
     if (!token) {
-        return res.redirect('/login'); // Redireciona para a página de login se não estiver autenticado
+        return res.redirect('/healthgate/login'); // Redireciona para a página de login se não estiver autenticado
     }
 
     try {
@@ -55,7 +55,7 @@ const authenticate = (req, res, next) => {
         next();
     } catch (err) {
         console.error('Erro ao verificar token:', err.message);
-        return res.redirect('/login');
+        return res.redirect('/healthgate/login');
     }
 };
 
