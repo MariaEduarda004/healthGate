@@ -1133,7 +1133,7 @@
 			]
 		},
 		{
-			"name": "GW neoFassEcg",
+			"name": "GW H2Cloud",
 			"item": [
 				{
 					"name": "/.well-known/smart-configuration",
@@ -1675,7 +1675,7 @@
 			]
 		},
 		{
-			"name": "CADASTRO DE ROTAS",
+			"name": "Gestão de rotas",
 			"item": [
 				{
 					"name": "Rotas cadastradas",
@@ -2254,49 +2254,14 @@
 			]
 		},
 		{
-			"name": "registrar usuário",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"admin2\",\n    \"password\": \"admin123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://if4health.charqueadas.ifsul.edu.br/healthgate/api/auth/register",
-					"protocol": "https",
-					"host": [
-						"if4health",
-						"charqueadas",
-						"ifsul",
-						"edu",
-						"br"
-					],
-					"path": [
-						"healthgate",
-						"api",
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": [
+			"name": "Gestão de usuários",
+			"item": [
 				{
-					"name": "200 - ok",
-					"originalRequest": {
+					"name": "registrar usuário",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -2331,88 +2296,88 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Server",
-							"value": "nginx/1.18.0 (Ubuntu)"
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 24 May 2025 21:57:08 GMT"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "45"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"2d-6FCsbHB1q0aXgxXJiiMwNkjJOY0\""
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"admin2\",\n    \"password\": \"admin123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://if4health.charqueadas.ifsul.edu.br/healthgate/api/auth/register",
+									"protocol": "https",
+									"host": [
+										"if4health",
+										"charqueadas",
+										"ifsul",
+										"edu",
+										"br"
+									],
+									"path": [
+										"healthgate",
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 May 2025 21:57:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-6FCsbHB1q0aXgxXJiiMwNkjJOY0\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Usuário registrado com sucesso\"\n}"
 						}
-					],
-					"cookie": [],
-					"body": "{\n    \"message\": \"Usuário registrado com sucesso\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Logar usuário",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"admin1\",\n    \"password\": \"admin123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://if4health.charqueadas.ifsul.edu.br/healthgate/api/auth/login",
-					"protocol": "https",
-					"host": [
-						"if4health",
-						"charqueadas",
-						"ifsul",
-						"edu",
-						"br"
-					],
-					"path": [
-						"healthgate",
-						"api",
-						"auth",
-						"login"
 					]
-				}
-			},
-			"response": [
+				},
 				{
-					"name": "200 - ok",
-					"originalRequest": {
+					"name": "Logar usuário",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -2447,45 +2412,85 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "html",
-					"header": [
+					"response": [
 						{
-							"key": "Server",
-							"value": "nginx/1.18.0 (Ubuntu)"
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 24 May 2025 21:57:32 GMT"
-						},
-						{
-							"key": "Content-Type",
-							"value": "text/html; charset=utf-8"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"2c64-BAGwx+RrOst3ljv1Xfmuw23ZROY\""
-						},
-						{
-							"key": "Content-Encoding",
-							"value": "gzip"
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"admin1\",\n    \"password\": \"admin123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://if4health.charqueadas.ifsul.edu.br/healthgate/api/auth/login",
+									"protocol": "https",
+									"host": [
+										"if4health",
+										"charqueadas",
+										"ifsul",
+										"edu",
+										"br"
+									],
+									"path": [
+										"healthgate",
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 May 2025 21:57:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c64-BAGwx+RrOst3ljv1Xfmuw23ZROY\""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"pt-BR\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Rotas - Health Gate</title>\n        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n        <link href=\"/healthgate/css/style.css\" rel=\"stylesheet\">\n        <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    </head>\n    <body>\n        <nav class=\"navbar navbar-expand-lg\">\n            <div class=\"container-fluid\">\n                <a class=\"navbar-brand\" href=\"/healthgate/routes\">\n                    <img src=\"/healthgate/images/logo-healthgate.png\" alt=\"Health Gate\" height=\"40\">\n    \n                </a>\n                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">\n                    <span class=\"navbar-toggler-icon\"></span>\n                </button>\n                <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n                    <ul class=\"navbar-nav ms-auto\">\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/routes\">Rotas</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/api/admin/logs\">Logs</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/logout\">Logout</a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </nav>\n        <div class=\"container mt-5\">\n            <div class=\"d-flex justify-content-between align-items-center mb-4\">\n                <h2>Rotas Cadastradas</h2>\n                <a href=\"/healthgate/routes/new\" class=\"btn btn-primary\">Cadastrar Nova Rota</a>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">FASS_ECG</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-FASS_ECG\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>GET</td>\n                                <td>Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/</td>\n                                <td>POST</td>\n                                <td>Cria uma nova observação clínica no servidor FHIR.</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id/data/:minute</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:minute</td>\n                                <td>GET</td>\n                                <td>Consulta dados de uma observação clínica específica ({id}) para um intervalo de tempo ({minute}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id/data/:start/:end</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:start/:end</td>\n                                <td>GET</td>\n                                <td>Consulta dados de uma observação clínica ({id}) para um intervalo de tempo definido por {start} e {end}.</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>GET</td>\n                                <td>Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>PUT</td>\n                                <td>Sinaliza troca de status da transmissão.</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>PATCH</td>\n                                <td>Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>DELETE</td>\n                                <td>Exclui uma observação clínica existente usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">IF_CLOUD</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-IF_CLOUD\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/direct/:script_name</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/:script_name</td>\n                                <td>GET</td>\n                                <td>Executa o script script_name salvo em IF-Cloud sem parâmetros de entrada</td>\n                            </tr>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/direct/params</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/params</td>\n                                <td>POST</td>\n                                <td>Executa um script salvo em IF-Cloud com parâmetros de entrada</td>\n                            </tr>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/operation</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/operation</td>\n                                <td>POST</td>\n                                <td>IF-Cloud executa um script de acordo com o JSON de configuração e modifica o conteúdo de uma chave de um recurso FHIR proveniente da API de CRUD $(FHIR_API_URL)</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">neoFassEcg</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-neoFassEcg\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/.well-known/smart-configuration</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/.well-known/smart-configuration</td>\n                                <td>GET</td>\n                                <td>Mostra as configurações para autenticação</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/register</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/register</td>\n                                <td>POST</td>\n                                <td>Inicia o processo de autenticação</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/authorize</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/authorize</td>\n                                <td>POST</td>\n                                <td>Confirma a autorização da aplicação pelo usuário</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/token</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/token</td>\n                                <td>POST</td>\n                                <td>Gera um token com os grant_types: &#39;authorization_code&#39; e &#39;client_credentials</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n        <script src=\"https://code.jquery.com/jquery-3.7.1.min.js\"></script>\n        <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n        <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n        <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n        <script>\n  document.addEventListener(\"DOMContentLoaded\", function () {\n    \n      $('#table-FASS_ECG').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n      $('#table-IF_CLOUD').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n      $('#table-neoFassEcg').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n  });\n</script>\n    </body>\n</html>"
 						}
-					],
-					"cookie": [],
-					"body": "<!DOCTYPE html>\n<html lang=\"pt-BR\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Rotas - Health Gate</title>\n        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n        <link href=\"/healthgate/css/style.css\" rel=\"stylesheet\">\n        <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    </head>\n    <body>\n        <nav class=\"navbar navbar-expand-lg\">\n            <div class=\"container-fluid\">\n                <a class=\"navbar-brand\" href=\"/healthgate/routes\">\n                    <img src=\"/healthgate/images/logo-healthgate.png\" alt=\"Health Gate\" height=\"40\">\n    \n                </a>\n                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">\n                    <span class=\"navbar-toggler-icon\"></span>\n                </button>\n                <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n                    <ul class=\"navbar-nav ms-auto\">\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/routes\">Rotas</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/api/admin/logs\">Logs</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link text-white\" href=\"/healthgate/logout\">Logout</a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </nav>\n        <div class=\"container mt-5\">\n            <div class=\"d-flex justify-content-between align-items-center mb-4\">\n                <h2>Rotas Cadastradas</h2>\n                <a href=\"/healthgate/routes/new\" class=\"btn btn-primary\">Cadastrar Nova Rota</a>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">FASS_ECG</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-FASS_ECG\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>GET</td>\n                                <td>Recupera informações completas de uma observação clínica específica usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/</td>\n                                <td>POST</td>\n                                <td>Cria uma nova observação clínica no servidor FHIR.</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id/data/:minute</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:minute</td>\n                                <td>GET</td>\n                                <td>Consulta dados de uma observação clínica específica ({id}) para um intervalo de tempo ({minute}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id/data/:start/:end</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id/data/:start/:end</td>\n                                <td>GET</td>\n                                <td>Consulta dados de uma observação clínica ({id}) para um intervalo de tempo definido por {start} e {end}.</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>GET</td>\n                                <td>Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>PUT</td>\n                                <td>Sinaliza troca de status da transmissão.</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>PATCH</td>\n                                <td>Atualiza parcialmente uma observação clínica existente usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/Observation/:id</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/Observation/:id</td>\n                                <td>DELETE</td>\n                                <td>Exclui uma observação clínica existente usando o ID do recurso ({id}).</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                            <tr>\n                                <td>FASS_ECG</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">IF_CLOUD</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-IF_CLOUD\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/direct/:script_name</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/:script_name</td>\n                                <td>GET</td>\n                                <td>Executa o script script_name salvo em IF-Cloud sem parâmetros de entrada</td>\n                            </tr>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/direct/params</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/direct/params</td>\n                                <td>POST</td>\n                                <td>Executa um script salvo em IF-Cloud com parâmetros de entrada</td>\n                            </tr>\n                            <tr>\n                                <td>IF_CLOUD</td>\n                                <td>/run_script/operation</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/ifcloud/run_script/operation</td>\n                                <td>POST</td>\n                                <td>IF-Cloud executa um script de acordo com o JSON de configuração e modifica o conteúdo de uma chave de um recurso FHIR proveniente da API de CRUD $(FHIR_API_URL)</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n            <div class=\"mb-5\">\n                <h4 class=\"mb-3\">neoFassEcg</h4>\n                <div class=\"table-responsive\">\n                    <table id=\"table-neoFassEcg\" class=\"table table-striped table-bordered align-middle\">\n                        <thead class=\"table-dark\">\n                            <tr>\n                                <th>Projeto</th>\n                                <th>Source Path</th>\n                                <th>Target URL</th>\n                                <th>Método</th>\n                                <th>Descrição</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/.well-known/smart-configuration</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/.well-known/smart-configuration</td>\n                                <td>GET</td>\n                                <td>Mostra as configurações para autenticação</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/register</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/register</td>\n                                <td>POST</td>\n                                <td>Inicia o processo de autenticação</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/authorize</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/authorize</td>\n                                <td>POST</td>\n                                <td>Confirma a autorização da aplicação pelo usuário</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/token</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/token</td>\n                                <td>POST</td>\n                                <td>Gera um token com os grant_types: &#39;authorization_code&#39; e &#39;client_credentials</td>\n                            </tr>\n                            <tr>\n                                <td>neoFassEcg</td>\n                                <td>/auth/login</td>\n                                <td>https://if4health.charqueadas.ifsul.edu.br/biosignalinfhir/auth/login</td>\n                                <td>POST</td>\n                                <td>Efetua o login do usuário, sendo paciente ou médico</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n        <script src=\"https://code.jquery.com/jquery-3.7.1.min.js\"></script>\n        <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n        <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n        <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n        <script>\n  document.addEventListener(\"DOMContentLoaded\", function () {\n    \n      $('#table-FASS_ECG').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n      $('#table-IF_CLOUD').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n      $('#table-neoFassEcg').DataTable({\n        language: {\n          url: \"//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json\"\n        },\n        pageLength: 10, \n        lengthChange: false,\n        ordering: true, \n        searching: true \n      });\n    \n  });\n</script>\n    </body>\n</html>"
+					]
 				}
 			]
 		}
